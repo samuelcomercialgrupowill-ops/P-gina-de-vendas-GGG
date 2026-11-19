@@ -246,6 +246,14 @@
   .wa{position:fixed;right:16px;bottom:16px;width:56px;height:56px;border-radius:50%;background:#25D366;color:#0B2E1A;display:none;align-items:center;justify-content:center;box-shadow:0 10px 30px -6px rgba(0,0,0,.6);z-index:20}
   .wa.on{display:flex}
 
+  /* Depoimento */
+  .quote{max-width:620px;margin:0 auto;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--pink);border-radius:var(--radius);padding:26px 22px;position:relative}
+  .quote svg{color:var(--purple);margin-bottom:10px}
+  .quote blockquote{margin:0;font-size:19px;line-height:1.55;font-weight:600}
+  .quote figcaption{margin-top:16px;display:flex;align-items:center;gap:12px;color:var(--muted);font-size:14px}
+  .quote .av{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--pink),var(--orange));color:var(--ink);font-weight:800}
+  .quote figcaption b{display:block;color:var(--text)}
+
   /* Telas maiores */
   @media (min-width:760px){
     section{padding:88px 0}
@@ -379,6 +387,21 @@
           </ul>
         </article>
       </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTO (troque o nome em "Aluno do Corte Star" se o aluno autorizar) -->
+  <section aria-labelledby="depo">
+    <div class="wrap">
+      <div class="center" style="margin-bottom:28px">
+        <span class="eyebrow">Quem já está usando</span>
+        <h2 id="depo" class="section-title">O que dizem os alunos</h2>
+      </div>
+      <figure class="quote">
+        <svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9.6 5C6 6.6 4 9.6 4 13.5V19h6v-6H7c0-2.7 1.2-4.6 3.6-5.8zm10 0C16 6.6 14 9.6 14 13.5V19h6v-6h-3c0-2.7 1.2-4.6 3.6-5.8z"/></svg>
+        <blockquote>Comecei no Corte Star e já estou usando. Não perco mais tempo assistindo live e editando. Tô quase monetizando um canal.</blockquote>
+        <figcaption><span class="av" aria-hidden="true">CS</span><span><b>Aluno do Corte Star</b>Depoimento real de aluno</span></figcaption>
+      </figure>
     </div>
   </section>
 
