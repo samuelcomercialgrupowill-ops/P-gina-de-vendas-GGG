@@ -168,6 +168,9 @@
   .price .val{font-family:"Anton",sans-serif;font-size:clamp(84px,26vw,120px);background:linear-gradient(180deg,var(--orange),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
   .price .val span{font-size:.38em;vertical-align:top;margin-right:4px;position:relative;top:.45em}
   .once{color:var(--muted);margin-bottom:24px}
+  .from{margin-top:22px;font-size:16px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+  .from s{color:var(--text);text-decoration-color:var(--pink);text-decoration-thickness:3px;font-size:20px;font-weight:800;margin:0 4px}
+  .off{display:inline-block;margin-bottom:10px;background:var(--cyan);color:var(--ink);font-size:13px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:6px 12px;border-radius:999px}
   .secure{display:flex;align-items:center;justify-content:center;gap:6px;font-size:13px;color:var(--muted);margin-top:14px}
 
   /* GARANTIA */
@@ -302,8 +305,8 @@
   <div class="ribbon" aria-hidden="true">
     <div class="ribbon-band">
       <div class="ribbon-track">
-        <span>Corte Star</span><span>✦</span><span>A IA corta por você</span><span>✦</span><span>TikTok · Reels · Shorts</span><span>✦</span><span>R$47 pagamento único</span><span>✦</span>
-        <span>Corte Star</span><span>✦</span><span>A IA corta por você</span><span>✦</span><span>TikTok · Reels · Shorts</span><span>✦</span><span>R$47 pagamento único</span><span>✦</span>
+        <span>Corte Star</span><span>✦</span><span>A IA corta por você</span><span>✦</span><span>TikTok · Reels · Shorts</span><span>✦</span><span>De R$197 por R$47</span><span>✦</span>
+        <span>Corte Star</span><span>✦</span><span>A IA corta por você</span><span>✦</span><span>TikTok · Reels · Shorts</span><span>✦</span><span>De R$197 por R$47</span><span>✦</span>
       </div>
     </div>
   </div>
@@ -392,8 +395,10 @@
           <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>Bônus: Pack Neon City</li>
           <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>Garantia de 7 dias</li>
         </ul>
-        <p class="price"><small>Tudo isso por apenas</small><span class="val" aria-label="47 reais"><span>R$</span>47</span></p>
+        <p class="from">De <s>R$197</s> por apenas</p>
+        <p class="price"><span class="val" aria-label="47 reais"><span>R$</span>47</span></p>
         <p class="once">Pagamento único. Sem mensalidade.</p>
+        <span class="off">Economia de R$150</span>
         <a class="btn js-checkout" href="LINK_DO_CHECKOUT" data-checkout>Quero começar agora <svg width="20" height="20" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         <p class="secure"><svg width="16" height="16" aria-hidden="true"><use href="#i-lock"/></svg>Compra segura · Acesso imediato por e-mail</p>
       </div>
