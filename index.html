@@ -19,7 +19,8 @@
   var CONFIG = {
     checkout: "LINK_DO_CHECKOUT",          // ex.: "https://pay.kiwify.com.br/xxxxxx"
     pixelId:  "SEU_PIXEL_ID",              // ex.: "123456789012345"
-    email:    "suporte@seudominio.com.br"  // e-mail de suporte
+    email:    "suporte@seudominio.com.br", // e-mail de suporte
+    whatsapp: ""                           // opcional: DDI+DDD+numero, ex.: "5511999999999" (vazio = botao escondido)
   };
 </script>
 
@@ -192,6 +193,56 @@
   footer p+p{margin-top:10px}
   footer .legal{max-width:680px;margin:0 auto}
 
+  /* Botao secundario e microcopy */
+  .btn-ghost{background:transparent;color:var(--text);border:1px solid var(--line);box-shadow:none;margin-top:12px!important}
+  .btn-ghost:hover{background:rgba(155,92,255,.14);border-color:var(--purple)}
+  .micro{margin-top:16px;font:600 11px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted)}
+
+  /* Mockup da IA cortando a live */
+  .mock{max-width:460px;margin:34px auto 0;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;text-align:left;box-shadow:0 30px 60px -30px rgba(155,92,255,.6)}
+  .mock-bar{display:flex;align-items:center;gap:6px;font:600 11px/1 ui-monospace,Menlo,Consolas,monospace;color:var(--muted);margin-bottom:12px}
+  .mock-bar i{width:8px;height:8px;border-radius:50%;background:var(--line)}
+  .mock-bar i:nth-child(1){background:var(--pink)}.mock-bar i:nth-child(2){background:var(--orange)}.mock-bar i:nth-child(3){background:var(--cyan)}
+  .mock-bar span{margin-left:6px}
+  .live{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;margin-bottom:8px}
+  .live b{background:#FF3D6E;color:#fff;font-size:10px;letter-spacing:1px;padding:3px 6px;border-radius:4px}
+  .timeline{position:relative;height:30px;border-radius:8px;background:repeating-linear-gradient(90deg,#2C1850 0 3px,#24133F 3px 6px);overflow:hidden}
+  .timeline em{position:absolute;top:0;bottom:0;border-radius:4px;border:2px solid;background:rgba(255,255,255,.08)}
+  .timeline em:nth-child(1){left:12%;width:13%;border-color:var(--pink)}
+  .timeline em:nth-child(2){left:46%;width:10%;border-color:var(--orange)}
+  .timeline em:nth-child(3){left:76%;width:14%;border-color:var(--cyan)}
+  .ai-line{font-size:12px;color:var(--cyan);margin:10px 0 12px;font-weight:600}
+  .clips{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .clip{aspect-ratio:9/14;border-radius:10px;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:8px}
+  .clip:nth-child(1){background:linear-gradient(160deg,var(--purple),var(--pink))}
+  .clip:nth-child(2){background:linear-gradient(160deg,var(--pink),var(--orange))}
+  .clip:nth-child(3){background:linear-gradient(160deg,var(--purple),var(--cyan))}
+  .clip span{width:100%;background:rgba(20,10,38,.82);color:#fff;font-size:10px;font-weight:800;text-align:center;padding:5px 4px;border-radius:6px;text-transform:uppercase;line-height:1.2}
+
+  /* Faixa animada inclinada */
+  .ribbon{overflow:hidden;padding:18px 0;margin:-8px 0}
+  .ribbon-band{transform:rotate(-2.5deg);background:linear-gradient(90deg,var(--pink),var(--orange));margin:0 -20px;padding:11px 0;box-shadow:0 8px 30px -10px rgba(255,79,163,.7)}
+  .ribbon-track{display:flex;width:max-content;animation:roll 22s linear infinite}
+  .ribbon-track span{font-family:"Anton",sans-serif;font-size:18px;letter-spacing:1.5px;color:var(--ink);text-transform:uppercase;padding:0 18px;white-space:nowrap}
+  @keyframes roll{to{transform:translateX(-50%)}}
+  @media (prefers-reduced-motion:reduce){.ribbon-track{animation:none}}
+
+  /* Chips */
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;list-style:none;padding:0}
+  .chips li{font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:5px 9px;border-radius:999px;border:1px solid var(--line);color:var(--cyan)}
+
+  .risk{margin-top:12px;font-weight:800;color:var(--cyan)!important}
+
+  /* CTA final */
+  .final{max-width:620px;margin:44px auto 0;text-align:center;padding:30px 22px;border-radius:20px;border:1px solid var(--line);background:radial-gradient(120% 100% at 50% 0%,rgba(255,79,163,.18),transparent 60%),var(--card)}
+  .final h2{font-size:clamp(28px,8vw,40px);margin-bottom:10px}
+  .final p{color:var(--muted);margin-bottom:22px}
+  .final .btn{max-width:460px;margin:0 auto}
+
+  /* WhatsApp flutuante */
+  .wa{position:fixed;right:16px;bottom:16px;width:56px;height:56px;border-radius:50%;background:#25D366;color:#0B2E1A;display:none;align-items:center;justify-content:center;box-shadow:0 10px 30px -6px rgba(0,0,0,.6);z-index:20}
+  .wa.on{display:flex}
+
   /* Telas maiores */
   @media (min-width:760px){
     section{padding:88px 0}
@@ -227,13 +278,35 @@
       <h1>Ganhe dinheiro com cortes do seu <span class="grad">streamer favorito</span></h1>
       <p class="lead">Você não precisa passar horas assistindo live. <strong>A IA assiste por você, encontra os melhores momentos, corta, legenda e posta.</strong> Você só configura uma vez e envia o link da live.</p>
       <a class="btn" href="#oferta">Quero o Corte Star por R$47 <svg width="20" height="20" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a class="btn btn-ghost" href="#como">Ver como funciona</a>
       <ul class="trust" aria-label="Vantagens">
         <li><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg>Acesso imediato</li>
         <li><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg>Pagamento único</li>
         <li><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg>Garantia de 7 dias</li>
       </ul>
+
+      <div class="mock" role="img" aria-label="Exemplo: a IA analisa a live, marca os melhores momentos e gera cortes verticais legendados">
+        <div class="mock-bar"><i></i><i></i><i></i><span>corte-star / ia</span></div>
+        <div class="live"><b>LIVE</b> Analisando a transmissão...</div>
+        <div class="timeline" aria-hidden="true"><em></em><em></em><em></em></div>
+        <p class="ai-line">3 melhores momentos encontrados · cortando em 9:16</p>
+        <div class="clips" aria-hidden="true">
+          <div class="clip"><span>Corte 01 · legendado</span></div>
+          <div class="clip"><span>Corte 02 · legendado</span></div>
+          <div class="clip"><span>Corte 03 · legendado</span></div>
+        </div>
+      </div>
     </div>
   </header>
+
+  <div class="ribbon" aria-hidden="true">
+    <div class="ribbon-band">
+      <div class="ribbon-track">
+        <span>Corte Star</span><span>✦</span><span>A IA corta por você</span><span>✦</span><span>TikTok · Reels · Shorts</span><span>✦</span><span>R$47 pagamento único</span><span>✦</span>
+        <span>Corte Star</span><span>✦</span><span>A IA corta por você</span><span>✦</span><span>TikTok · Reels · Shorts</span><span>✦</span><span>R$47 pagamento único</span><span>✦</span>
+      </div>
+    </div>
+  </div>
 
   <!-- 2. COMO FUNCIONA -->
   <section class="alt" aria-labelledby="como">
@@ -259,6 +332,7 @@
           <span class="num">03</span>
           <h3>Legenda, posta e fatura</h3>
           <p>Cortes legendados e prontos para TikTok, Reels e Shorts. É só publicar.</p>
+          <ul class="chips"><li>TikTok</li><li>Reels</li><li>Shorts</li></ul>
         </li>
       </ol>
     </div>
@@ -337,7 +411,8 @@
         </svg>
         <div>
           <h2 id="garantia">Garantia incondicional de 7 dias</h2>
-          <p>Entre, assista, aplique. Se em até 7 dias você achar que o Corte Star não é para você, basta pedir o reembolso e <strong>devolvemos 100% do seu dinheiro</strong>. Sem perguntas e sem burocracia. O risco é todo nosso.</p>
+          <p>Entre, assista, aplique. Se em até 7 dias você achar que o Corte Star não é para você, basta pedir o reembolso e <strong>devolvemos 100% do seu dinheiro</strong>. Sem perguntas e sem burocracia.</p>
+          <p class="risk">O risco é nosso, não é seu.</p>
         </div>
       </div>
     </div>
@@ -349,6 +424,7 @@
       <div class="center">
         <span class="eyebrow">Dúvidas</span>
         <h2 id="faq" class="section-title">Perguntas frequentes</h2>
+        <p class="section-sub">Não saia da página com dúvida.</p>
       </div>
       <div class="faq">
         <details>
@@ -368,8 +444,11 @@
           <p>Logo após a confirmação do pagamento, você recebe no seu e-mail os dados de acesso ao Corte Star e aos 2 bônus.</p>
         </details>
       </div>
-      <div class="faq-cta">
+      <div class="final">
+        <h2>Comece hoje a postar cortes com IA</h2>
+        <p>Enquanto você pensa, a próxima live já está acontecendo. Configure uma vez e deixe a IA trabalhar.</p>
         <a class="btn" href="#oferta">Quero o Corte Star por R$47 <svg width="20" height="20" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <p class="micro" style="margin:16px 0 0">Acesso imediato · Pagamento único · Garantia de 7 dias</p>
       </div>
     </div>
   </section>
@@ -384,6 +463,10 @@
   </div>
 </footer>
 
+<a id="wa" class="wa" href="#" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.3z"/></svg>
+</a>
+
 <script>
   (function(){
     // Aplica o link do checkout e dispara InitiateCheckout no clique
@@ -395,6 +478,13 @@
           fbq("track", "InitiateCheckout", { value: 47.00, currency: "BRL", content_name: "Corte Star" });
         }
       });
+    }
+    // Botao flutuante de WhatsApp (so aparece se CONFIG.whatsapp estiver preenchido)
+    var num = (CONFIG.whatsapp || "").replace(/\D/g, "");
+    if (num) {
+      var wa = document.getElementById("wa");
+      wa.href = "https://wa.me/" + num + "?text=" + encodeURIComponent("Olá! Tenho uma dúvida sobre o Corte Star.");
+      wa.className += " on";
     }
     // Aplica o e-mail de suporte
     var mails = document.querySelectorAll(".js-email");
