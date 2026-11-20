@@ -26,10 +26,10 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ganhe dinheiro com o seu streamer favorito | Corte Star</title>
-<meta name="description" content="A IA assiste a live, encontra os melhores momentos, corta, legenda e posta. Aprenda o método Corte Star por R$47, pagamento único, com garantia de 7 dias.">
+<title>Rota de Fuga | Cortes de live com IA</title>
+<meta name="description" content="A IA assiste a live, encontra os melhores momentos, corta, legenda e posta. Aprenda o método Rota de Fuga por R$47, pagamento único, com garantia de 7 dias.">
 <meta name="theme-color" content="#140A26">
-<meta property="og:title" content="Ganhe dinheiro com o seu streamer favorito | Corte Star">
+<meta property="og:title" content="Rota de Fuga | Sua saída está na live que você já assiste">
 <meta property="og:description" content="A IA assiste a live, corta, legenda e posta. Você só configura uma vez.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://cortestaroficial.netlify.app/">
@@ -265,6 +265,12 @@
   .urg{margin-top:10px;color:var(--muted);font-size:15px}
   @media (min-width:760px){.fit{grid-template-columns:1fr 1fr}}
 
+  /* Historia */
+  .story .wrap{max-width:680px}
+  .story-text{display:grid;gap:16px;font-size:18px;color:var(--muted);margin-top:8px}
+  .story-text p:nth-child(3){color:var(--text);font-weight:600}
+  .story-punch{color:var(--text)!important;font-family:"Anton",sans-serif;font-size:clamp(26px,7vw,34px);line-height:1.15;text-transform:uppercase;margin-top:8px;padding-left:16px;border-left:4px solid var(--pink)}
+
   /* Telas maiores */
   @media (min-width:760px){
     section{padding:88px 0}
@@ -287,6 +293,7 @@
     <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7L12 17.3 5.8 21l1.6-7L2 9.2l7.1-.6z"/></symbol>
     <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
     <symbol id="i-x" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-route" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V13a6 6 0 0 1 6-6h8"/><path d="M15 3l4 4-4 4"/></g></symbol>
     <symbol id="i-lock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></g></symbol>
   </defs>
 </svg>
@@ -297,11 +304,11 @@
   <!-- 1. HERO -->
   <header class="hero">
     <div class="wrap">
-      <div class="brand"><svg width="22" height="22" aria-hidden="true"><use href="#i-star"/></svg>Corte Star</div>
-      <div><span class="eyebrow">A nova onda do mercado de cortes</span></div>
-      <h1>Ganhe dinheiro com cortes do seu <span class="grad">streamer favorito</span></h1>
-      <p class="lead">Você não precisa passar horas assistindo live. <strong>A IA assiste por você, encontra os melhores momentos, corta e legenda.</strong> Você aprende a configurar, envia o link da live e foca no que faz um canal crescer: postar todo dia.</p>
-      <a class="btn" href="#oferta">Quero o Corte Star por R$47 <svg width="20" height="20" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <div class="brand"><svg width="22" height="22" aria-hidden="true"><use href="#i-route"/></svg>Rota de Fuga</div>
+      <div><span class="eyebrow">Pra quem cansou da mesma rotina</span></div>
+      <h1>Sua rota de fuga está na <span class="grad">live que você já assiste</span></h1>
+      <p class="lead">Você já passa horas assistindo live. <strong>Com a IA certa, essas horas viram cortes prontos:</strong> ela encontra os melhores momentos, corta e legenda. Você monta seu canal pelo celular, no seu horário.</p>
+      <a class="btn" href="#oferta">Quero minha rota de fuga <svg width="20" height="20" aria-hidden="true"><use href="#i-arrow"/></svg></a>
       <a class="btn btn-ghost" href="#como">Ver como funciona</a>
       <ul class="trust" aria-label="Vantagens">
         <li><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg>Acesso imediato</li>
@@ -310,7 +317,7 @@
       </ul>
 
       <div class="mock" role="img" aria-label="Exemplo: a IA analisa a live, marca os melhores momentos e gera cortes verticais legendados">
-        <div class="mock-bar"><i></i><i></i><i></i><span>corte-star / ia</span></div>
+        <div class="mock-bar"><i></i><i></i><i></i><span>rota-de-fuga / ia</span></div>
         <div class="live"><b>LIVE</b> Analisando a transmissão...</div>
         <div class="timeline" aria-hidden="true"><em></em><em></em><em></em></div>
         <p class="ai-line">3 melhores momentos encontrados · cortando em 9:16</p>
@@ -326,14 +333,29 @@
   <div class="ribbon" aria-hidden="true">
     <div class="ribbon-band">
       <div class="ribbon-track">
-        <span>Corte Star</span><span>✦</span><span>A IA corta por você</span><span>✦</span><span>TikTok · Reels · Shorts</span><span>✦</span><span>De R$197 por R$47</span><span>✦</span>
-        <span>Corte Star</span><span>✦</span><span>A IA corta por você</span><span>✦</span><span>TikTok · Reels · Shorts</span><span>✦</span><span>De R$197 por R$47</span><span>✦</span>
+        <span>Rota de Fuga</span><span>✦</span><span>A IA corta por você</span><span>✦</span><span>TikTok · Reels · Shorts</span><span>✦</span><span>De R$197 por R$47</span><span>✦</span>
+        <span>Rota de Fuga</span><span>✦</span><span>A IA corta por você</span><span>✦</span><span>TikTok · Reels · Shorts</span><span>✦</span><span>De R$197 por R$47</span><span>✦</span>
       </div>
     </div>
   </div>
 
+  <!-- HISTORIA -->
+  <section class="alt story" aria-labelledby="historia">
+    <div class="wrap">
+      <span class="eyebrow">Talvez você já tenha vivido isso</span>
+      <h2 id="historia" class="section-title">6h12 da manhã. Ônibus lotado.</h2>
+      <div class="story-text">
+        <p>Você abre o TikTok pra não pensar no dia que vem pela frente.</p>
+        <p>O primeiro vídeo é um corte do seu streamer favorito. Aquele momento da live de ontem, que você viu ao vivo, rindo sozinho às duas da manhã. O vídeo já passou de um milhão de views.</p>
+        <p>Quem postou foi um canal de cortes, tocado por uma pessoa comum, com um celular na mão.</p>
+        <p>Vocês dois estavam na mesma live. Ela transformou aquelas horas num canal que cresce todo dia. Você transformou em sono atrasado.</p>
+        <p class="story-punch">O Rota de Fuga existe pra você trocar de lado da tela.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- 2. COMO FUNCIONA -->
-  <section class="alt" aria-labelledby="como">
+  <section aria-labelledby="como">
     <div class="wrap center">
       <span class="eyebrow">Simples assim</span>
       <h2 id="como" class="section-title">Como funciona em 3 passos</h2>
@@ -363,18 +385,18 @@
   </section>
 
   <!-- PRA QUEM E -->
-  <section aria-labelledby="praquem">
+  <section class="alt" aria-labelledby="praquem">
     <div class="wrap">
       <div class="center">
         <span class="eyebrow">Sem enrolação</span>
-        <h2 id="praquem" class="section-title">O Corte Star é pra você?</h2>
+        <h2 id="praquem" class="section-title">Essa rota é pra você?</h2>
       </div>
       <div class="fit">
         <div class="card fit-yes">
           <h3>É pra você se...</h3>
           <ul class="checks">
-            <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>Já assiste live e conhece o público do seu streamer</li>
-            <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>Quer criar um canal sem aparecer e sem saber editar</li>
+            <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>Já passa horas em live e conhece o público do seu streamer</li>
+            <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>Quer construir algo seu sem aparecer e sem saber editar</li>
             <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>Topa postar com constância e aprender com os números</li>
           </ul>
         </div>
@@ -391,7 +413,7 @@
   </section>
 
   <!-- 3. O QUE VOCE RECEBE -->
-  <section class="alt" aria-labelledby="recebe">
+  <section aria-labelledby="recebe">
     <div class="wrap">
       <div class="center">
         <span class="eyebrow">Tudo incluso</span>
@@ -400,7 +422,7 @@
       <div class="items">
         <article class="card main">
           <span class="tag p">Produto principal</span>
-          <h3>Método Corte Star</h3>
+          <h3>Método Rota de Fuga</h3>
           <p>O passo a passo para montar seu canal de cortes com IA, do zero até o primeiro corte publicado.</p>
           <ul class="checks">
             <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>Como encontrar streamers que autorizam cortes</li>
@@ -432,7 +454,7 @@
   </section>
 
   <!-- DEPOIMENTO -->
-  <section aria-labelledby="depo">
+  <section class="alt" aria-labelledby="depo">
     <div class="wrap">
       <div class="center" style="margin-bottom:28px">
         <span class="eyebrow">Quem já está usando</span>
@@ -440,22 +462,22 @@
       </div>
       <figure class="quote">
         <svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9.6 5C6 6.6 4 9.6 4 13.5V19h6v-6H7c0-2.7 1.2-4.6 3.6-5.8zm10 0C16 6.6 14 9.6 14 13.5V19h6v-6h-3c0-2.7 1.2-4.6 3.6-5.8z"/></svg>
-        <blockquote>Comecei no Corte Star e já estou usando. Não perco mais tempo assistindo live e editando. Tô quase monetizando um canal.</blockquote>
-        <figcaption><span class="av" aria-hidden="true">RS</span><span><b>Roberto Souza</b>Aluno do Corte Star</span></figcaption>
+        <blockquote>Comecei no método e já estou usando. Não perco mais tempo assistindo live e editando. Tô quase monetizando um canal.</blockquote>
+        <figcaption><span class="av" aria-hidden="true">RS</span><span><b>Roberto Souza</b>Aluno do Rota de Fuga</span></figcaption>
       </figure>
     </div>
   </section>
 
   <!-- 4. OFERTA -->
-  <section id="oferta" class="alt" aria-labelledby="oferta-titulo">
+  <section id="oferta" aria-labelledby="oferta-titulo">
     <div class="wrap">
       <div class="offer">
         <span class="eyebrow">Oferta de lançamento</span>
         <h2 id="oferta-titulo">Quem chega primeiro bebe água limpa</h2>
-        <p class="what">Corte Star + 2 bônus</p>
+        <p class="what">Rota de Fuga + 2 bônus</p>
         <p class="urg">Todo dia tem live nova. Quem posta primeiro os melhores momentos fica com a audiência.</p>
         <ul class="checks">
-          <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>Método Corte Star</li>
+          <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>Método Rota de Fuga</li>
           <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>Bônus: Máquina do Corte Automático</li>
           <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>Bônus: Pack Neon City</li>
           <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>Garantia de 7 dias</li>
@@ -471,7 +493,7 @@
   </section>
 
   <!-- 5. GARANTIA -->
-  <section aria-labelledby="garantia">
+  <section class="alt" aria-labelledby="garantia">
     <div class="wrap">
       <div class="guarantee">
         <svg class="shield" viewBox="0 0 64 64" aria-hidden="true">
@@ -481,7 +503,7 @@
         </svg>
         <div>
           <h2 id="garantia">Garantia incondicional de 7 dias</h2>
-          <p>Entre, assista, aplique. Se em até 7 dias você achar que o Corte Star não é para você, basta pedir o reembolso e <strong>devolvemos 100% do seu dinheiro</strong>. Sem perguntas e sem burocracia.</p>
+          <p>Entre, assista, aplique. Se em até 7 dias você achar que o Rota de Fuga não é para você, basta pedir o reembolso e <strong>devolvemos 100% do seu dinheiro</strong>. Sem perguntas e sem burocracia.</p>
           <p class="risk">O risco é nosso, não é seu.</p>
         </div>
       </div>
@@ -489,7 +511,7 @@
   </section>
 
   <!-- 6. FAQ -->
-  <section class="alt" aria-labelledby="faq">
+  <section aria-labelledby="faq">
     <div class="wrap">
       <div class="center">
         <span class="eyebrow">Dúvidas</span>
@@ -511,7 +533,7 @@
         </details>
         <details>
           <summary>Como recebo o acesso?</summary>
-          <p>Logo após a confirmação do pagamento, você recebe no seu e-mail os dados de acesso ao Corte Star e aos 2 bônus.</p>
+          <p>Logo após a confirmação do pagamento, você recebe no seu e-mail os dados de acesso ao Rota de Fuga e aos 2 bônus.</p>
         </details>
         <details>
           <summary>Em quanto tempo vejo resultado?</summary>
@@ -523,9 +545,9 @@
         </details>
       </div>
       <div class="final">
-        <h2>Comece hoje a postar cortes com IA</h2>
-        <p>Enquanto você pensa, a próxima live já está acontecendo e alguém vai postar os melhores momentos. Que seja você.</p>
-        <a class="btn" href="#oferta">Quero o Corte Star por R$47 <svg width="20" height="20" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <h2>A próxima live começa hoje à noite</h2>
+        <p>Alguém vai postar os melhores momentos dela. Você pode continuar assistindo, ou pode ser quem posta.</p>
+        <a class="btn" href="#oferta">Quero minha rota de fuga por R$47 <svg width="20" height="20" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         <p class="micro" style="margin:16px 0 0">Acesso imediato · Pagamento único · Garantia de 7 dias</p>
       </div>
     </div>
@@ -535,9 +557,9 @@
 <!-- 7. RODAPE -->
 <footer>
   <div class="wrap legal">
-    <p>Corte Star é um produto independente. Não é afiliado, patrocinado ou aprovado pela Rockstar Games, Take-Two Interactive ou por qualquer streamer.</p>
+    <p>Rota de Fuga é um produto independente. Não é afiliado, patrocinado ou aprovado pela Rockstar Games, Take-Two Interactive ou por qualquer streamer.</p>
     <p>Os resultados dependem da dedicação de cada aluno. Não garantimos ganhos.</p>
-    <p>© 2026 Corte Star · CNPJ/CPF: SEU CNPJ/CPF · Suporte: <a class="js-email" href="mailto:suporte@seudominio.com.br">suporte@seudominio.com.br</a></p>
+    <p>© 2026 Rota de Fuga · CNPJ/CPF: SEU CNPJ/CPF · Suporte: <a class="js-email" href="mailto:suporte@seudominio.com.br">suporte@seudominio.com.br</a></p>
   </div>
 </footer>
 
@@ -553,7 +575,7 @@
       links[i].href = CONFIG.checkout;
       links[i].addEventListener("click", function(){
         if (typeof fbq === "function") {
-          fbq("track", "InitiateCheckout", { value: 47.00, currency: "BRL", content_name: "Corte Star" });
+          fbq("track", "InitiateCheckout", { value: 47.00, currency: "BRL", content_name: "Rota de Fuga" });
         }
       });
     }
@@ -561,7 +583,7 @@
     var num = (CONFIG.whatsapp || "").replace(/\D/g, "");
     if (num) {
       var wa = document.getElementById("wa");
-      wa.href = "https://wa.me/" + num + "?text=" + encodeURIComponent("Olá! Tenho uma dúvida sobre o Corte Star.");
+      wa.href = "https://wa.me/" + num + "?text=" + encodeURIComponent("Olá! Tenho uma dúvida sobre o Rota de Fuga.");
       wa.className += " on";
     }
     // Aplica o e-mail de suporte
