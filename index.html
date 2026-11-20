@@ -3,34 +3,33 @@
 <head>
 <!--
   =====================================================================
-  CORTE STAR - CONFIGURACAO RAPIDA
-  Troque SOMENTE os 3 valores dentro de CONFIG (logo abaixo, no <script>):
+  CORTE PRONTO - CONFIGURACAO RAPIDA
+  Troque os valores dentro de CONFIG (logo abaixo, no <script>):
 
-    checkout : link do seu checkout (Hotmart, Kiwify, Eduzz etc.)
+    checkout : link do checkout da Cakto
     pixelId  : ID do Pixel da Meta (somente os numeros)
     email    : e-mail de suporte exibido no rodape
+    whatsapp : DDI+DDD+numero (vazio = botao escondido)
 
-  Os links de compra, o Pixel (PageView + InitiateCheckout) e o e-mail
-  sao preenchidos automaticamente a partir daqui.
   Dados do rodape (CNPJ/CPF): procure por "SEU CNPJ/CPF" neste arquivo.
   =====================================================================
 -->
 <script>
   var CONFIG = {
-    checkout: "https://pay.cakto.com.br/6zbdc5g_1343991",         // ex.: "https://pay.kiwify.com.br/xxxxxx"
-    pixelId:  "2165762657358649",             // ex.: "123456789012345"
-    email:    "suporte@seudominio.com.br", // e-mail de suporte
-    whatsapp: "5541933008630"                           // opcional: DDI+DDD+numero, ex.: "5511999999999" (vazio = botao escondido)
+    checkout: "https://pay.cakto.com.br/6zbdc5g_1343991",
+    pixelId:  "2165762657358649",
+    email:    "suporte@seudominio.com.br",
+    whatsapp: "5541933008630"
   };
 </script>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Corte Pronto | A IA corta a live por você</title>
-<meta name="description" content="A IA assiste a live, encontra os melhores momentos, corta, legenda e posta. Aprenda o método Corte Pronto por R$47, pagamento único, com garantia de 7 dias.">
+<meta name="description" content="Você escolhe a live. A IA encontra os melhores momentos, corta em pé e legenda. Corte Pronto por R$47, pagamento único, com garantia de 7 dias.">
 <meta name="theme-color" content="#140A26">
 <meta property="og:title" content="Corte Pronto | O corte que viralizou ontem podia ter sido seu">
-<meta property="og:description" content="A IA assiste a live, corta, legenda e posta. Você só configura uma vez.">
+<meta property="og:description" content="Você escolhe a live. A IA encontra os melhores momentos, corta e legenda.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://cortestaroficial.netlify.app/">
 <link rel="canonical" href="https://cortestaroficial.netlify.app/">
@@ -39,7 +38,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
-<!-- Meta Pixel (carrega so quando o pixelId for preenchido em CONFIG) -->
+<!-- Meta Pixel -->
 <script>
   if (CONFIG.pixelId && CONFIG.pixelId !== "SEU_PIXEL_ID") {
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -62,12 +61,8 @@
   }
   *,*::before,*::after{box-sizing:border-box}
   html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-  body{
-    margin:0;background:var(--bg);color:var(--text);
-    font:400 17px/1.6 "Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-    overflow-x:hidden;
-  }
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important}}
+  body{margin:0;background:var(--bg);color:var(--text);font:400 17px/1.6 "Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow-x:hidden}
   h1,h2,h3{font-family:"Anton",Impact,"Arial Narrow",sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.5px;line-height:1.08;margin:0}
   p{margin:0}
   a{color:var(--cyan)}
@@ -76,106 +71,139 @@
   section{padding:64px 0}
   .alt{background:var(--bg-alt)}
   .center{text-align:center}
-
-  /* Faixa de 4 cores no topo */
   .stripe{height:6px;background:linear-gradient(90deg,var(--pink) 0 25%,var(--orange) 25% 50%,var(--purple) 50% 75%,var(--cyan) 75% 100%)}
 
-  /* Botao */
-  .btn{
-    display:flex;align-items:center;justify-content:center;gap:10px;
-    min-height:60px;width:100%;padding:16px 24px;border-radius:14px;
-    background:var(--pink);color:var(--ink);text-decoration:none;
-    font:800 17px/1.2 "Inter",sans-serif;text-transform:uppercase;letter-spacing:.6px;text-align:center;
-    box-shadow:0 0 0 2px rgba(255,79,163,.25),0 10px 30px -8px rgba(255,79,163,.7);
-    transition:transform .15s ease,box-shadow .15s ease,background .15s ease;
-  }
+  /* Botoes */
+  .btn{display:flex;align-items:center;justify-content:center;gap:10px;min-height:60px;width:100%;padding:16px 24px;border-radius:14px;background:var(--pink);color:var(--ink);text-decoration:none;font:800 17px/1.2 "Inter",sans-serif;text-transform:uppercase;letter-spacing:.6px;text-align:center;box-shadow:0 0 0 2px rgba(255,79,163,.25),0 10px 30px -8px rgba(255,79,163,.7);transition:transform .15s ease,background .15s ease}
   .btn:hover{background:#FF6AB2;transform:translateY(-2px)}
   .btn:active{transform:translateY(0)}
   .btn:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
+  .btn-ghost{background:transparent;color:var(--text);border:1px solid var(--line);box-shadow:none}
+  .btn-ghost:hover{background:rgba(155,92,255,.14);border-color:var(--purple)}
 
-  .eyebrow{
-    display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;
-    border:1px solid var(--line);background:rgba(155,92,255,.14);color:var(--cyan);
-    font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:1px;
-  }
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:rgba(155,92,255,.14);color:var(--cyan);font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:1px}
   .section-title{font-size:clamp(34px,9vw,52px);margin:14px 0 12px}
   .section-sub{color:var(--muted);max-width:620px;margin:0 auto}
   .grad{background:linear-gradient(90deg,var(--pink),var(--orange));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .micro{font:600 11px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted)}
 
   /* HERO */
-  .hero{position:relative;padding:44px 0 56px;overflow:hidden;text-align:center}
-  .hero::before{ /* sol do por do sol */
-    content:"";position:absolute;left:50%;top:-140px;width:420px;height:420px;transform:translateX(-50%);
-    border-radius:50%;
-    background:
-      repeating-linear-gradient(180deg,transparent 0 22px,var(--bg) 22px 28px) bottom/100% 45% no-repeat,
-      linear-gradient(180deg,var(--orange),var(--pink) 60%,var(--purple));
-    opacity:.22;filter:blur(1px);pointer-events:none;
-  }
-  .hero::after{ /* grade neon no chao */
-    content:"";position:absolute;inset:auto 0 0 0;height:160px;pointer-events:none;
-    background:
-      linear-gradient(transparent,var(--bg) 95%),
-      repeating-linear-gradient(90deg,rgba(46,230,214,.18) 0 1px,transparent 1px 48px),
-      repeating-linear-gradient(0deg,rgba(155,92,255,.22) 0 1px,transparent 1px 28px);
-    -webkit-mask:linear-gradient(transparent,#000 70%);mask:linear-gradient(transparent,#000 70%);
-  }
+  .hero{position:relative;padding:40px 0 56px;overflow:hidden;text-align:center}
+  .hero::before{content:"";position:absolute;left:50%;top:-140px;width:420px;height:420px;transform:translateX(-50%);border-radius:50%;background:repeating-linear-gradient(180deg,transparent 0 22px,var(--bg) 22px 28px) bottom/100% 45% no-repeat,linear-gradient(180deg,var(--orange),var(--pink) 60%,var(--purple));opacity:.22;pointer-events:none}
+  .hero::after{content:"";position:absolute;inset:auto 0 0 0;height:160px;pointer-events:none;background:linear-gradient(transparent,var(--bg) 95%),repeating-linear-gradient(90deg,rgba(46,230,214,.18) 0 1px,transparent 1px 48px),repeating-linear-gradient(0deg,rgba(155,92,255,.22) 0 1px,transparent 1px 28px);-webkit-mask:linear-gradient(transparent,#000 70%);mask:linear-gradient(transparent,#000 70%)}
   .hero .wrap{position:relative;z-index:1}
-  .brand{display:inline-flex;align-items:center;gap:8px;font-family:"Anton",sans-serif;font-size:22px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:26px}
+  .brand{display:inline-flex;align-items:center;gap:8px;font-family:"Anton",sans-serif;font-size:22px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:24px}
   .brand svg{color:var(--pink)}
-  .hero h1{font-size:clamp(40px,11.5vw,76px);margin:18px auto 18px;max-width:880px;text-shadow:0 0 28px rgba(255,79,163,.35)}
-  .hero .lead{font-size:18px;color:var(--muted);max-width:640px;margin:0 auto 28px}
+  .hero h1{font-size:clamp(40px,11.5vw,76px);margin:18px auto 16px;max-width:880px;text-shadow:0 0 28px rgba(255,79,163,.35)}
+  .hero .lead{font-size:18px;color:var(--muted);max-width:620px;margin:0 auto}
   .hero .lead strong{color:var(--text)}
-  .hero .btn{max-width:460px;margin:0 auto}
-  .trust{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 16px;margin-top:18px;font-size:14px;color:var(--muted);list-style:none;padding:0}
+  .hero-cta{max-width:460px;margin:26px auto 0;display:grid;gap:12px}
+  .trust{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 16px;margin:18px 0 0;font-size:14px;color:var(--muted);list-style:none;padding:0}
   .trust li{display:flex;align-items:center;gap:6px}
   .trust svg{color:var(--cyan)}
 
-  /* PASSOS */
-  .steps{display:grid;gap:16px;margin-top:36px;list-style:none;padding:0}
-  .step{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px 22px;position:relative}
-  .step .num{font-family:"Anton",sans-serif;font-size:44px;line-height:1;display:block;margin-bottom:10px}
-  .step:nth-child(1) .num{color:var(--pink)}
-  .step:nth-child(2) .num{color:var(--orange)}
-  .step:nth-child(3) .num{color:var(--cyan)}
-  .step h3{font-size:24px;margin-bottom:8px}
-  .step p{color:var(--muted)}
-  .step .ico{position:absolute;top:22px;right:20px;color:var(--purple)}
+  /* Celular com corte rodando */
+  .phone-wrap{margin:34px auto 0;display:grid;justify-items:center;gap:10px}
+  .phone{position:relative;width:236px;aspect-ratio:9/16;border-radius:30px;border:6px solid #0B0418;box-shadow:0 0 0 2px var(--line),0 30px 60px -20px rgba(255,79,163,.55);overflow:hidden;background:linear-gradient(165deg,#3B1A6E 0%,#7A2B8F 45%,#FF4FA3 80%,#FF8A3D 100%)}
+  .phone::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(180deg,transparent 0 3px,rgba(0,0,0,.08) 3px 4px)}
+  .ph-top{position:absolute;top:12px;left:12px;right:12px;display:flex;justify-content:space-between;align-items:center;font-size:10px;font-weight:800;letter-spacing:1px}
+  .ph-top b{background:#FF3D6E;color:#fff;padding:3px 6px;border-radius:4px}
+  .ph-top span{background:rgba(20,10,38,.6);padding:3px 8px;border-radius:999px}
+  .ph-face{position:absolute;left:50%;top:30%;transform:translateX(-50%);width:110px;height:110px;border-radius:50%;background:radial-gradient(circle at 50% 40%,rgba(255,255,255,.35),rgba(255,255,255,.05) 60%,transparent 70%)}
+  .ph-cap{position:absolute;left:14px;right:14px;bottom:70px;height:64px}
+  .ph-cap p{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;font-family:"Anton",sans-serif;font-size:22px;line-height:1.1;text-transform:uppercase;color:#fff;-webkit-text-stroke:1px #000;text-shadow:0 3px 0 #000;opacity:0;animation:cap 9s infinite}
+  .ph-cap p mark{background:none;color:#FFE14D}
+  .ph-cap p:nth-child(2){animation-delay:3s}
+  .ph-cap p:nth-child(3){animation-delay:6s}
+  @keyframes cap{0%{opacity:0;transform:scale(.9)}4%,30%{opacity:1;transform:scale(1)}34%,100%{opacity:0}}
+  .ph-bar{position:absolute;left:14px;right:14px;bottom:44px;height:4px;border-radius:4px;background:rgba(255,255,255,.25);overflow:hidden}
+  .ph-bar i{display:block;height:100%;width:100%;background:#fff;transform-origin:left;animation:bar 9s linear infinite}
+  @keyframes bar{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+  .ph-side{position:absolute;right:10px;bottom:110px;display:grid;gap:12px;justify-items:center;font-size:9px;font-weight:800}
+  .ph-side i{width:30px;height:30px;border-radius:50%;background:rgba(20,10,38,.55);display:grid;place-items:center}
 
-  /* O QUE RECEBE */
-  .items{display:grid;gap:16px;margin-top:36px}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px 22px}
-  .card.main{border:2px solid var(--pink);box-shadow:0 0 0 4px rgba(255,79,163,.12),0 20px 50px -20px rgba(255,79,163,.5)}
-  .tag{display:inline-block;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:1px;padding:5px 10px;border-radius:8px;margin-bottom:12px}
-  .tag.p{background:var(--pink);color:var(--ink)}
-  .tag.o{background:var(--orange);color:var(--ink)}
-  .tag.c{background:var(--cyan);color:var(--ink)}
-  .card h3{font-size:28px;margin-bottom:10px}
-  .card > p{color:var(--muted);margin-bottom:14px}
+  /* Faixa animada */
+  .ribbon{overflow:hidden;padding:18px 0;margin:-8px 0}
+  .ribbon-band{transform:rotate(-2.5deg);background:linear-gradient(90deg,var(--pink),var(--orange));margin:0 -20px;padding:11px 0;box-shadow:0 8px 30px -10px rgba(255,79,163,.7)}
+  .ribbon-track{display:flex;width:max-content;animation:roll 22s linear infinite}
+  .ribbon-track span{font-family:"Anton",sans-serif;font-size:18px;letter-spacing:1.5px;color:var(--ink);text-transform:uppercase;padding:0 18px;white-space:nowrap}
+  @keyframes roll{to{transform:translateX(-50%)}}
+
+  /* Historia */
+  .story .wrap{max-width:680px}
+  .story-text{display:grid;gap:16px;font-size:18px;color:var(--muted);margin-top:8px}
+  .story-text .hi{color:var(--text);font-weight:600}
+  .story-punch{color:var(--text);font-family:"Anton",sans-serif;font-size:clamp(26px,7vw,34px);line-height:1.15;text-transform:uppercase;margin-top:8px;padding-left:16px;border-left:4px solid var(--pink)}
+
+  /* Passos */
+  .steps{display:grid;gap:16px;margin-top:36px;list-style:none;padding:0;text-align:left}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px 22px}
+  .step .num{font:800 12px/1 ui-monospace,Menlo,Consolas,monospace;letter-spacing:2px;color:var(--cyan);display:block;margin-bottom:12px}
+  .step h3{font-size:26px;margin-bottom:8px}
+  .step p{color:var(--muted)}
+  .step .tag-line{margin-top:14px;display:flex;flex-wrap:wrap;gap:6px;list-style:none;padding:0}
+  .step .tag-line li{font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:5px 9px;border-radius:999px;border:1px solid var(--line);color:var(--cyan)}
+
+  /* Painel: voce escolhe */
+  .panel{max-width:560px;margin:32px auto 0;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;text-align:left;box-shadow:0 30px 60px -30px rgba(155,92,255,.6)}
+  .panel-head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:12px}
+  .panel-head .micro{color:var(--cyan)}
+  .panel-head b{font-size:11px;background:rgba(46,230,214,.15);color:var(--cyan);padding:4px 8px;border-radius:6px;letter-spacing:1px;text-transform:uppercase}
+  .moment{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center;padding:12px;border:1px solid var(--line);border-radius:12px;background:rgba(20,10,38,.5)}
+  .moment+.moment{margin-top:10px}
+  .thumb{width:46px;aspect-ratio:9/16;border-radius:8px;background:linear-gradient(160deg,var(--purple),var(--pink))}
+  .moment:nth-child(3) .thumb{background:linear-gradient(160deg,var(--pink),var(--orange))}
+  .moment:nth-child(4) .thumb{background:linear-gradient(160deg,var(--purple),var(--cyan))}
+  .moment .t{font-weight:800;font-size:15px;line-height:1.3}
+  .moment .m{font:600 11px/1.4 ui-monospace,Menlo,Consolas,monospace;color:var(--muted);margin-top:4px}
+  .moment .acts{grid-column:1/-1;display:flex;gap:8px}
+  .moment .acts span{flex:1;text-align:center;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.8px;padding:9px 6px;border-radius:8px;border:1px solid var(--line);color:var(--muted)}
+  .moment .acts span.ok{background:var(--cyan);border-color:var(--cyan);color:var(--ink)}
+  .panel-note{margin-top:12px;text-align:center}
+
+  /* Comparacao */
+  .vs{display:grid;gap:16px;margin-top:32px}
+  .vs .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px 22px}
+  .vs .card.win{border:2px solid var(--pink);box-shadow:0 0 0 4px rgba(255,79,163,.12)}
+  .vs h3{font-size:26px}
+  .vs .sub{font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin:4px 0 14px}
+  .vs .win .sub{color:var(--pink)}
   .checks{list-style:none;padding:0;margin:0;display:grid;gap:10px}
   .checks li{display:flex;gap:10px;align-items:flex-start}
   .checks svg{margin-top:4px;color:var(--cyan)}
+  .checks.bad svg{color:#8E7BB8}
+  .checks.bad li{color:var(--muted)}
 
-  /* OFERTA */
-  .offer{
-    max-width:560px;margin:0 auto;text-align:center;border-radius:22px;padding:34px 22px;
-    background:linear-gradient(180deg,#2A1650,var(--card));border:2px solid var(--purple);
-    box-shadow:0 0 0 1px var(--line),0 0 60px -10px rgba(155,92,255,.55);
-  }
-  .offer h2{font-size:clamp(30px,8.5vw,44px);margin:14px 0 8px}
-  .offer .what{font-weight:800;font-size:18px;color:var(--cyan);text-transform:uppercase;letter-spacing:.8px}
-  .offer ul{text-align:left;margin:22px 0}
-  .price{margin:20px 0 6px;line-height:1}
-  .price small{display:block;font-size:14px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+  /* Pra quem e */
+  .fit{display:grid;gap:16px;margin-top:32px}
+  .fit .card{background:var(--card);border:1px solid rgba(46,230,214,.5);border-radius:var(--radius);padding:24px 22px}
+  .fit .card.no{border-color:rgba(255,79,163,.4)}
+  .fit .no .checks svg{color:var(--pink)}
+  .fit h3{font-size:24px;margin-bottom:14px}
+
+  /* Depoimento */
+  .quote{max-width:620px;margin:28px auto 0;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--pink);border-radius:var(--radius);padding:26px 22px}
+  .quote svg{color:var(--purple);margin-bottom:10px}
+  .quote blockquote{margin:0;font-size:19px;line-height:1.55;font-weight:600}
+  .quote figcaption{margin-top:16px;display:flex;align-items:center;gap:12px;color:var(--muted);font-size:14px}
+  .quote .av{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--pink),var(--orange));color:var(--ink);font-weight:800}
+  .quote figcaption b{display:block;color:var(--text)}
+
+  /* Oferta */
+  .offer{max-width:560px;margin:0 auto;border-radius:22px;padding:32px 22px;background:linear-gradient(180deg,#2A1650,var(--card));border:2px solid var(--purple);box-shadow:0 0 0 1px var(--line),0 0 60px -10px rgba(155,92,255,.55)}
+  .offer .center h2{font-size:clamp(30px,8.5vw,44px);margin:14px 0 8px}
+  .offer .urg{color:var(--muted);font-size:15px}
+  .offer h3{font-size:20px;margin:26px 0 14px;color:var(--cyan)}
+  .from{margin-top:26px;font-size:16px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:1px;text-align:center}
+  .from s{color:var(--text);text-decoration-color:var(--pink);text-decoration-thickness:3px;font-size:20px;font-weight:800;margin:0 4px}
+  .price{text-align:center;line-height:1;margin:6px 0}
   .price .val{font-family:"Anton",sans-serif;font-size:clamp(84px,26vw,120px);background:linear-gradient(180deg,var(--orange),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
   .price .val span{font-size:.38em;vertical-align:top;margin-right:4px;position:relative;top:.45em}
-  .once{color:var(--muted);margin-bottom:24px}
-  .from{margin-top:22px;font-size:16px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
-  .from s{color:var(--text);text-decoration-color:var(--pink);text-decoration-thickness:3px;font-size:20px;font-weight:800;margin:0 4px}
-  .off{display:inline-block;margin-bottom:10px;background:var(--cyan);color:var(--ink);font-size:13px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:6px 12px;border-radius:999px}
-  .secure{display:flex;align-items:center;justify-content:center;gap:6px;font-size:13px;color:var(--muted);margin-top:14px}
+  .pay{text-align:center;color:var(--muted);margin-bottom:22px}
+  .pay b{color:var(--text)}
+  .secure{display:flex;align-items:center;justify-content:center;gap:6px;font-size:13px;color:var(--muted);margin-top:14px;text-align:center}
 
-  /* GARANTIA */
+  /* Garantia */
   .guarantee{display:grid;gap:20px;align-items:center;justify-items:center;text-align:center;max-width:760px;margin:0 auto}
   .shield{width:120px;height:120px;color:var(--cyan);filter:drop-shadow(0 0 18px rgba(46,230,214,.45))}
   .guarantee h2{font-size:clamp(32px,9vw,46px);margin-bottom:12px}
@@ -191,109 +219,52 @@
   summary::after{content:"";position:absolute;right:22px;top:50%;width:12px;height:12px;border-right:3px solid var(--pink);border-bottom:3px solid var(--pink);transform:translateY(-70%) rotate(45deg);transition:transform .2s}
   details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
   details p{padding:0 20px 20px;color:var(--muted)}
-  .faq-cta{max-width:460px;margin:36px auto 0}
-
-  /* RODAPE */
-  footer{border-top:1px solid var(--line);padding:36px 0 44px;font-size:13px;color:var(--muted);text-align:center}
-  footer p+p{margin-top:10px}
-  footer .legal{max-width:680px;margin:0 auto}
-
-  /* Botao secundario e microcopy */
-  .btn-ghost{background:transparent;color:var(--text);border:1px solid var(--line);box-shadow:none;margin-top:12px!important}
-  .btn-ghost:hover{background:rgba(155,92,255,.14);border-color:var(--purple)}
-  .micro{margin-top:16px;font:600 11px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted)}
-
-  /* Mockup da IA cortando a live */
-  .mock{max-width:460px;margin:34px auto 0;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;text-align:left;box-shadow:0 30px 60px -30px rgba(155,92,255,.6)}
-  .mock-bar{display:flex;align-items:center;gap:6px;font:600 11px/1 ui-monospace,Menlo,Consolas,monospace;color:var(--muted);margin-bottom:12px}
-  .mock-bar i{width:8px;height:8px;border-radius:50%;background:var(--line)}
-  .mock-bar i:nth-child(1){background:var(--pink)}.mock-bar i:nth-child(2){background:var(--orange)}.mock-bar i:nth-child(3){background:var(--cyan)}
-  .mock-bar span{margin-left:6px}
-  .live{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;margin-bottom:8px}
-  .live b{background:#FF3D6E;color:#fff;font-size:10px;letter-spacing:1px;padding:3px 6px;border-radius:4px}
-  .timeline{position:relative;height:30px;border-radius:8px;background:repeating-linear-gradient(90deg,#2C1850 0 3px,#24133F 3px 6px);overflow:hidden}
-  .timeline em{position:absolute;top:0;bottom:0;border-radius:4px;border:2px solid;background:rgba(255,255,255,.08)}
-  .timeline em:nth-child(1){left:12%;width:13%;border-color:var(--pink)}
-  .timeline em:nth-child(2){left:46%;width:10%;border-color:var(--orange)}
-  .timeline em:nth-child(3){left:76%;width:14%;border-color:var(--cyan)}
-  .ai-line{font-size:12px;color:var(--cyan);margin:10px 0 12px;font-weight:600}
-  .clips{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-  .clip{aspect-ratio:9/14;border-radius:10px;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:8px}
-  .clip:nth-child(1){background:linear-gradient(160deg,var(--purple),var(--pink))}
-  .clip:nth-child(2){background:linear-gradient(160deg,var(--pink),var(--orange))}
-  .clip:nth-child(3){background:linear-gradient(160deg,var(--purple),var(--cyan))}
-  .clip span{width:100%;background:rgba(20,10,38,.82);color:#fff;font-size:10px;font-weight:800;text-align:center;padding:5px 4px;border-radius:6px;text-transform:uppercase;line-height:1.2}
-
-  /* Faixa animada inclinada */
-  .ribbon{overflow:hidden;padding:18px 0;margin:-8px 0}
-  .ribbon-band{transform:rotate(-2.5deg);background:linear-gradient(90deg,var(--pink),var(--orange));margin:0 -20px;padding:11px 0;box-shadow:0 8px 30px -10px rgba(255,79,163,.7)}
-  .ribbon-track{display:flex;width:max-content;animation:roll 22s linear infinite}
-  .ribbon-track span{font-family:"Anton",sans-serif;font-size:18px;letter-spacing:1.5px;color:var(--ink);text-transform:uppercase;padding:0 18px;white-space:nowrap}
-  @keyframes roll{to{transform:translateX(-50%)}}
-  @media (prefers-reduced-motion:reduce){.ribbon-track{animation:none}}
-
-  /* Chips */
-  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;list-style:none;padding:0}
-  .chips li{font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:5px 9px;border-radius:999px;border:1px solid var(--line);color:var(--cyan)}
-
-  .risk{margin-top:12px;font-weight:800;color:var(--cyan)!important}
 
   /* CTA final */
-  .final{max-width:620px;margin:44px auto 0;text-align:center;padding:30px 22px;border-radius:20px;border:1px solid var(--line);background:radial-gradient(120% 100% at 50% 0%,rgba(255,79,163,.18),transparent 60%),var(--card)}
-  .final h2{font-size:clamp(28px,8vw,40px);margin-bottom:10px}
+  .final{max-width:620px;margin:44px auto 0;text-align:center;padding:32px 22px;border-radius:20px;border:1px solid var(--line);background:radial-gradient(120% 100% at 50% 0%,rgba(255,79,163,.18),transparent 60%),var(--card)}
+  .final h2{font-size:clamp(34px,10vw,52px);margin-bottom:12px}
   .final p{color:var(--muted);margin-bottom:22px}
   .final .btn{max-width:460px;margin:0 auto}
 
-  /* WhatsApp flutuante */
-  .wa{position:fixed;right:16px;bottom:72px;width:56px;height:56px;border-radius:50%;background:#25D366;color:#0B2E1A;display:none;align-items:center;justify-content:center;box-shadow:0 10px 30px -6px rgba(0,0,0,.6);z-index:20}
+  /* Rodape */
+  footer{border-top:1px solid var(--line);padding:36px 0 120px;font-size:13px;color:var(--muted);text-align:center}
+  footer p+p{margin-top:10px}
+  footer .legal{max-width:680px;margin:0 auto}
+
+  /* Barra fixa de compra */
+  .buybar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:rgba(20,10,38,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:flex;align-items:center;gap:12px;transform:translateY(110%);transition:transform .25s ease}
+  .buybar.show{transform:none}
+  .buybar .bb-price{line-height:1.1;white-space:nowrap}
+  .buybar .bb-price s{font-size:12px;color:var(--muted)}
+  .buybar .bb-price b{display:block;font-family:"Anton",sans-serif;font-size:26px;font-weight:400}
+  .buybar .bb-off{font-size:11px;font-weight:800;background:var(--cyan);color:var(--ink);padding:3px 6px;border-radius:6px;margin-left:4px;vertical-align:middle}
+  .buybar .btn{min-height:52px;padding:12px 14px;font-size:14px;flex:1}
+
+  /* WhatsApp */
+  .wa{position:fixed;right:16px;bottom:72px;transition:bottom .25s ease;width:56px;height:56px;border-radius:50%;background:#25D366;color:#0B2E1A;display:none;align-items:center;justify-content:center;box-shadow:0 10px 30px -6px rgba(0,0,0,.6);z-index:20}
   .wa.on{display:flex}
+  body.bb .wa{bottom:92px}
 
-  /* Depoimento */
-  .quote{max-width:620px;margin:0 auto;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--pink);border-radius:var(--radius);padding:26px 22px;position:relative}
-  .quote svg{color:var(--purple);margin-bottom:10px}
-  .quote blockquote{margin:0;font-size:19px;line-height:1.55;font-weight:600}
-  .quote figcaption{margin-top:16px;display:flex;align-items:center;gap:12px;color:var(--muted);font-size:14px}
-  .quote .av{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--pink),var(--orange));color:var(--ink);font-weight:800}
-  .quote figcaption b{display:block;color:var(--text)}
-
-  /* Pra quem e */
-  .fit{display:grid;gap:16px;margin-top:32px}
-  .fit h3{font-size:24px;margin-bottom:14px}
-  .fit-yes{border-color:rgba(46,230,214,.5)}
-  .fit-no{border-color:rgba(255,79,163,.4)}
-  .fit-no .checks svg{color:var(--pink)}
-  .urg{margin-top:10px;color:var(--muted);font-size:15px}
-  @media (min-width:760px){.fit{grid-template-columns:1fr 1fr}}
-
-  /* Historia */
-  .story .wrap{max-width:680px}
-  .story-text{display:grid;gap:16px;font-size:18px;color:var(--muted);margin-top:8px}
-  .story-text p:nth-child(3){color:var(--text);font-weight:600}
-  .story-punch{color:var(--text)!important;font-family:"Anton",sans-serif;font-size:clamp(26px,7vw,34px);line-height:1.15;text-transform:uppercase;margin-top:8px;padding-left:16px;border-left:4px solid var(--pink)}
-
-  /* Telas maiores */
   @media (min-width:760px){
     section{padding:88px 0}
-    .hero{padding:64px 0 96px}
+    .hero{padding:56px 0 96px}
     .steps{grid-template-columns:repeat(3,1fr)}
-    .items{grid-template-columns:1fr 1fr}
-    .items .main{grid-column:1/-1}
+    .vs,.fit{grid-template-columns:1fr 1fr}
     .guarantee{grid-template-columns:auto 1fr;text-align:left;justify-items:start}
     .offer{padding:44px 40px}
+    .buybar{justify-content:center}
+    .buybar .btn{flex:0 0 320px}
   }
 </style>
 </head>
 <body>
 <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=2165762657358649&amp;ev=PageView&amp;noscript=1"></noscript>
 
-<!-- Icones SVG reutilizaveis -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7"/></symbol>
-    <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7L12 17.3 5.8 21l1.6-7L2 9.2l7.1-.6z"/></symbol>
-    <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
     <symbol id="i-x" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></symbol>
-    <symbol id="i-route" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V13a6 6 0 0 1 6-6h8"/><path d="M15 3l4 4-4 4"/></g></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
     <symbol id="i-cut" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.6 7.6L20 18M8.6 16.4L20 6"/></g></symbol>
     <symbol id="i-lock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></g></symbol>
   </defs>
@@ -302,40 +273,49 @@
 <div class="stripe" role="presentation"></div>
 
 <main>
-  <!-- 1. HERO -->
-  <header class="hero">
+  <!-- HERO -->
+  <header class="hero" id="topo">
     <div class="wrap">
       <div class="brand"><svg width="22" height="22" aria-hidden="true"><use href="#i-cut"/></svg>Corte Pronto</div>
       <div><span class="eyebrow">Pra quem assiste live todo dia</span></div>
       <h1>O corte que viralizou ontem <span class="grad">podia ter sido seu</span></h1>
-      <p class="lead">Você estava na live. Você viu o momento acontecer. <strong>Com o Corte Pronto, a IA assiste junto, separa os melhores momentos, corta e legenda.</strong> Você escolhe e posta antes de todo mundo.</p>
-      <a class="btn" href="#oferta">Quero meus cortes prontos <svg width="20" height="20" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-      <a class="btn btn-ghost" href="#como">Ver como funciona</a>
+      <p class="lead">Você estava na live. Viu o momento acontecer. <strong>Com o Corte Pronto, a IA assiste junto, separa os melhores momentos, corta em pé e legenda.</strong> Você escolhe e posta antes de todo mundo.</p>
+
+      <div class="hero-cta">
+        <a class="btn" href="#oferta">Quero meus cortes prontos <svg width="20" height="20" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-ghost" href="#como">Ver como funciona</a>
+      </div>
       <ul class="trust" aria-label="Vantagens">
         <li><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg>Acesso imediato</li>
         <li><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg>Pagamento único</li>
         <li><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg>Garantia de 7 dias</li>
       </ul>
 
-      <div class="mock" role="img" aria-label="Exemplo: a IA analisa a live, marca os melhores momentos e gera cortes verticais legendados">
-        <div class="mock-bar"><i></i><i></i><i></i><span>corte-pronto / ia</span></div>
-        <div class="live"><b>LIVE</b> Analisando a transmissão...</div>
-        <div class="timeline" aria-hidden="true"><em></em><em></em><em></em></div>
-        <p class="ai-line">3 melhores momentos encontrados · cortando em 9:16</p>
-        <div class="clips" aria-hidden="true">
-          <div class="clip"><span>Corte 01 · legendado</span></div>
-          <div class="clip"><span>Corte 02 · legendado</span></div>
-          <div class="clip"><span>Corte 03 · legendado</span></div>
+      <div class="phone-wrap">
+        <div class="phone" role="img" aria-label="Exemplo de corte vertical legendado rodando no celular">
+          <div class="ph-top"><b>CORTE</b><span>0:42</span></div>
+          <div class="ph-face"></div>
+          <div class="ph-side" aria-hidden="true"><i>&#9829;</i><i>&#8618;</i></div>
+          <div class="ph-cap" aria-hidden="true">
+            <p>Ninguém no chat <mark>acreditou</mark></p>
+            <p>Ele fez isso <mark>ao vivo</mark></p>
+            <p>Olha a reação <mark>dele</mark></p>
+          </div>
+          <div class="ph-bar"><i></i></div>
         </div>
+        <span class="micro">Exemplo de corte: em pé, legendado, pronto pra postar</span>
       </div>
+
+
+
     </div>
   </header>
 
   <div class="ribbon" aria-hidden="true">
     <div class="ribbon-band">
       <div class="ribbon-track">
-        <span>Corte Pronto</span><span>✦</span><span>A IA corta por você</span><span>✦</span><span>TikTok · Reels · Shorts</span><span>✦</span><span>De R$197 por R$47</span><span>✦</span>
-        <span>Corte Pronto</span><span>✦</span><span>A IA corta por você</span><span>✦</span><span>TikTok · Reels · Shorts</span><span>✦</span><span>De R$197 por R$47</span><span>✦</span>
+        <span>Corte Pronto</span><span>✦</span><span>Você escolhe a live</span><span>✦</span><span>A IA corta e legenda</span><span>✦</span><span>De R$197 por R$47</span><span>✦</span>
+        <span>Corte Pronto</span><span>✦</span><span>Você escolhe a live</span><span>✦</span><span>A IA corta e legenda</span><span>✦</span><span>De R$197 por R$47</span><span>✦</span>
       </div>
     </div>
   </div>
@@ -348,40 +328,98 @@
       <div class="story-text">
         <p>Você abre o TikTok pra não pensar no dia que vem pela frente.</p>
         <p>O primeiro vídeo é um corte do seu streamer favorito. Aquele momento da live de ontem, que você viu ao vivo, rindo sozinho às duas da manhã. O vídeo já passou de um milhão de views.</p>
-        <p>Quem postou foi um canal de cortes, tocado por uma pessoa comum, com um celular na mão.</p>
+        <p class="hi">Quem postou foi um canal de cortes, tocado por uma pessoa comum, com um celular na mão.</p>
         <p>Vocês dois estavam na mesma live. Ela transformou aquelas horas num canal que cresce todo dia. Você transformou em sono atrasado.</p>
         <p class="story-punch">Aquele corte podia ter sido seu. E hoje à noite tem live de novo.</p>
       </div>
     </div>
   </section>
 
-  <!-- 2. COMO FUNCIONA -->
-  <section aria-labelledby="como">
+  <!-- COMO FUNCIONA -->
+  <section id="como" aria-labelledby="como-t">
     <div class="wrap center">
-      <span class="eyebrow">Simples assim</span>
-      <h2 id="como" class="section-title">Como funciona em 3 passos</h2>
-      <p class="section-sub">Você configura uma vez. Depois disso, a IA faz o trabalho pesado.</p>
-      <ol class="steps" style="text-align:left">
+      <span class="eyebrow">Como funciona</span>
+      <h2 id="como-t" class="section-title">Você escolhe a live. A IA faz o resto.</h2>
+      <p class="section-sub">Quanto tempo você leva pra cortar e legendar um vídeo hoje? Aqui são três passos.</p>
+      <ol class="steps">
         <li class="step">
-          <svg class="ico" width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></g></svg>
-          <span class="num">01</span>
+          <span class="num">PASSO 01</span>
           <h3>Escolha o streamer</h3>
-          <p>Você aprende a encontrar streamers que liberam cortes e a escolher os que já têm uma audiência querendo mais conteúdo.</p>
+          <p>Você aprende a achar streamers que liberam cortes e que já têm uma audiência querendo mais.</p>
         </li>
         <li class="step">
-          <svg class="ico" width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></g></svg>
-          <span class="num">02</span>
-          <h3>Cole o link da live</h3>
-          <p>A IA assiste a transmissão, marca os momentos mais fortes e corta tudo no formato vertical. Sem timeline, sem programa de edição.</p>
+          <span class="num">PASSO 02</span>
+          <h3>Mande o link da live</h3>
+          <p>A IA assiste a transmissão, marca os momentos mais fortes e corta tudo em pé, já com legenda.</p>
         </li>
         <li class="step">
-          <svg class="ico" width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3M7 8l5-5 5 5"/><path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4"/></g></svg>
-          <span class="num">03</span>
-          <h3>Legenda e posta primeiro</h3>
-          <p>Cortes legendados e prontos para TikTok, Reels e Shorts. Quem posta primeiro pega a onda do momento.</p>
-          <ul class="chips"><li>TikTok</li><li>Reels</li><li>Shorts</li></ul>
+          <span class="num">PASSO 03</span>
+          <h3>Escolha e poste primeiro</h3>
+          <p>Você escolhe os melhores cortes e publica enquanto o assunto ainda está quente.</p>
+          <ul class="tag-line"><li>TikTok</li><li>Reels</li><li>Shorts</li></ul>
         </li>
       </ol>
+    </div>
+  </section>
+
+  <!-- VOCE ESCOLHE -->
+  <section class="alt" aria-labelledby="escolhe">
+    <div class="wrap center">
+      <span class="eyebrow">Na prática</span>
+      <h2 id="escolhe" class="section-title">Você não edita. Você escolhe.</h2>
+      <p class="section-sub">A IA te entrega os momentos da live separados. Seu trabalho é bater o olho e decidir o que vai pro ar.</p>
+      <div class="panel" role="img" aria-label="Exemplo da lista de momentos que a IA separa da live, com opções para aprovar ou pular">
+        <div class="panel-head"><span class="micro">Live de ontem · 4h12 de transmissão</span><b>3 momentos</b></div>
+        <div class="moment">
+          <div class="thumb"></div>
+          <div><p class="t">A reação quando o chat descobriu</p><p class="m">01:42:10 · 0:38 · legendado</p></div>
+          <div class="acts"><span class="ok">Postar</span><span>Pular</span></div>
+        </div>
+        <div class="moment">
+          <div class="thumb"></div>
+          <div><p class="t">A jogada que ninguém esperava</p><p class="m">02:15:44 · 0:51 · legendado</p></div>
+          <div class="acts"><span class="ok">Postar</span><span>Pular</span></div>
+        </div>
+        <div class="moment">
+          <div class="thumb"></div>
+          <div><p class="t">O momento que virou meme no chat</p><p class="m">03:58:02 · 0:29 · legendado</p></div>
+          <div class="acts"><span class="ok">Postar</span><span>Pular</span></div>
+        </div>
+        <p class="micro panel-note">Exemplo ilustrativo</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARACAO -->
+  <section aria-labelledby="vs">
+    <div class="wrap">
+      <div class="center">
+        <span class="eyebrow">Tutorial × Corte Pronto</span>
+        <h2 id="vs" class="section-title">"Mas tem tutorial de graça no YouTube..."</h2>
+        <p class="section-sub">Tem, e dá pra aprender. Só que você vai juntar pedaço de vídeo por semanas, testando sozinho, enquanto as lives passam.</p>
+      </div>
+      <div class="vs">
+        <div class="card">
+          <h3>Tutorial grátis</h3>
+          <p class="sub">Você monta tudo sozinho</p>
+          <ul class="checks bad">
+            <li><svg width="18" height="18" aria-hidden="true"><use href="#i-x"/></svg>Assiste a live inteira pra achar o momento</li>
+            <li><svg width="18" height="18" aria-hidden="true"><use href="#i-x"/></svg>Corta e legenda na mão, um por um</li>
+            <li><svg width="18" height="18" aria-hidden="true"><use href="#i-x"/></svg>Descobre na tentativa e erro quem libera corte</li>
+            <li><svg width="18" height="18" aria-hidden="true"><use href="#i-x"/></svg>Posta quando o assunto já esfriou</li>
+          </ul>
+        </div>
+        <div class="card win">
+          <h3>Corte Pronto</h3>
+          <p class="sub">Já vem montado</p>
+          <ul class="checks">
+            <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>A IA assiste e separa os momentos</li>
+            <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>Cortes em pé e legendados</li>
+            <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>Como achar streamers que autorizam cortes</li>
+            <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>15 ganchos prontos e rotina pra postar no mesmo dia</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -393,15 +431,15 @@
         <h2 id="praquem" class="section-title">Foi feito pra você?</h2>
       </div>
       <div class="fit">
-        <div class="card fit-yes">
+        <div class="card">
           <h3>Foi feito pra você se...</h3>
           <ul class="checks">
-            <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>Já passa horas em live e conhece o público do seu streamer</li>
+            <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>Passa horas em live e conhece o público do seu streamer</li>
             <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>Quer construir algo seu sem aparecer e sem saber editar</li>
             <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>Topa postar com constância e aprender com os números</li>
           </ul>
         </div>
-        <div class="card fit-no">
+        <div class="card no">
           <h3>Não é pra você se...</h3>
           <ul class="checks">
             <li><svg width="18" height="18" aria-hidden="true"><use href="#i-x"/></svg>Procura dinheiro garantido sem fazer nada</li>
@@ -409,57 +447,6 @@
             <li><svg width="18" height="18" aria-hidden="true"><use href="#i-x"/></svg>Vai desistir na primeira semana</li>
           </ul>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 3. O QUE VOCE RECEBE -->
-  <section aria-labelledby="recebe">
-    <div class="wrap">
-      <div class="center">
-        <span class="eyebrow">Tudo incluso</span>
-        <h2 id="recebe" class="section-title">O que você recebe</h2>
-      </div>
-      <div class="items">
-        <article class="card main">
-          <span class="tag p">Produto principal</span>
-          <h3>Método Corte Pronto</h3>
-          <p>O passo a passo para montar seu canal de cortes com IA, do zero até o primeiro corte publicado.</p>
-          <ul class="checks">
-            <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>Como encontrar streamers que autorizam cortes</li>
-            <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>Configuração da IA que assiste, corta e legenda por você</li>
-            <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>Postagem no TikTok, Reels e Shorts</li>
-            <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>Formas de monetizar seu canal de cortes</li>
-          </ul>
-        </article>
-        <article class="card">
-          <span class="tag o">Bônus 1</span>
-          <h3>Máquina do Corte Automático</h3>
-          <ul class="checks">
-            <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>Rotina diária para manter o canal ativo</li>
-            <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>15 ganchos prontos para prender a atenção</li>
-            <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>Os formatos que mais viralizam</li>
-          </ul>
-        </article>
-        <article class="card">
-          <span class="tag c">Bônus 2</span>
-          <h3>Pack Neon City</h3>
-          <ul class="checks">
-            <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>Mais de 50 prompts de IA prontos</li>
-            <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>Thumbnails, avatares e logo do canal</li>
-            <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>Títulos e roteiros que chamam o clique</li>
-          </ul>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- DEPOIMENTO -->
-  <section class="alt" aria-labelledby="depo">
-    <div class="wrap">
-      <div class="center" style="margin-bottom:28px">
-        <span class="eyebrow">Quem já está usando</span>
-        <h2 id="depo" class="section-title">O que dizem os alunos</h2>
       </div>
       <figure class="quote">
         <svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9.6 5C6 6.6 4 9.6 4 13.5V19h6v-6H7c0-2.7 1.2-4.6 3.6-5.8zm10 0C16 6.6 14 9.6 14 13.5V19h6v-6h-3c0-2.7 1.2-4.6 3.6-5.8z"/></svg>
@@ -469,31 +456,34 @@
     </div>
   </section>
 
-  <!-- 4. OFERTA -->
+  <!-- OFERTA -->
   <section id="oferta" aria-labelledby="oferta-titulo">
     <div class="wrap">
       <div class="offer">
-        <span class="eyebrow">Oferta de lançamento</span>
-        <h2 id="oferta-titulo">Quem chega primeiro bebe água limpa</h2>
-        <p class="what">Corte Pronto + 2 bônus</p>
-        <p class="urg">Momento de live tem prazo de validade. O corte que sai no mesmo dia pega a onda. O que sai na semana seguinte ninguém vê.</p>
+        <div class="center">
+          <span class="eyebrow">Oferta de lançamento</span>
+          <h2 id="oferta-titulo">Quem chega primeiro bebe água limpa</h2>
+          <p class="urg">Momento de live tem prazo de validade. O corte que sai no mesmo dia pega a onda. O que sai na semana seguinte ninguém vê.</p>
+        </div>
+        <h3>O que você recebe</h3>
         <ul class="checks">
-          <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>Método Corte Pronto</li>
-          <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>Bônus: Máquina do Corte Automático</li>
-          <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>Bônus: Pack Neon City</li>
+          <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>Método Corte Pronto: do streamer escolhido ao primeiro corte no ar</li>
+          <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>Como usar a IA pra assistir, cortar em pé e legendar</li>
+          <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>Como achar streamers que autorizam cortes</li>
+          <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>Bônus: Máquina do Corte Automático, com rotina diária, 15 ganchos prontos e os formatos que mais viralizam</li>
+          <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>Bônus: Pack Neon City, com mais de 50 prompts de IA pra thumbnail, avatar, logo, títulos e roteiros</li>
           <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>Garantia de 7 dias</li>
         </ul>
         <p class="from">De <s>R$197</s> por apenas</p>
         <p class="price"><span class="val" aria-label="47 reais"><span>R$</span>47</span></p>
-        <p class="once">Pagamento único. Sem mensalidade.</p>
-        <span class="off">Economia de R$150</span>
-        <a class="btn js-checkout" href="https://pay.cakto.com.br/6zbdc5g_1343991" data-checkout>Quero começar agora <svg width="20" height="20" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-        <p class="secure"><svg width="16" height="16" aria-hidden="true"><use href="#i-lock"/></svg>Compra segura · Acesso imediato por e-mail</p>
+        <p class="pay"><b>Pagamento único.</b> Pix ou cartão. Sem mensalidade.</p>
+        <a class="btn" href="https://pay.cakto.com.br/6zbdc5g_1343991" data-checkout>Quero meus cortes prontos <svg width="20" height="20" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <p class="secure"><svg width="16" height="16" aria-hidden="true"><use href="#i-lock"/></svg>Compra segura · O acesso chega no seu e-mail na hora</p>
       </div>
     </div>
   </section>
 
-  <!-- 5. GARANTIA -->
+  <!-- GARANTIA -->
   <section class="alt" aria-labelledby="garantia">
     <div class="wrap">
       <div class="guarantee">
@@ -503,51 +493,59 @@
           <text x="32" y="47" text-anchor="middle" fill="currentColor" font-family="Inter, sans-serif" font-weight="800" font-size="7" letter-spacing=".5">DIAS</text>
         </svg>
         <div>
-          <h2 id="garantia">Garantia incondicional de 7 dias</h2>
-          <p>Entre, assista, aplique. Se em até 7 dias você achar que o Corte Pronto não é para você, basta pedir o reembolso e <strong>devolvemos 100% do seu dinheiro</strong>. Sem perguntas e sem burocracia.</p>
-          <p class="risk">O risco é nosso, não é seu.</p>
+          <h2 id="garantia">Garantia de 7 dias</h2>
+          <p>Entre, assista e faça seus primeiros cortes. Se em até 7 dias você achar que não é pra você, pede o reembolso e <strong>recebe 100% do valor de volta</strong>. Sem perguntas.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 6. FAQ -->
+  <!-- FAQ -->
   <section aria-labelledby="faq">
     <div class="wrap">
       <div class="center">
-        <span class="eyebrow">Dúvidas</span>
-        <h2 id="faq" class="section-title">Perguntas frequentes</h2>
-        <p class="section-sub">Não saia da página com dúvida.</p>
+        <span class="eyebrow">Perguntas</span>
+        <h2 id="faq" class="section-title">Ficou alguma dúvida?</h2>
+        <p class="section-sub">As respostas diretas, antes de você comprar.</p>
       </div>
       <div class="faq">
         <details>
           <summary>Preciso saber editar vídeo?</summary>
-          <p>Não. A IA encontra os melhores momentos, corta no formato vertical e coloca as legendas. Você só aprende a configurar uma vez e a publicar.</p>
+          <p>Não. A IA separa os momentos, corta em pé e coloca a legenda. Você aprende a configurar e a escolher o que postar.</p>
         </details>
         <details>
           <summary>Posso cortar qualquer streamer?</summary>
-          <p>Não. O método ensina a trabalhar com streamers que autorizam cortes do seu conteúdo, para você crescer do jeito certo e sem dor de cabeça com direitos autorais.</p>
+          <p>Não. O método ensina a trabalhar com streamers que autorizam cortes, pra você crescer sem dor de cabeça com direitos autorais.</p>
         </details>
         <details>
           <summary>Funciona pelo celular?</summary>
-          <p>Sim. Você consegue assistir às aulas, configurar a IA e postar os cortes direto do celular. Se tiver computador, também funciona.</p>
-        </details>
-        <details>
-          <summary>Como recebo o acesso?</summary>
-          <p>Logo após a confirmação do pagamento, você recebe no seu e-mail os dados de acesso ao Corte Pronto e aos 2 bônus.</p>
+          <p>Sim. Dá pra assistir às aulas, usar a IA e postar os cortes pelo celular. Com computador também funciona.</p>
         </details>
         <details>
           <summary>Em quanto tempo vejo resultado?</summary>
           <p>Depende de você. Canal de cortes cresce com constância: quem posta todo dia aprende mais rápido o que funciona. O método te dá o caminho e as ferramentas, mas não prometemos números nem prazos.</p>
         </details>
         <details>
+          <summary>Tem mensalidade?</summary>
+          <p>Não. Você paga uma vez e o acesso é seu.</p>
+        </details>
+        <details>
+          <summary>Como posso pagar?</summary>
+          <p>Pix ou cartão de crédito, direto no checkout seguro.</p>
+        </details>
+        <details>
+          <summary>Como recebo o acesso?</summary>
+          <p>Logo após a confirmação do pagamento, os dados de acesso ao Corte Pronto e aos 2 bônus chegam no seu e-mail.</p>
+        </details>
+        <details>
           <summary>E se eu não gostar?</summary>
-          <p>Você tem 7 dias de garantia. Se achar que não é pra você, pede o reembolso e recebe 100% de volta.</p>
+          <p>Você tem 7 dias de garantia. Pede o reembolso e recebe 100% de volta.</p>
         </details>
       </div>
+
       <div class="final">
-        <h2>Hoje à noite tem live</h2>
-        <p>Os melhores momentos dela vão ser cortados e postados. A única dúvida é por quem.</p>
+        <h2>Pare de só assistir. Comece a postar.</h2>
+        <p>Hoje à noite tem live. Os melhores momentos dela vão ser cortados e postados. A única dúvida é por quem.</p>
         <a class="btn" href="#oferta">Quero meus cortes prontos por R$47 <svg width="20" height="20" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         <p class="micro" style="margin:16px 0 0">Acesso imediato · Pagamento único · Garantia de 7 dias</p>
       </div>
@@ -555,7 +553,6 @@
   </section>
 </main>
 
-<!-- 7. RODAPE -->
 <footer>
   <div class="wrap legal">
     <p>Corte Pronto é um produto independente. Não é afiliado, patrocinado ou aprovado pela Rockstar Games, Take-Two Interactive ou por qualquer streamer.</p>
@@ -564,13 +561,18 @@
   </div>
 </footer>
 
+<div class="buybar" id="buybar" aria-hidden="true">
+  <div class="bb-price"><s>De R$197</s> <span class="bb-off">-76%</span><b>R$47</b></div>
+  <a class="btn" href="#oferta" tabindex="-1">Quero meus cortes</a>
+</div>
+
 <a id="wa" class="wa" href="#" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
   <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.3z"/></svg>
 </a>
 
 <script>
   (function(){
-    // Aplica o link do checkout e dispara InitiateCheckout no clique
+    // Link do checkout + evento InitiateCheckout
     var links = document.querySelectorAll("[data-checkout]");
     for (var i = 0; i < links.length; i++) {
       links[i].href = CONFIG.checkout;
@@ -580,18 +582,32 @@
         }
       });
     }
-    // Botao flutuante de WhatsApp (so aparece se CONFIG.whatsapp estiver preenchido)
+    // WhatsApp
     var num = (CONFIG.whatsapp || "").replace(/\D/g, "");
     if (num) {
       var wa = document.getElementById("wa");
       wa.href = "https://wa.me/" + num + "?text=" + encodeURIComponent("Olá! Tenho uma dúvida sobre o Corte Pronto.");
       wa.className += " on";
     }
-    // Aplica o e-mail de suporte
+    // E-mail de suporte
     var mails = document.querySelectorAll(".js-email");
     for (var j = 0; j < mails.length; j++) {
       mails[j].href = "mailto:" + CONFIG.email;
       mails[j].textContent = CONFIG.email;
+    }
+    // Barra fixa: aparece depois do topo, some quando a oferta esta na tela
+    var bar = document.getElementById("buybar");
+    if ("IntersectionObserver" in window) {
+      var heroOut = false, offerIn = false;
+      var update = function(){
+        var show = heroOut && !offerIn;
+        bar.classList.toggle("show", show);
+        bar.setAttribute("aria-hidden", show ? "false" : "true");
+        document.body.classList.toggle("bb", show);
+        bar.querySelector("a").tabIndex = show ? 0 : -1;
+      };
+      new IntersectionObserver(function(e){ heroOut = !e[0].isIntersecting && e[0].boundingClientRect.top < 0; update(); }).observe(document.querySelector(".hero-cta"));
+      new IntersectionObserver(function(e){ offerIn = e[0].isIntersecting; update(); }, { threshold: 0.15 }).observe(document.getElementById("oferta"));
     }
   })();
 </script>
