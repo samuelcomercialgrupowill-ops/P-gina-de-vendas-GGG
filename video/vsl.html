@@ -92,6 +92,28 @@ body{width:720px;height:1280px;overflow:hidden;background:var(--bg);color:var(--
 .big{font:800 84px/1.02 var(--d);letter-spacing:-.035em;text-align:center;padding:0 40px}
 .big b{background:linear-gradient(90deg,var(--coral),var(--amber));-webkit-background-clip:text;color:transparent}
 .btn{margin-top:46px;background:#FAFAFA;color:#09090B;font:800 32px Inter;padding:30px 44px;border-radius:22px;display:flex;align-items:center;gap:14px;box-shadow:0 20px 60px -10px rgba(255,255,255,.35)}
+.bt-title{font:800 54px/1.05 var(--d);letter-spacing:-.03em;text-align:center;margin-bottom:34px;padding:0 30px}
+.term{width:600px;padding:22px 26px;font:600 25px/1.9 ui-monospace,Menlo,Consolas,monospace}
+.term .tbar{display:flex;gap:8px;align-items:center;margin-bottom:10px;font-size:15px;color:var(--muted)}
+.term .tbar i{width:12px;height:12px;border-radius:50%;background:#3F3F46}
+.term .tbar span{margin-left:8px}
+.term b{color:var(--amber)}
+.stack{position:relative;width:560px;height:380px}
+.pc{position:absolute;left:0;right:0;padding:24px;border-radius:20px;background:var(--card);border:1px solid var(--line);font:600 21px/1.35 Inter;color:#E4E4E7;box-shadow:0 30px 60px -20px rgba(0,0,0,.9)}
+.pc small{display:block;font:800 14px ui-monospace,monospace;letter-spacing:3px;color:var(--amber);margin-bottom:8px}
+.plus{margin-top:10px;font:800 46px var(--d);background:linear-gradient(90deg,var(--coral),var(--amber));-webkit-background-clip:text;color:transparent}
+.routine{width:600px;padding:26px}
+.days{display:grid;grid-template-columns:repeat(7,1fr);text-align:center;font:800 15px Inter;color:var(--muted);gap:6px}
+.dots{margin-top:10px}
+.dots i{height:46px;border-radius:10px;background:#1E1E24}
+.dots i.on{background:var(--amber)}
+.hooks{margin-top:22px;display:grid;gap:12px}
+.hooks p{font:700 23px/1.3 Inter;padding:14px 16px;border-radius:12px;background:#0E0E12;border:1px solid var(--line)}
+.hk-n{margin-top:16px;text-align:center;font:800 26px var(--d);color:var(--amber)}
+.stackl{list-style:none;text-align:left;display:grid;gap:12px;margin-bottom:26px;font:700 27px Inter}
+.stackl b{color:var(--amber);margin-right:8px}
+.down{margin-top:50px;display:flex;flex-direction:column;align-items:center;gap:14px;font:800 34px Inter;color:var(--amber)}
+.down svg{color:var(--text)}
 </style></head><body>
 <div id="glow"></div><div id="grid"></div><div id="prog"></div>
 <div id="brand"><svg width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.6 7.6L20 18M8.6 16.4L20 6"/></g></svg>Corte Pronto</div>
@@ -118,77 +140,79 @@ body{width:720px;height:1280px;overflow:hidden;background:var(--bg);color:var(--
 <div class="scene" id="s5"><div class="k"><i></i>3 melhores momentos</div>
   <div class="tl"><em id="m1" style="left:10%;width:13%"></em><em id="m2" style="left:45%;width:10%"></em><em id="m3" style="left:76%;width:14%"></em></div>
   <div class="clips"><div class="clip" id="c1"><p>O chat <b>surtou</b></p></div><div class="clip" id="c2"><p>Ninguém <b>esperava</b></p></div><div class="clip" id="c3"><p>Virou <b>meme</b></p></div></div></div>
-<!-- S6 painel -->
-<div class="scene" id="s6"><div class="k"><i></i>Você só escolhe</div>
-  <div class="card panel" style="position:relative">
-    <div class="mo"><div class="th"></div><div class="tx"><b>A reação quando o chat descobriu</b><small>01:42:10 · 0:38</small></div><div class="bt" id="b1">Postar</div></div>
-    <div class="mo"><div class="th" style="background:linear-gradient(170deg,#27272A,#7A4A12)"></div><div class="tx"><b>A jogada que ninguém esperava</b><small>02:15:44 · 0:51</small></div><div class="bt" id="b2">Postar</div></div>
-    <div class="mo"><div class="th" style="background:linear-gradient(170deg,#27272A,#3B3B46)"></div><div class="tx"><b>O momento que virou meme</b><small>03:58:02 · 0:29</small></div><div class="bt" id="b3">Postar</div></div>
-    <div class="cursor" id="cur"></div></div></div>
 <!-- S7 plataformas -->
 <div class="scene" id="s7"><div class="k"><i></i>No mesmo dia</div>
   <div class="phones"><div class="mini" id="p1"><span class="pl">TikTok</span><span class="ok">Publicado</span></div><div class="mini" id="p2" style="height:380px;background:linear-gradient(170deg,#1B1B22,#7A4A12)"><span class="pl">Reels</span><span class="ok">Publicado</span></div><div class="mini" id="p3" style="background:linear-gradient(170deg,#1B1B22,#3B3B46)"><span class="pl">Shorts</span><span class="ok">Publicado</span></div></div></div>
-<!-- S8 onda -->
-<div class="scene" id="s8"><div class="k"><i></i>Interesse no assunto</div>
-  <div class="card chart"><svg viewBox="0 0 572 332" width="572" height="332"><path id="curve" d="M0,320 C60,320 80,30 150,30 C230,30 260,250 340,290 C420,320 480,322 572,324" fill="none" stroke="url(#gr)" stroke-width="8" stroke-linecap="round"/><defs><linearGradient id="gr"><stop offset="0" stop-color="#FFB23F"/><stop offset="1" stop-color="#FF6A3D"/></linearGradient></defs></svg>
-    <div class="pin" id="pinA" style="left:120px;top:10px">Mesmo dia</div><div class="pin pin2" id="pinB" style="left:430px;top:270px">7 dias depois</div></div></div>
+<!-- B1 skill -->
+<div class="scene" id="b1"><div class="k"><i></i>Bônus 1</div><div class="bt-title">Skill de Edição</div>
+  <div class="card term"><div class="tbar"><i></i><i></i><i></i><span>skill-de-edicao</span></div>
+    <p id="t1">› editando corte_01.mp4</p><p id="t2"><b>✓</b> corte em pé 9:16</p><p id="t3"><b>✓</b> legenda palavra por palavra</p><p id="t4"><b>✓</b> zoom nos momentos fortes</p><p id="t5"><b>✓</b> pronto pra postar</p></div></div>
+<!-- B2 prompts -->
+<div class="scene" id="b2"><div class="k"><i></i>Bônus 2</div><div class="bt-title">Pack de Prompts de Edição</div>
+  <div class="stack"><div class="pc" id="q1"><small>CORTE</small>Encontre os 3 momentos com mais reação do chat...</div><div class="pc" id="q2"><small>LEGENDA</small>Escreva a legenda com gancho nos 2 primeiros segundos...</div><div class="pc" id="q3"><small>THUMBNAIL</small>Crie uma capa vertical com a expressão do streamer...</div></div>
+  <div class="plus" id="plus">+50 prompts</div></div>
+<!-- B3 maquina -->
+<div class="scene" id="b3"><div class="k"><i></i>Bônus 3</div><div class="bt-title">Máquina do Corte Automático</div>
+  <div class="card routine"><div class="days"><span>SEG</span><span>TER</span><span>QUA</span><span>QUI</span><span>SEX</span><span>SÁB</span><span>DOM</span></div><div class="days dots" id="dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="hooks"><p id="h1">"Ninguém esperava o que ele fez aqui"</p><p id="h2">"O chat não acreditou nisso"</p><p id="h3">"Espera até o final"</p></div><div class="hk-n">15 ganchos prontos</div></div></div>
 <!-- S9 preco -->
-<div class="scene" id="s9"><div class="card price"><div class="from">De <s>R$197</s> por</div><div class="val"><span>R$</span>47</div><div class="chips"><span>Pagamento único</span><span>Sem mensalidade</span></div></div></div>
+<div class="scene" id="s9"><div class="card price"><ul class="stackl"><li id="l1"><b>✓</b> Corte Pronto</li><li id="l2"><b>✓</b> Skill de Edição</li><li id="l3"><b>✓</b> Pack de Prompts de Edição</li><li id="l4"><b>✓</b> Máquina do Corte Automático</li></ul><div class="from">De <s>R$197</s> por</div><div class="val"><span>R$</span>47</div><div class="chips"><span>Pagamento único</span></div></div></div>
 <!-- S10 garantia -->
-<div class="scene" id="s10"><svg class="shield" viewBox="0 0 64 64"><path d="M32 4l22 8v17c0 15-9.5 26-22 31C19.5 55 10 44 10 29V12z" fill="rgba(255,255,255,.05)" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><text x="32" y="37" text-anchor="middle" fill="#FFB23F" font-family="Bricolage Grotesque" font-weight="800" font-size="22">7</text><text x="32" y="47" text-anchor="middle" fill="currentColor" font-family="Inter" font-weight="800" font-size="6.5" letter-spacing=".6">DIAS</text></svg><div class="gt">Não gostou?<br>Recebe tudo de volta.</div></div>
+<div class="scene" id="s10"><svg class="shield" viewBox="0 0 64 64"><path d="M32 4l22 8v17c0 15-9.5 26-22 31C19.5 55 10 44 10 29V12z" fill="rgba(255,255,255,.05)" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><text x="32" y="37" text-anchor="middle" fill="#FFB23F" font-family="Bricolage Grotesque" font-weight="800" font-size="22">7</text><text x="32" y="47" text-anchor="middle" fill="currentColor" font-family="Inter" font-weight="800" font-size="6.5" letter-spacing=".6">DIAS</text></svg><div class="gt">7 dias de<br>garantia</div></div>
 <!-- S11 cta -->
-<div class="scene" id="s11"><div class="big">Hoje à noite<br><b>tem live.</b></div><div class="btn" id="cta">Quero meus cortes prontos <svg width="34" height="34" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
+<div class="scene" id="s11"><div class="big">Hoje à noite<br><b>tem live.</b></div><div class="down" id="down"><span>Clique no botão abaixo</span><svg width="70" height="70" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M12 4v15M6 13l6 6 6-6"/></svg></div></div>
 
 <div id="caps"></div>
 <script>
 const LINES=[
  [0,3.474,"O corte que viralizou ontem podia ter sido seu."],
- [3.474,3.709,"Você estava na live. Você viu o momento acontecer."],
- [7.184,3.971,"Mas outra pessoa cortou, legendou e postou primeiro."],
- [11.154,6.531,"Editando na mão, um único corte pode levar horas. E quando fica pronto, o assunto já esfriou."],
- [17.685,4.754,"Com o Corte Pronto, a inteligência artificial assiste a live junto com você."],
- [22.439,4.284,"Ela separa os melhores momentos, corta em pé e coloca a legenda."],
- [26.723,3.318,"Você não edita. Você só escolhe o que vai pro ar."],
- [30.041,6.034,"E posta no TikTok, no Reels e no Shorts, enquanto todo mundo ainda está falando daquilo."],
- [36.075,4.754,"Momento de live tem prazo de validade. Quem posta primeiro pega a onda."],
- [40.829,6.426,"O Corte Pronto sai de cento e noventa e sete, por quarenta e sete reais. Pagamento único, sem mensalidade."],
- [47.256,4.911,"E se não for pra você, são sete dias de garantia. Você recebe tudo de volta."],
- [52.167,3.971,"Hoje à noite tem live. Toque no botão e comece a postar."]];
-// legenda: quebra cada fala em blocos de ate ~4 palavras, tempo por peso de letras
+ [3.474,3.631,"Você estava na live. Viu o momento acontecer."],
+ [7.105,3.971,"Mas outra pessoa cortou, legendou e postou primeiro."],
+ [11.076,6.687,"Editando na mão, um único corte pode levar horas. Quando fica pronto, o assunto já esfriou."],
+ [17.763,4.833,"Com o Corte Pronto, a inteligência artificial assiste a live junto com você."],
+ [22.596,5.146,"Ela acha os melhores momentos, corta em pé, edita e coloca a legenda."],
+ [27.742,5.146,"Você só escolhe o que vai pro ar e posta no TikTok, no Reels e no Shorts."],
+ [32.888,6.687,"E você não leva só o método. Leva também a Skill de Edição, que deixa a IA editando os seus cortes."],
+ [39.576,7.314,"O Pack de Prompts de Edição, com mais de cinquenta prompts prontos pra corte, legenda, gancho e thumbnail."],
+ [46.890,5.251,"E a Máquina do Corte Automático, com a rotina diária e quinze ganchos prontos."],
+ [52.140,5.799,"Tudo isso sai de cento e noventa e sete, por quarenta e sete reais. Pagamento único."],
+ [57.940,3.474,"E se não for pra você, são sete dias de garantia."],
+ [61.414,4.284,"Hoje à noite tem live. Clique no botão abaixo e comece a postar."]];
+const OFF=0.2, END=68;
+const SC=['s0','s1','s2','s3','s4','s5','s7','b1','b2','b3','s9','s10','s11'];
 const CH=[];
-LINES.forEach(([st,du,tx])=>{const w=tx.split(" ");const end=st+du*0.93;const wt=w.map(x=>x.length+2);const tot=wt.reduce((a,b)=>a+b,0);let acc=st;const words=w.map((x,i)=>{const s=acc;acc+=(end-st)*wt[i]/tot;return{w:x,s}});
- let g=[];words.forEach((x,i)=>{g.push(x);if(g.length>=4||/[.]$/.test(x.w)||i==words.length-1){if(g.length==1&&CH.length&&!/[.]$/.test(CH[CH.length-1].slice(-1)[0].w)){CH[CH.length-1].push(...g)}else CH.push(g);g=[]}})});
+LINES.forEach(([st,du,tx])=>{st+=OFF;const w=tx.split(" ");const end=st+du*0.93;const wt=w.map(x=>x.length+2);const tot=wt.reduce((a,b)=>a+b,0);let acc=st;const words=w.map((x,i)=>{const s=acc;acc+=(end-st)*wt[i]/tot;return{w:x,s}});
+ let g=[];words.forEach((x,i)=>{g.push(x);if(g.length>=4||/[.,]$/.test(x.w)&&g.length>=2||/[.]$/.test(x.w)||i==words.length-1){if(g.length==1&&CH.length&&!/[.]$/.test(CH[CH.length-1].slice(-1)[0].w)){CH[CH.length-1].push(...g)}else CH.push(g);g=[]}})});
 CH.forEach((g,i)=>{g.end=(CH[i+1]?CH[i+1][0].s:99)});
 const caps=document.getElementById('caps');let lastChunk=-1;
 const cl=(x,a=0,b=1)=>Math.max(a,Math.min(b,x)),ease=x=>1-Math.pow(1-cl(x),3),$=id=>document.getElementById(id);
-const S=LINES.map(l=>l[0]);S.push(58);
+const ST=LINES.map(l=>l[0]+OFF);ST.push(END);const L=i=>ST[i];
 function fmt(n){return n>=1e6?(n/1e6).toFixed(1).replace('.',',')+' mi':n>=1e3?Math.round(n/1e3)+' mil':Math.round(n)+''}
 window.render=function(t){
- $('prog').style.width=(t/58*100)+'%';
- for(let i=0;i<12;i++){const el=$('s'+i);const a=S[i],b=S[i+1];const lt=t-a;let o=0,y=0,sc=1;
-  if(t>=a-0.05&&t<b+0.35){const inn=ease(lt/0.45),out=1-ease((t-(b-0.05))/0.35);o=Math.min(inn,i==11?1:out);y=(1-inn)*60;sc=0.94+0.06*inn}
-  el.style.opacity=o;el.style.transform=`translateY(${y}px) scale(${sc})`;el.style.display=o>0?'flex':'none'}
- // detalhes por cena
+ $('prog').style.width=(t/END*100)+'%';
+ SC.forEach((id,i)=>{const el=$(id);const a=ST[i],b=ST[i+1];const lt=t-a;let o=0,y=0,sc=1;
+  if(t>=a-0.05&&t<b+0.35){const inn=ease(lt/0.45),out=1-ease((t-(b-0.05))/0.35);o=Math.min(inn,i==SC.length-1?1:out);y=(1-inn)*60;sc=0.94+0.06*inn}
+  el.style.opacity=o;el.style.transform=`translateY(${y}px) scale(${sc})`;el.style.display=o>0?'flex':'none'});
  $('v0').textContent=fmt(1.2e6*ease(t/3))+' views';
- const c=$('chat').children;for(let i=0;i<c.length;i++){c[i].style.opacity=cl((t-3.6-i*0.45)/0.25)}
- $('v2').textContent=fmt(860e3*ease((t-7.4)/3.4))+' views';
- const e=cl((t-11.3)/6.2);$('ph').style.left=(e*100)+'%';const mins=Math.round(e*167);$('clk').firstChild.textContent=Math.floor(mins/60)+'h '+String(mins%60).padStart(2,'0')+'min';
- $('logo').style.transform=`scale(${0.8+0.2*ease((t-17.7)/0.6)})`;$('scan').style.left=(((t-17.7)*180)%680-120)+'px';
- ['m1','m2','m3'].forEach((m,i)=>{$(m).style.opacity=cl((t-22.6-i*0.5)/0.3)});
- ['c1','c2','c3'].forEach((m,i)=>{const k=ease((t-24.2-i*0.35)/0.5);$(m).style.opacity=k;$(m).style.transform=`translateY(${(1-k)*80}px) rotate(${(i-1)*(4*(1-k))}deg)`});
- // cursor clica postar
- const pts=[[27.4,'b1',540,70],[28.4,'b2',540,212],[29.3,'b3',540,354]];let cx=600,cy=420;
- pts.forEach(([tt,id,x,y],i)=>{const prev=i?pts[i-1]:[26.8,null,600,420];const k=ease((t-prev[0])/(tt-prev[0]));if(t>=prev[0]){cx=prev[2]+(x-prev[2])*k;cy=prev[3]+(y-prev[3])*k}const on=t>tt;$(id).classList.toggle('ok',on);$(id).textContent=on?'Postado':'Postar'});
- $('cur').style.left=cx+'px';$('cur').style.top=cy+'px';
- ['p1','p2','p3'].forEach((m,i)=>{const k=ease((t-30.2-i*0.6)/0.5);$(m).style.opacity=k;$(m).style.transform=`translateY(${(1-k)*90}px)`;$(m).lastChild.style.opacity=cl((t-31.5-i*0.9)/0.3)});
- const L=1100;const cv=$('curve');cv.style.strokeDasharray=L;cv.style.strokeDashoffset=L*(1-ease((t-36.2)/2.2));
- $('pinA').style.opacity=cl((t-37.4)/0.3);$('pinB').style.opacity=cl((t-38.8)/0.3);
- $('cta').style.transform=`scale(${t>53?1+0.04*Math.sin((t-53)*6):ease((t-52.6)/0.5)})`;
- // legenda
+ const c=$('chat').children;for(let i=0;i<c.length;i++){c[i].style.opacity=cl((t-L(1)-0.1-i*0.45)/0.25)}
+ $('v2').textContent=fmt(860e3*ease((t-L(2)-0.2)/3.4))+' views';
+ const e=cl((t-L(3)-0.1)/6.4);$('ph').style.left=(e*100)+'%';const mins=Math.round(e*167);$('clk').firstChild.textContent=Math.floor(mins/60)+'h '+String(mins%60).padStart(2,'0')+'min';
+ $('logo').style.transform=`scale(${0.8+0.2*ease((t-L(4))/0.6)})`;$('scan').style.left=(((t-L(4))*180)%680-120)+'px';
+ ['m1','m2','m3'].forEach((m,i)=>{$(m).style.opacity=cl((t-L(5)-0.2-i*0.5)/0.3)});
+ ['c1','c2','c3'].forEach((m,i)=>{const k=ease((t-L(5)-1.6-i*0.35)/0.5);$(m).style.opacity=k;$(m).style.transform=`translateY(${(1-k)*80}px) rotate(${(i-1)*(4*(1-k))}deg)`});
+ ['p1','p2','p3'].forEach((m,i)=>{const k=ease((t-L(6)-0.1-i*0.5)/0.5);$(m).style.opacity=k;$(m).style.transform=`translateY(${(1-k)*90}px)`;$(m).lastChild.style.opacity=cl((t-L(6)-2.2-i*0.7)/0.3)});
+ ['t1','t2','t3','t4','t5'].forEach((m,i)=>{$(m).style.opacity=cl((t-L(7)-0.6-i*1.0)/0.25)});
+ ['q1','q2','q3'].forEach((m,i)=>{const k=ease((t-L(8)-0.3-i*0.9)/0.5);$(m).style.opacity=k;$(m).style.top=(i*124+(1-k)*60)+'px';$(m).style.transform=`rotate(${(i-1)*2}deg)`});
+ $('plus').style.opacity=cl((t-L(8)-3.4)/0.4);
+ [...$('dots').children].forEach((d,i)=>d.classList.toggle('on',t>L(9)+0.4+i*0.25));
+ ['h1','h2','h3'].forEach((m,i)=>{$(m).style.opacity=cl((t-L(9)-2.2-i*0.6)/0.3)});
+ ['l1','l2','l3','l4'].forEach((m,i)=>{$(m).style.opacity=cl((t-L(10)-0.1-i*0.45)/0.25)});
+ const dn=$('down');dn.style.opacity=cl((t-L(12)-1.6)/0.4);dn.querySelector('svg').style.transform=`translateY(${Math.abs(Math.sin((t-L(12))*4))*16}px)`;
  let ci=-1;for(let i=0;i<CH.length;i++){if(t>=CH[i][0].s-0.05)ci=i}
  if(ci!==lastChunk){caps.innerHTML=ci<0?'':CH[ci].map(x=>'<span>'+x.w+'</span>').join('');lastChunk=ci}
  if(ci>=0){const sp=caps.children;CH[ci].forEach((x,i)=>{const nxt=CH[ci][i+1]?CH[ci][i+1].s:CH[ci].end;sp[i].className=t>=x.s?(t<nxt?'now':'on'):''})}
- if(t>56.3)caps.style.opacity=0;else caps.style.opacity=1;
+ caps.style.opacity=t>L(12)+4.4?0:1;
 };
 render(0);
-</script></body></html>
+</script>
+</body></html>

@@ -103,8 +103,16 @@
   .trust li{display:flex;align-items:center;gap:6px}
   .trust svg{color:var(--orange)}
 
+  /* Entregaveis */
+  .deliv{display:grid;gap:10px}
+  .dv{border:1px solid var(--line);border-radius:14px;padding:16px;background:#0E0E11}
+  .dv.main{border-color:#52525B;background:#18181D}
+  .dv-tag{display:inline-block;font:800 11px/1 ui-monospace,Menlo,Consolas,monospace;letter-spacing:1.5px;text-transform:uppercase;color:var(--orange);margin-bottom:8px}
+  .dv b{display:block;font-family:var(--display);font-size:20px;letter-spacing:-.01em;margin-bottom:4px}
+  .dv p{color:var(--muted);font-size:15px;line-height:1.5}
+
   /* VSL */
-  .vsl-wrap{margin:30px auto 0;display:grid;justify-items:center;gap:10px}
+  .vsl-wrap{margin:26px auto 0;display:grid;justify-items:center;gap:10px}
   .vsl{position:relative;width:min(300px,78vw);aspect-ratio:9/16;border-radius:26px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 70px -25px rgba(255,106,61,.35);background:#000}
   .vsl video{width:100%;height:100%;object-fit:cover;display:block}
   .vsl-sound{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);display:flex;align-items:center;gap:8px;min-height:48px;padding:10px 18px;border-radius:999px;border:0;background:#FAFAFA;color:#09090B;font:800 15px/1 "Inter",sans-serif;white-space:nowrap;cursor:pointer;box-shadow:0 10px 30px -8px rgba(0,0,0,.8);animation:pulse 1.8s ease-in-out infinite}
@@ -290,15 +298,6 @@
       <h1>O corte que viralizou ontem <span class="grad">podia ter sido seu</span></h1>
       <p class="lead">Você estava na live. Viu o momento acontecer. <strong>Com o Corte Pronto, a IA assiste junto, separa os melhores momentos, corta em pé e legenda.</strong> Você escolhe e posta antes de todo mundo.</p>
 
-      <div class="hero-cta">
-        <a class="btn" href="#oferta">Quero meus cortes prontos <svg width="20" height="20" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-        <a class="btn btn-ghost" href="#como">Ver como funciona</a>
-      </div>
-      <ul class="trust" aria-label="Vantagens">
-        <li><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg>Acesso imediato</li>
-        <li><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg>Pagamento único</li>
-        <li><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg>Garantia de 7 dias</li>
-      </ul>
 
       <div class="vsl-wrap">
         <div class="vsl">
@@ -308,8 +307,14 @@
         <span class="micro">Seu vídeo já começou</span>
       </div>
 
-
-
+      <div class="hero-cta">
+        <a class="btn" href="https://pay.cakto.com.br/6zbdc5g_1343991" data-checkout>Quero meus cortes prontos por R$47 <svg width="20" height="20" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+      <ul class="trust" aria-label="Vantagens">
+        <li><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg>Acesso imediato</li>
+        <li><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg>Pagamento único</li>
+        <li><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg>Garantia de 7 dias</li>
+      </ul>
     </div>
   </header>
 
@@ -418,7 +423,7 @@
             <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>A IA assiste e separa os momentos</li>
             <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>Cortes em pé e legendados</li>
             <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>Como achar streamers que autorizam cortes</li>
-            <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>15 ganchos prontos e rotina pra postar no mesmo dia</li>
+            <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>Skill de Edição, 50+ prompts e 15 ganchos prontos</li>
           </ul>
         </div>
       </div>
@@ -468,14 +473,12 @@
           <p class="urg">Momento de live tem prazo de validade. O corte que sai no mesmo dia pega a onda. O que sai na semana seguinte ninguém vê.</p>
         </div>
         <h3>O que você recebe</h3>
-        <ul class="checks">
-          <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>Método Corte Pronto: do streamer escolhido ao primeiro corte no ar</li>
-          <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>Como usar a IA pra assistir, cortar em pé e legendar</li>
-          <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>Como achar streamers que autorizam cortes</li>
-          <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>Bônus: Máquina do Corte Automático, com rotina diária, 15 ganchos prontos e os formatos que mais viralizam</li>
-          <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>Bônus: Pack Neon City, com mais de 50 prompts de IA pra thumbnail, avatar, logo, títulos e roteiros</li>
-          <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>Garantia de 7 dias</li>
-        </ul>
+        <div class="deliv">
+          <div class="dv main"><span class="dv-tag">Produto principal</span><b>Corte Pronto</b><p>O método completo: como achar streamers que autorizam cortes, usar a IA pra assistir a live, separar os melhores momentos, cortar em pé, legendar e postar no mesmo dia.</p></div>
+          <div class="dv"><span class="dv-tag">Bônus 1</span><b>Skill de Edição</b><p>Uma skill pronta que deixa a IA editando seus cortes: formato em pé, legenda palavra por palavra e zoom nos momentos fortes.</p></div>
+          <div class="dv"><span class="dv-tag">Bônus 2</span><b>Pack de Prompts de Edição</b><p>Mais de 50 prompts prontos pra achar momentos, escrever legenda, criar gancho, título e thumbnail.</p></div>
+          <div class="dv"><span class="dv-tag">Bônus 3</span><b>Máquina do Corte Automático</b><p>Rotina diária pra postar todo dia, 15 ganchos prontos e os formatos que mais viralizam.</p></div>
+        </div>
         <p class="from">De <s>R$197</s> por apenas</p>
         <p class="price"><span class="val" aria-label="47 reais"><span>R$</span>47</span></p>
         <p class="pay"><b>Pagamento único.</b> Pix ou cartão. Sem mensalidade.</p>
@@ -528,6 +531,10 @@
           <p>Depende de você. Canal de cortes cresce com constância: quem posta todo dia aprende mais rápido o que funciona. O método te dá o caminho e as ferramentas, mas não prometemos números nem prazos.</p>
         </details>
         <details>
+          <summary>O que vem junto com o Corte Pronto?</summary>
+          <p>Três bônus: a Skill de Edição, o Pack de Prompts de Edição com mais de 50 prompts e a Máquina do Corte Automático, com rotina diária e 15 ganchos prontos. Tudo incluso nos R$47.</p>
+        </details>
+        <details>
           <summary>Tem mensalidade?</summary>
           <p>Não. Você paga uma vez e o acesso é seu.</p>
         </details>
@@ -537,7 +544,7 @@
         </details>
         <details>
           <summary>Como recebo o acesso?</summary>
-          <p>Logo após a confirmação do pagamento, os dados de acesso ao Corte Pronto e aos 2 bônus chegam no seu e-mail.</p>
+          <p>Logo após a confirmação do pagamento, os dados de acesso ao Corte Pronto e aos 3 bônus chegam no seu e-mail.</p>
         </details>
         <details>
           <summary>E se eu não gostar?</summary>
