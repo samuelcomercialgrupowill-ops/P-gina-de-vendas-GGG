@@ -114,6 +114,13 @@ body{width:720px;height:1280px;overflow:hidden;background:var(--bg);color:var(--
 .stackl b{color:var(--amber);margin-right:8px}
 .down{margin-top:50px;display:flex;flex-direction:column;align-items:center;gap:14px;font:800 34px Inter;color:var(--amber)}
 .down svg{color:var(--text)}
+.phone.real{background:#000}
+.phone.real img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.okb{position:absolute;top:14px;left:14px;background:#FAFAFA;color:#09090B;font:800 16px Inter;padding:8px 12px;border-radius:999px;opacity:0}
+.clip img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.steps4{display:flex;gap:10px;margin-bottom:26px}
+.steps4 span{font:800 20px Inter;text-transform:uppercase;letter-spacing:1px;padding:12px 16px;border-radius:999px;border:1px solid #3F3F46;color:#71717A}
+.steps4 span.on{background:var(--amber);border-color:var(--amber);color:#09090B}
 </style></head><body>
 <div id="glow"></div><div id="grid"></div><div id="prog"></div>
 <div id="brand"><svg width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.6 7.6L20 18M8.6 16.4L20 6"/></g></svg>Corte Pronto</div>
@@ -137,12 +144,15 @@ body{width:720px;height:1280px;overflow:hidden;background:var(--bg);color:var(--
 <div class="scene" id="s4"><div class="logo" id="logo"><svg width="86" height="86" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.6 7.6L20 18M8.6 16.4L20 6"/></g></svg>Corte Pronto</div>
   <div class="scanwrap"><span class="badge" style="position:absolute;top:16px;left:16px">AO VIVO</span><div class="scan" id="scan"></div><div class="ai">IA assistindo junto</div></div></div>
 <!-- S5 momentos + clipes -->
-<div class="scene" id="s5"><div class="k"><i></i>3 melhores momentos</div>
+<div class="scene" id="s5"><div class="steps4"><span id="st1">Assiste</span><span id="st2">Corta</span><span id="st3">Edita</span><span id="st4">Posta</span></div>
   <div class="tl"><em id="m1" style="left:10%;width:13%"></em><em id="m2" style="left:45%;width:10%"></em><em id="m3" style="left:76%;width:14%"></em></div>
-  <div class="clips"><div class="clip" id="c1"><p>O chat <b>surtou</b></p></div><div class="clip" id="c2"><p>Ninguém <b>esperava</b></p></div><div class="clip" id="c3"><p>Virou <b>meme</b></p></div></div></div>
-<!-- S7 plataformas -->
-<div class="scene" id="s7"><div class="k"><i></i>No mesmo dia</div>
-  <div class="phones"><div class="mini" id="p1"><span class="pl">TikTok</span><span class="ok">Publicado</span></div><div class="mini" id="p2" style="height:380px;background:linear-gradient(170deg,#1B1B22,#7A4A12)"><span class="pl">Reels</span><span class="ok">Publicado</span></div><div class="mini" id="p3" style="background:linear-gradient(170deg,#1B1B22,#3B3B46)"><span class="pl">Shorts</span><span class="ok">Publicado</span></div></div></div>
+  <div class="clips"><div class="clip" id="c1"><img id="iC1" alt=""></div><div class="clip" id="c2"><img id="iC2" alt=""></div><div class="clip" id="c3"><img id="iC3" alt=""></div></div></div>
+<!-- PA resultado 1 -->
+<div class="scene" id="pa"><div class="k"><i></i>Resultado pronto</div>
+  <div class="phone real"><img id="iA" alt=""><span class="okb" id="okA">✓ Postado</span></div></div>
+<!-- PB resultado 2 -->
+<div class="scene" id="pb"><div class="k"><i></i>Pronto pra postar</div>
+  <div class="phone real"><img id="iB" alt=""><span class="okb" id="okB">✓ Postado</span></div></div>
 <!-- B1 skill -->
 <div class="scene" id="b1"><div class="k"><i></i>Bônus 1</div><div class="bt-title">Skill de Edição</div>
   <div class="card term"><div class="tbar"><i></i><i></i><i></i><span>skill-de-edicao</span></div>
@@ -156,39 +166,31 @@ body{width:720px;height:1280px;overflow:hidden;background:var(--bg);color:var(--
   <div class="card routine"><div class="days"><span>SEG</span><span>TER</span><span>QUA</span><span>QUI</span><span>SEX</span><span>SÁB</span><span>DOM</span></div><div class="days dots" id="dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
   <div class="hooks"><p id="h1">"Ninguém esperava o que ele fez aqui"</p><p id="h2">"O chat não acreditou nisso"</p><p id="h3">"Espera até o final"</p></div><div class="hk-n">15 ganchos prontos</div></div></div>
 <!-- S9 preco -->
-<div class="scene" id="s9"><div class="card price"><ul class="stackl"><li id="l1"><b>✓</b> Corte Pronto</li><li id="l2"><b>✓</b> Skill de Edição</li><li id="l3"><b>✓</b> Pack de Prompts de Edição</li><li id="l4"><b>✓</b> Máquina do Corte Automático</li></ul><div class="from">De <s>R$197</s> por</div><div class="val"><span>R$</span>47</div><div class="chips"><span>Pagamento único</span></div></div></div>
-<!-- S10 garantia -->
-<div class="scene" id="s10"><svg class="shield" viewBox="0 0 64 64"><path d="M32 4l22 8v17c0 15-9.5 26-22 31C19.5 55 10 44 10 29V12z" fill="rgba(255,255,255,.05)" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><text x="32" y="37" text-anchor="middle" fill="#FFB23F" font-family="Bricolage Grotesque" font-weight="800" font-size="22">7</text><text x="32" y="47" text-anchor="middle" fill="currentColor" font-family="Inter" font-weight="800" font-size="6.5" letter-spacing=".6">DIAS</text></svg><div class="gt">7 dias de<br>garantia</div></div>
+<div class="scene" id="s9"><div class="card price"><ul class="stackl"><li id="l1"><b>✓</b> Corte Pronto</li><li id="l2"><b>✓</b> Skill de Edição</li><li id="l3"><b>✓</b> Pack de Prompts de Edição</li><li id="l4"><b>✓</b> Máquina do Corte Automático</li></ul><div class="from">De <s>R$197</s> por</div><div class="val"><span>R$</span>47</div><div class="chips"><span>Pagamento único</span><span>7 dias de garantia</span></div></div></div>
 <!-- S11 cta -->
-<div class="scene" id="s11"><div class="big">Hoje à noite<br><b>tem live.</b></div><div class="down" id="down"><span>Clique no botão abaixo</span><svg width="70" height="70" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M12 4v15M6 13l6 6 6-6"/></svg></div></div>
+<div class="scene" id="s11"><div class="big">Cortes assim,<br><b>no automático.</b></div><div class="down" id="down"><span>Toque no botão abaixo</span><svg width="70" height="70" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M12 4v15M6 13l6 6 6-6"/></svg></div></div>
 
 <div id="caps"></div>
 <script>
-const LINES=[
- [0,3.474,"O corte que viralizou ontem podia ter sido seu."],
- [3.474,3.631,"Você estava na live. Viu o momento acontecer."],
- [7.105,3.971,"Mas outra pessoa cortou, legendou e postou primeiro."],
- [11.076,6.687,"Editando na mão, um único corte pode levar horas. Quando fica pronto, o assunto já esfriou."],
- [17.763,4.833,"Com o Corte Pronto, a inteligência artificial assiste a live junto com você."],
- [22.596,5.146,"Ela acha os melhores momentos, corta em pé, edita e coloca a legenda."],
- [27.742,5.146,"Você só escolhe o que vai pro ar e posta no TikTok, no Reels e no Shorts."],
- [32.888,6.687,"E você não leva só o método. Leva também a Skill de Edição, que deixa a IA editando os seus cortes."],
- [39.576,7.314,"O Pack de Prompts de Edição, com mais de cinquenta prompts prontos pra corte, legenda, gancho e thumbnail."],
- [46.890,5.251,"E a Máquina do Corte Automático, com a rotina diária e quinze ganchos prontos."],
- [52.140,5.799,"Tudo isso sai de cento e noventa e sete, por quarenta e sete reais. Pagamento único."],
- [57.940,3.474,"E se não for pra você, são sete dias de garantia."],
- [61.414,4.284,"Hoje à noite tem live. Clique no botão abaixo e comece a postar."]];
-const OFF=0.2, END=68;
-const SC=['s0','s1','s2','s3','s4','s5','s7','b1','b2','b3','s9','s10','s11'];
+const TX=["O corte que viralizou ontem podia ter sido seu.","Você estava na live. Viu o momento acontecer.","Mas outra pessoa cortou, legendou e postou primeiro.","Editando na mão, um único corte pode levar horas. Quando fica pronto, o assunto já esfriou.","Com o Corte Pronto, a inteligência artificial assiste a live junto com você.","Ela acha os melhores momentos, corta em pé, edita e coloca a legenda.","Olha esse aqui. A IA assistiu, cortou, editou, e ele foi pro ar.","E esse também. Pronto pra postar, sem você abrir um editor.","E você não leva só o método. Leva também a Skill de Edição, que deixa a IA editando os seus cortes.","O Pack de Prompts de Edição, com mais de cinquenta prompts prontos pra corte, legenda, gancho e thumbnail.","E a Máquina do Corte Automático, com a rotina diária e quinze ganchos prontos.","Tudo isso sai de cento e noventa e sete, por quarenta e sete reais. Pagamento único, com sete dias de garantia.","Se você quer cortes assim saindo no automático, toque no botão abaixo e garanta o seu Corte Pronto hoje."];
+const DU=[3.396,3.631,4.049,6.687,4.911,5.146,5.251,4.284,6.531,7.471,5.068,7.393,6.609];
+const GAP={6:3.0,7:2.2};
+const OFF=0.2;const ST=[];let acc=OFF;DU.forEach((d,i)=>{ST.push(acc);acc+=d+(GAP[i]||0)});const END=Math.ceil(acc+1.5);ST.push(END);
+window.TIMELINE={ST,DU,END};
+const LINES=TX.map((t,i)=>[ST[i],DU[i],t]);
+const SC=['s0','s1','s2','s3','s4','s5','pa','pb','b1','b2','b3','s9','s11'];
 const CH=[];
-LINES.forEach(([st,du,tx])=>{st+=OFF;const w=tx.split(" ");const end=st+du*0.93;const wt=w.map(x=>x.length+2);const tot=wt.reduce((a,b)=>a+b,0);let acc=st;const words=w.map((x,i)=>{const s=acc;acc+=(end-st)*wt[i]/tot;return{w:x,s}});
+LINES.forEach(([st,du,tx])=>{const w=tx.split(" ");const end=st+du*0.93;const wt=w.map(x=>x.length+2);const tot=wt.reduce((a,b)=>a+b,0);let a=st;const words=w.map((x,i)=>{const s=a;a+=(end-st)*wt[i]/tot;return{w:x,s}});
  let g=[];words.forEach((x,i)=>{g.push(x);if(g.length>=4||/[.,]$/.test(x.w)&&g.length>=2||/[.]$/.test(x.w)||i==words.length-1){if(g.length==1&&CH.length&&!/[.]$/.test(CH[CH.length-1].slice(-1)[0].w)){CH[CH.length-1].push(...g)}else CH.push(g);g=[]}})});
-CH.forEach((g,i)=>{g.end=(CH[i+1]?CH[i+1][0].s:99)});
+CH.forEach((g,i)=>{g.end=Math.min(CH[i+1]?CH[i+1][0].s:99,g[g.length-1].s+1.6)});
 const caps=document.getElementById('caps');let lastChunk=-1;
 const cl=(x,a=0,b=1)=>Math.max(a,Math.min(b,x)),ease=x=>1-Math.pow(1-cl(x),3),$=id=>document.getElementById(id);
-const ST=LINES.map(l=>l[0]+OFF);ST.push(END);const L=i=>ST[i];
+const L=i=>ST[i];
 function fmt(n){return n>=1e6?(n/1e6).toFixed(1).replace('.',',')+' mi':n>=1e3?Math.round(n/1e3)+' mil':Math.round(n)+''}
+const CF='file:///tmp/claude-0/-home-user-P-gina-de-vendas-GGG/482a6202-3c7c-579d-a01d-3a24b350b15a/scratchpad/vid/cf/';
+function setImg(id,dir,t0,t,max){const el=$(id);const f=Math.max(1,Math.min(max,Math.floor((t-t0)*30)+1));const src=CF+dir+'/'+String(f).padStart(5,'0')+'.jpg';if(el.dataset.s!==src){el.dataset.s=src;el.src=src;return Promise.race([el.decode().catch(()=>{}),new Promise(r=>setTimeout(r,2000))])}return null}
 window.render=function(t){
+ const waits=[];
  $('prog').style.width=(t/END*100)+'%';
  SC.forEach((id,i)=>{const el=$(id);const a=ST[i],b=ST[i+1];const lt=t-a;let o=0,y=0,sc=1;
   if(t>=a-0.05&&t<b+0.35){const inn=ease(lt/0.45),out=1-ease((t-(b-0.05))/0.35);o=Math.min(inn,i==SC.length-1?1:out);y=(1-inn)*60;sc=0.94+0.06*inn}
@@ -198,21 +200,29 @@ window.render=function(t){
  $('v2').textContent=fmt(860e3*ease((t-L(2)-0.2)/3.4))+' views';
  const e=cl((t-L(3)-0.1)/6.4);$('ph').style.left=(e*100)+'%';const mins=Math.round(e*167);$('clk').firstChild.textContent=Math.floor(mins/60)+'h '+String(mins%60).padStart(2,'0')+'min';
  $('logo').style.transform=`scale(${0.8+0.2*ease((t-L(4))/0.6)})`;$('scan').style.left=(((t-L(4))*180)%680-120)+'px';
- ['m1','m2','m3'].forEach((m,i)=>{$(m).style.opacity=cl((t-L(5)-0.2-i*0.5)/0.3)});
- ['c1','c2','c3'].forEach((m,i)=>{const k=ease((t-L(5)-1.6-i*0.35)/0.5);$(m).style.opacity=k;$(m).style.transform=`translateY(${(1-k)*80}px) rotate(${(i-1)*(4*(1-k))}deg)`});
- ['p1','p2','p3'].forEach((m,i)=>{const k=ease((t-L(6)-0.1-i*0.5)/0.5);$(m).style.opacity=k;$(m).style.transform=`translateY(${(1-k)*90}px)`;$(m).lastChild.style.opacity=cl((t-L(6)-2.2-i*0.7)/0.3)});
- ['t1','t2','t3','t4','t5'].forEach((m,i)=>{$(m).style.opacity=cl((t-L(7)-0.6-i*1.0)/0.25)});
- ['q1','q2','q3'].forEach((m,i)=>{const k=ease((t-L(8)-0.3-i*0.9)/0.5);$(m).style.opacity=k;$(m).style.top=(i*124+(1-k)*60)+'px';$(m).style.transform=`rotate(${(i-1)*2}deg)`});
- $('plus').style.opacity=cl((t-L(8)-3.4)/0.4);
- [...$('dots').children].forEach((d,i)=>d.classList.toggle('on',t>L(9)+0.4+i*0.25));
- ['h1','h2','h3'].forEach((m,i)=>{$(m).style.opacity=cl((t-L(9)-2.2-i*0.6)/0.3)});
- ['l1','l2','l3','l4'].forEach((m,i)=>{$(m).style.opacity=cl((t-L(10)-0.1-i*0.45)/0.25)});
- const dn=$('down');dn.style.opacity=cl((t-L(12)-1.6)/0.4);dn.querySelector('svg').style.transform=`translateY(${Math.abs(Math.sin((t-L(12))*4))*16}px)`;
+ ['st1','st2','st3','st4'].forEach((m,i)=>$(m).classList.toggle('on',t>L(5)+0.2+i*1.1));
+ ['m1','m2','m3'].forEach((m,i)=>{$(m).style.opacity=cl((t-L(5)-0.2-i*0.4)/0.3)});
+ ['c1','c2','c3'].forEach((m,i)=>{const k=ease((t-L(5)-1.0-i*0.3)/0.5);$(m).style.opacity=k;$(m).style.transform=`translateY(${(1-k)*80}px) rotate(${(i-1)*(4*(1-k))}deg)`});
+ if(t>=L(5)-0.1&&t<L(6)+0.4){['C1','C2','C3'].forEach(d=>{const w=setImg('i'+d,d,L(5),t,168);if(w)waits.push(w)})}
+ if(t>=L(6)-0.1&&t<L(7)+0.4){const w=setImg('iA','A',L(6),t,259);if(w)waits.push(w)}
+ $('okA').style.opacity=cl((t-L(6)-DU[6]+0.3)/0.3);
+ if(t>=L(7)-0.1&&t<L(8)+0.4){const w=setImg('iB','B',L(7),t,204);if(w)waits.push(w)}
+ $('okB').style.opacity=cl((t-L(7)-DU[7]+0.3)/0.3);
+ ['t1','t2','t3','t4','t5'].forEach((m,i)=>{$(m).style.opacity=cl((t-L(8)-0.6-i*1.0)/0.25)});
+ ['q1','q2','q3'].forEach((m,i)=>{const k=ease((t-L(9)-0.3-i*0.9)/0.5);$(m).style.opacity=k;$(m).style.top=(i*124+(1-k)*60)+'px';$(m).style.transform=`rotate(${(i-1)*2}deg)`});
+ $('plus').style.opacity=cl((t-L(9)-3.4)/0.4);
+ [...$('dots').children].forEach((d,i)=>d.classList.toggle('on',t>L(10)+0.4+i*0.25));
+ ['h1','h2','h3'].forEach((m,i)=>{$(m).style.opacity=cl((t-L(10)-2.2-i*0.6)/0.3)});
+ ['l1','l2','l3','l4'].forEach((m,i)=>{$(m).style.opacity=cl((t-L(11)-0.1-i*0.45)/0.25)});
+ const dn=$('down');dn.style.opacity=cl((t-L(12)-2.2)/0.4);dn.querySelector('svg').style.transform=`translateY(${Math.abs(Math.sin((t-L(12))*4))*16}px)`;
  let ci=-1;for(let i=0;i<CH.length;i++){if(t>=CH[i][0].s-0.05)ci=i}
+ const showCap=ci>=0&&t<CH[ci].end+0.2;
  if(ci!==lastChunk){caps.innerHTML=ci<0?'':CH[ci].map(x=>'<span>'+x.w+'</span>').join('');lastChunk=ci}
  if(ci>=0){const sp=caps.children;CH[ci].forEach((x,i)=>{const nxt=CH[ci][i+1]?CH[ci][i+1].s:CH[ci].end;sp[i].className=t>=x.s?(t<nxt?'now':'on'):''})}
- caps.style.opacity=t>L(12)+4.4?0:1;
+ caps.style.opacity=showCap?1:0;
+ return Promise.all(waits);
 };
 render(0);
 </script>
+
 </body></html>
