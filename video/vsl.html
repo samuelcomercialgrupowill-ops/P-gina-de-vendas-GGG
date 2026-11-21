@@ -4,7 +4,7 @@
 <style>
 :root{--bg:#08080A;--card:#141418;--line:#26262D;--coral:#FF6A3D;--amber:#FFB23F;--text:#FAFAFA;--muted:#A1A1AA;--d:"Bricolage Grotesque",Inter,sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
-body{width:720px;height:1280px;overflow:hidden;background:var(--bg);color:var(--text);font-family:Inter,sans-serif;position:relative}
+body{-webkit-font-smoothing:antialiased;text-rendering:geometricPrecision;font-variant-numeric:tabular-nums;width:720px;height:1280px;overflow:hidden;background:var(--bg);color:var(--text);font-family:Inter,sans-serif;position:relative}
 #glow{position:absolute;inset:0;background:radial-gradient(70% 45% at 50% 38%,rgba(255,106,61,.16),transparent 70%)}
 #grid{position:absolute;left:-200px;right:-200px;bottom:0;height:420px;transform:perspective(500px) rotateX(60deg);transform-origin:bottom;background:repeating-linear-gradient(90deg,rgba(255,255,255,.06) 0 1px,transparent 1px 64px),repeating-linear-gradient(0deg,rgba(255,255,255,.06) 0 1px,transparent 1px 44px);-webkit-mask:linear-gradient(transparent,#000 60%)}
 .scene{position:absolute;left:0;right:0;top:120px;height:800px;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0}
@@ -142,7 +142,7 @@ body{width:720px;height:1280px;overflow:hidden;background:var(--bg);color:var(--
   <div class="clock" id="clk">0h 00min<small>tempo editando</small></div></div>
 <!-- S4 marca -->
 <div class="scene" id="s4"><div class="logo" id="logo"><svg width="86" height="86" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.6 7.6L20 18M8.6 16.4L20 6"/></g></svg>Corte Pronto</div>
-  <div class="scanwrap"><span class="badge" style="position:absolute;top:16px;left:16px">AO VIVO</span><div class="scan" id="scan"></div><div class="ai">IA assistindo junto</div></div></div>
+  <div class="scanwrap"><span class="badge" style="position:absolute;top:16px;left:16px">AO VIVO</span><div class="scan" id="scan"></div><div class="ai">IA assistindo em tempo real</div></div></div>
 <!-- S5 momentos + clipes -->
 <div class="scene" id="s5"><div class="steps4"><span id="st1">Assiste</span><span id="st2">Corta</span><span id="st3">Edita</span><span id="st4">Posta</span></div>
   <div class="tl"><em id="m1" style="left:10%;width:13%"></em><em id="m2" style="left:45%;width:10%"></em><em id="m3" style="left:76%;width:14%"></em></div>
@@ -172,8 +172,8 @@ body{width:720px;height:1280px;overflow:hidden;background:var(--bg);color:var(--
 
 <div id="caps"></div>
 <script>
-const TX=["O corte que viralizou ontem podia ter sido seu.","Você estava na live. Viu o momento acontecer.","Mas outra pessoa cortou, legendou e postou primeiro.","Editando na mão, um único corte pode levar horas. Quando fica pronto, o assunto já esfriou.","Com o Corte Pronto, a inteligência artificial assiste a live junto com você.","Ela acha os melhores momentos, corta em pé, edita e coloca a legenda.","Olha esse aqui. A IA assistiu, cortou, editou, e ele foi pro ar.","E esse também. Pronto pra postar, sem você abrir um editor.","E você não leva só o método. Leva também a Skill de Edição, que deixa a IA editando os seus cortes.","O Pack de Prompts de Edição, com mais de cinquenta prompts prontos pra corte, legenda, gancho e thumbnail.","E a Máquina do Corte Automático, com a rotina diária e quinze ganchos prontos.","Tudo isso sai de cento e noventa e sete, por quarenta e sete reais. Pagamento único, com sete dias de garantia.","Se você quer cortes assim saindo no automático, toque no botão abaixo e garanta o seu Corte Pronto hoje."];
-const DU=[3.396,3.631,4.049,6.687,4.911,5.146,5.251,4.284,6.531,7.471,5.068,7.393,6.609];
+const TX=["O corte que viralizou ontem podia ter sido seu.","Você estava na live. Viu o momento acontecer.","Mas outra pessoa cortou, legendou e postou primeiro.","Editando na mão, um único corte pode levar horas. Quando fica pronto, o assunto já esfriou.","Com o Corte Pronto, a inteligência artificial assiste a live em tempo real.","Ela corta, edita e posta. Esse é o poder do Corte Pronto.","Olha esse aqui. A IA assistiu, cortou, editou, e ele foi pro ar.","E esse também. Pronto pra postar, sem você abrir um editor.","E você não leva só o método. Leva também a Skill de Edição, que deixa a IA editando os seus cortes.","O Pack de Prompts de Edição, com mais de cinquenta prompts prontos pra corte, legenda, gancho e thumbnail.","E a Máquina do Corte Automático, com a rotina diária e quinze ganchos prontos.","Tudo isso sai de cento e noventa e sete, por quarenta e sete reais. Pagamento único, com sete dias de garantia.","Se você quer cortes assim saindo no automático, toque no botão abaixo e garanta o seu Corte Pronto hoje."];
+const DU=[3.396,3.631,4.049,6.687,4.911,5.068,5.251,4.284,6.531,7.471,5.068,7.393,6.609];
 const GAP={6:3.0,7:2.2};
 const OFF=0.2;const ST=[];let acc=OFF;DU.forEach((d,i)=>{ST.push(acc);acc+=d+(GAP[i]||0)});const END=Math.ceil(acc+1.5);ST.push(END);
 window.TIMELINE={ST,DU,END};
@@ -194,12 +194,12 @@ window.render=function(t){
  $('prog').style.width=(t/END*100)+'%';
  SC.forEach((id,i)=>{const el=$(id);const a=ST[i],b=ST[i+1];const lt=t-a;let o=0,y=0,sc=1;
   if(t>=a-0.05&&t<b+0.35){const inn=ease(lt/0.45),out=1-ease((t-(b-0.05))/0.35);o=Math.min(inn,i==SC.length-1?1:out);y=(1-inn)*60;sc=0.94+0.06*inn}
-  el.style.opacity=o;el.style.transform=`translateY(${y}px) scale(${sc})`;el.style.display=o>0?'flex':'none'});
+  el.style.opacity=o;el.style.transform=`translate3d(0,${Math.round(y)}px,0)`;el.style.display=o>0?'flex':'none'});
  $('v0').textContent=fmt(1.2e6*ease(t/3))+' views';
  const c=$('chat').children;for(let i=0;i<c.length;i++){c[i].style.opacity=cl((t-L(1)-0.1-i*0.45)/0.25)}
  $('v2').textContent=fmt(860e3*ease((t-L(2)-0.2)/3.4))+' views';
  const e=cl((t-L(3)-0.1)/6.4);$('ph').style.left=(e*100)+'%';const mins=Math.round(e*167);$('clk').firstChild.textContent=Math.floor(mins/60)+'h '+String(mins%60).padStart(2,'0')+'min';
- $('logo').style.transform=`scale(${0.8+0.2*ease((t-L(4))/0.6)})`;$('scan').style.left=(((t-L(4))*180)%680-120)+'px';
+ $('logo').style.opacity=ease((t-L(4))/0.6);$('scan').style.left=(((t-L(4))*180)%680-120)+'px';
  ['st1','st2','st3','st4'].forEach((m,i)=>$(m).classList.toggle('on',t>L(5)+0.2+i*1.1));
  ['m1','m2','m3'].forEach((m,i)=>{$(m).style.opacity=cl((t-L(5)-0.2-i*0.4)/0.3)});
  ['c1','c2','c3'].forEach((m,i)=>{const k=ease((t-L(5)-1.0-i*0.3)/0.5);$(m).style.opacity=k;$(m).style.transform=`translateY(${(1-k)*80}px) rotate(${(i-1)*(4*(1-k))}deg)`});
