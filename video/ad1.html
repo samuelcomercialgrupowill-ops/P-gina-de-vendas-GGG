@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#060608;--card:#121216;--card2:#17171C;--line:#2A2A32;--coral:#FF6A3D;--amber:#FFB23F;--text:#F7F7F8;--muted:#9A9AA3;--d:"Bricolage Grotesque",Inter,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:720px;height:1280px;overflow:hidden;background:var(--bg);color:var(--text);font-family:Inter,sans-serif;position:relative;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+#glow{position:absolute;left:-200px;right:-200px;top:40px;height:900px;background:radial-gradient(closest-side,rgba(255,106,61,.34),rgba(255,106,61,.10) 55%,transparent 80%);transition:none}
+#dots{position:absolute;inset:0;background:radial-gradient(circle,rgba(255,255,255,.07) 1px,transparent 1.4px) 0 0/16px 16px;-webkit-mask:radial-gradient(70% 55% at 50% 40%,#000 30%,transparent 85%)}
+#vig{position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 40%,transparent 55%,rgba(0,0,0,.75))}
+.stage{position:absolute;left:0;right:0;top:90px;height:680px;perspective:1300px;perspective-origin:50% 40%}
+.obj{position:absolute;left:50%;top:50%;transform-style:preserve-3d;opacity:0;display:none}
+.card{background:linear-gradient(160deg,#1B1B21,#0F0F13);border:1px solid #2E2E37;border-radius:26px;box-shadow:0 50px 90px -30px rgba(0,0,0,.95),inset 0 1px 0 rgba(255,255,255,.06)}
+/* legenda */
+#cap{position:absolute;left:70px;right:70px;top:812px;text-align:center;font:600 31px/1.32 Inter;letter-spacing:-.01em}
+#cap span{display:inline-block;margin:0 4px;opacity:0;position:relative}
+#cap span.k::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:3px;border-radius:3px;background:var(--coral);transform-origin:left;transform:scaleX(var(--u,0))}
+/* telefone antigo */
+.oldph{width:250px;height:470px;border-radius:38px;padding:58px 18px;background:linear-gradient(160deg,#26262C,#121216);border:2px solid #3A3A44}
+.oldph .scr{width:100%;height:100%;border-radius:8px;background:#0B0B0F;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding:14px;align-content:start}
+.oldph .scr i{aspect-ratio:1;border-radius:11px;background:#2C2C34}
+.oldph .btn{position:absolute;left:50%;bottom:12px;width:36px;height:36px;margin-left:-18px;border-radius:50%;border:2px solid #3A3A44}
+/* editor */
+.ed{width:540px;padding:20px}
+.ed .bar{display:flex;gap:7px;margin-bottom:14px}.ed .bar i{width:11px;height:11px;border-radius:50%;background:#3A3A44}
+.ed .prev{height:200px;border-radius:12px;background:linear-gradient(135deg,#202028,#2b1c18);margin-bottom:14px;position:relative;overflow:hidden}
+.ed .tr{height:30px;border-radius:7px;background:#1C1C22;position:relative;margin-top:8px;overflow:hidden}
+.ed .tr b{position:absolute;top:5px;bottom:5px;border-radius:4px;background:#34343D}
+.ed .ph{position:absolute;top:214px;bottom:14px;width:3px;background:var(--coral);left:30px}
+.clock{width:130px;height:130px;border-radius:50%;border:3px solid #3A3A44;position:absolute;background:#0E0E12}
+.clock i{position:absolute;left:50%;top:50%;width:4px;height:48px;margin-left:-2px;background:var(--coral);transform-origin:50% 100%;margin-top:-48px;border-radius:3px}
+.clock b{position:absolute;left:50%;top:50%;width:4px;height:34px;margin-left:-2px;background:var(--text);transform-origin:50% 100%;margin-top:-34px;border-radius:3px}
+.timer{position:absolute;font:700 46px var(--d);letter-spacing:-.02em;white-space:nowrap}
+/* live */
+.live{width:540px;height:300px;overflow:hidden;background:linear-gradient(135deg,#1d1d25,#2b1a24 60%,#4a2416)}
+.badge{position:absolute;top:18px;left:18px;background:#FF2D55;color:#fff;font:800 15px Inter;padding:7px 10px;border-radius:6px;letter-spacing:1px}
+.week{position:absolute;left:30px;right:30px;bottom:26px;display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
+.week span{height:54px;border-radius:10px;background:rgba(0,0,0,.45);border:1px solid #34343D;font:700 13px Inter;color:var(--muted);display:grid;place-items:center}
+.week span.on{background:var(--coral);color:#140804;border-color:var(--coral)}
+/* cartoes 1 2 3 */
+.num{width:190px;height:270px;display:grid;place-items:center;font:500 120px var(--d);color:#EDEDF0}
+.lbl{position:absolute;left:50%;transform:translateX(-50%);top:-62px;font:700 15px ui-monospace,Menlo,monospace;letter-spacing:3px;color:var(--amber);white-space:nowrap}
+/* editor pago */
+.inv{width:470px;padding:22px}
+.inv h4{font:700 22px Inter;margin-bottom:12px}
+.row{display:flex;align-items:center;gap:12px;padding:10px;border-radius:12px;background:#0C0C10;border:1px solid #24242B;margin-top:8px}
+.row i{width:54px;height:34px;border-radius:6px;background:linear-gradient(135deg,#30303A,#4a2416)}
+.row span{flex:1;font:600 17px Inter;color:#D4D4DA}
+.row b{width:22px;height:22px;border-radius:50%;background:var(--coral)}
+.coins{position:absolute;right:-70px;bottom:10px;width:90px}
+.coins i{display:block;height:20px;margin-top:-8px;border-radius:50%;background:linear-gradient(180deg,#FFC766,#E08A1E);border:2px solid #A35F10}
+/* opcao 3 */
+.ai{width:300px;height:480px;border:2px solid var(--coral);box-shadow:0 0 0 6px rgba(255,106,61,.12),0 0 70px rgba(255,106,61,.45),0 50px 90px -30px #000;display:grid;place-items:center}
+.spark{position:absolute;top:-46px;left:50%;margin-left:-46px;width:92px;height:92px;border-radius:24px;background:linear-gradient(150deg,#FF8A4D,#FF5A2D);display:grid;place-items:center;box-shadow:0 20px 50px -10px rgba(255,90,45,.8)}
+.mini{width:230px;height:418px;border-radius:30px;overflow:hidden;border:5px solid #0A0A0D;position:relative;background:#000}
+.mini img,.phone img{width:100%;height:100%;object-fit:cover;display:block}
+/* marca */
+.appicon{width:170px;height:170px;border-radius:44px;background:linear-gradient(150deg,#FF9A55,#FF5A2D 70%);display:grid;place-items:center;box-shadow:0 30px 80px -10px rgba(255,90,45,.75),inset 0 2px 0 rgba(255,255,255,.35)}
+.word{font:600 72px var(--d);letter-spacing:-.03em;margin-top:30px;white-space:nowrap;text-align:center}
+.word b{font-weight:800;color:var(--amber)}
+/* demo */
+.app{width:600px;padding:22px}
+.app .top{display:flex;align-items:center;gap:10px;font:700 18px Inter;margin-bottom:18px}
+.app .top svg{color:var(--coral)}
+.inp{height:58px;border-radius:14px;background:#0B0B0F;border:1px solid #2E2E37;padding:0 18px;display:flex;align-items:center;font:500 20px ui-monospace,Menlo,monospace;color:#E4E4E7}
+.inp .cur{width:2px;height:26px;background:var(--amber);margin-left:2px}
+.chips{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.chips span{padding:14px;border-radius:12px;border:1px solid #2E2E37;font:700 17px Inter;color:#71717A;display:flex;align-items:center;gap:10px}
+.chips span i{width:18px;height:18px;border-radius:50%;border:2px solid #3F3F46}
+.chips span.on{color:var(--text);border-color:#4A3A30;background:#1A1411}
+.chips span.on i{background:var(--amber);border-color:var(--amber)}
+.go{margin-top:16px;height:60px;border-radius:14px;background:linear-gradient(90deg,var(--coral),var(--amber));color:#170A04;font:800 19px Inter;display:grid;place-items:center;letter-spacing:.5px}
+.cursor{position:absolute;width:26px;height:26px;border-radius:50%;background:#fff;box-shadow:0 0 0 7px rgba(255,255,255,.2)}
+.phone{width:284px;height:517px;border-radius:42px;overflow:hidden;border:8px solid #0A0A0D;box-shadow:0 0 0 2px #2E2E37,0 50px 90px -20px rgba(255,106,61,.4);background:#000;position:relative}
+.ok{position:absolute;top:16px;left:16px;background:#FAFAFA;color:#09090B;font:800 16px Inter;padding:8px 12px;border-radius:999px}
+/* final */
+.arrow{width:120px;height:260px;margin-top:40px;filter:drop-shadow(0 0 18px rgba(255,106,61,.9)) drop-shadow(0 0 40px rgba(255,106,61,.6))}
+</style></head><body>
+<div id="glow"></div><div id="dots"></div><div id="vig"></div>
+<div class="stage" id="stage">
+  <!-- S0a telefone antigo -->
+  <div class="obj" id="o_old"><div class="oldph" style="position:relative;margin:-235px 0 0 -125px"><div class="scr"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="btn"></div></div></div>
+  <!-- S0b editor + relogio -->
+  <div class="obj" id="o_ed"><div class="card ed" style="position:relative;margin:-200px 0 0 -270px"><div class="bar"><i></i><i></i><i></i></div><div class="prev"></div>
+    <div class="tr"><b style="left:2%;width:26%"></b><b style="left:31%;width:18%"></b><b style="left:52%;width:40%"></b></div><div class="tr"><b style="left:6%;width:44%"></b><b style="left:54%;width:20%"></b></div><div class="tr"><b style="left:3%;width:60%"></b></div><div class="ph" id="edph"></div></div>
+    <div class="clock" style="left:200px;top:-260px"><b id="ch1"></b><i id="cm1"></i></div></div>
+  <!-- S1a live + semana -->
+  <div class="obj" id="o_live"><div class="card live" style="position:relative;margin:-150px 0 0 -270px"><span class="badge">AO VIVO</span><div class="week" id="week"><span>SEG</span><span>TER</span><span>QUA</span><span>QUI</span><span>SEX</span><span>SÁB</span><span>DOM</span></div></div></div>
+  <!-- S1b tres cartoes -->
+  <div class="obj" id="o_123"><div class="card num" id="n1" style="position:absolute;left:-310px;top:-135px">1</div><div class="card num" id="n2" style="position:absolute;left:-95px;top:-135px">2</div><div class="card num" id="n3" style="position:absolute;left:120px;top:-135px">3</div></div>
+  <!-- S2 opcao 1 -->
+  <div class="obj" id="o_op1"><div class="lbl" style="top:-270px">OPÇÃO 1</div><div class="card ed" style="position:relative;margin:-200px 0 0 -270px"><div class="bar"><i></i><i></i><i></i></div><div class="prev"></div>
+    <div class="tr"><b style="left:2%;width:26%"></b><b style="left:31%;width:18%"></b><b style="left:52%;width:40%"></b></div><div class="tr"><b style="left:6%;width:44%"></b><b style="left:54%;width:20%"></b></div><div class="tr"><b style="left:3%;width:60%"></b></div><div class="ph" id="edph2"></div></div>
+    <div class="timer" id="tm" style="left:-120px;top:240px">0h 00min</div></div>
+  <!-- S3 opcao 2 -->
+  <div class="obj" id="o_op2"><div class="lbl" style="top:-250px">OPÇÃO 2</div><div class="card inv" style="position:relative;margin:-200px 0 0 -235px"><h4>Editor de vídeo</h4><div id="rows"></div><div class="coins" id="coins"></div></div></div>
+  <!-- S4 opcao 3 -->
+  <div class="obj" id="o_op3"><div class="lbl" style="top:-310px">OPÇÃO 3</div><div class="card ai" style="position:relative;margin:-240px 0 0 -150px"><div class="spark"><svg width="52" height="52" viewBox="0 0 24 24"><path fill="#fff" d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8z"/></svg></div><div class="mini"><img id="iD" alt=""></div></div></div>
+  <!-- S5 marca -->
+  <div class="obj" id="o_brand"><div style="position:relative;margin:-170px 0 0 -300px;width:600px;display:flex;flex-direction:column;align-items:center"><div class="appicon" id="icon"><svg width="96" height="96" viewBox="0 0 24 24"><g fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.6 7.6L20 18M8.6 16.4L20 6"/></g></svg></div><div class="word">Corte <b>Pronto</b></div></div></div>
+  <!-- S6 demo -->
+  <div class="obj" id="o_demo"><div class="card app" id="appc" style="position:relative;margin:-230px 0 0 -300px"><div class="top"><svg width="22" height="22" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.6 7.6L20 18M8.6 16.4L20 6"/></g></svg>Corte Pronto</div>
+    <div class="inp"><span id="typed"></span><span class="cur" id="cur"></span></div>
+    <div class="chips"><span id="k1"><i></i>Assistindo a live</span><span id="k2"><i></i>Momento achado</span><span id="k3"><i></i>Cortado em pé</span><span id="k4"><i></i>Legendado</span></div>
+    <div class="go" id="go">GERAR CORTE</div><div class="cursor" id="mouse" style="left:520px;top:330px"></div></div>
+    <div class="phone" id="pA" style="position:absolute;left:30px;top:-250px;opacity:0"><img id="iA" alt=""><span class="ok">✓ Pronto pra postar</span></div></div>
+  <!-- S7 -->
+  <div class="obj" id="o_B"><div class="phone" style="margin:-258px 0 0 -142px"><img id="iB" alt=""><span class="ok" id="okB">✓ Sem editar nada</span></div></div>
+  <!-- S8 final -->
+  <div class="obj" id="o_end"><div style="position:relative;margin:-300px 0 0 -300px;width:600px;display:flex;flex-direction:column;align-items:center"><div class="appicon" style="width:130px;height:130px;border-radius:34px"><svg width="74" height="74" viewBox="0 0 24 24"><g fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.6 7.6L20 18M8.6 16.4L20 6"/></g></svg></div><div class="word" style="font-size:60px;margin-top:22px">Corte <b>Pronto</b></div>
+    <svg class="arrow" id="arr" viewBox="0 0 60 130"><path d="M30 6v112M8 92l22 26 22-26" fill="none" stroke="#FF8A4D" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+</div>
+<div id="cap"></div>
+<script>
+const OFF=0.15;
+const LN=[[0,5.642,"Há alguns anos, ter um [canal de cortes] era coisa de quem tinha tempo sobrando pra editar."],
+[5.642,3.788,"Agora, com live todo dia, você tem [três opções.]"],
+[9.430,3.474,"A primeira é passar [horas] cortando no CapCut."],
+[12.904,3.474,"A segunda é pagar um [editor] pra cada vídeo."],
+[16.379,3.239,"A terceira é deixar a [IA] fazer por você."],
+[19.618,1.959,"Isso é o [Corte Pronto.]"],
+[21.577,6.922,"Ela assiste a live em tempo real, acha o momento, corta, legenda e entrega o vídeo [pronto pra postar.]"],
+[28.500,2.429,"E você não precisa saber [editar.]"],
+[30.929,3.474,"Agora é só tocar em [saiba mais,] aqui embaixo."]];
+const END=36.6;
+const L=i=>LN[i][0]+OFF;
+// palavras com tempo
+const W=[];LN.forEach(([st,du,tx],li)=>{st+=OFF;let key=false;const toks=[];tx.split(' ').forEach(w=>{let k=key;if(w.startsWith('[')){k=true;key=true;w=w.slice(1)}if(w.endsWith(']')||w.endsWith('],')){const e=w.endsWith('],')?',':'';w=w.replace(/\],?$/,'')+e;toks.push({w,k:true});key=false;return}toks.push({w,k})});
+ const end=st+du*0.92;const wt=toks.map(x=>x.w.length+2);const tot=wt.reduce((a,b)=>a+b,0);let a=st;toks.forEach((x,i)=>{x.s=a;a+=(end-st)*wt[i]/tot;x.line=li;W.push(x)})});
+// blocos de legenda (ate ~6 palavras, quebra em ponto)
+const CH=[];let g=[];W.forEach((x,i)=>{g.push(x);const nx=W[i+1];if(!nx||nx.line!==x.line||g.length>=6&&/[,.]$/.test(x.w)||g.length>=7){CH.push(g);g=[]}});
+CH.forEach((c,i)=>{c.end=CH[i+1]?CH[i+1][0].s:99});
+const $=id=>document.getElementById(id),cl=(x,a=0,b=1)=>Math.max(a,Math.min(b,x)),ease=x=>1-Math.pow(1-cl(x),3),eio=x=>{x=cl(x);return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2};
+// linhas do editor pago
+for(let i=0;i<6;i++){$('rows').insertAdjacentHTML('beforeend','<div class="row" id="r'+i+'"><i></i><span>Edição do vídeo</span><b></b></div>')}
+for(let i=0;i<9;i++){$('coins').insertAdjacentHTML('beforeend','<i id="c'+i+'"></i>')}
+const CF='file:///tmp/claude-0/-home-user-P-gina-de-vendas-GGG/482a6202-3c7c-579d-a01d-3a24b350b15a/scratchpad/vid/cf/';
+function setImg(id,dir,t0,t,max){const el=$(id);const f=Math.max(1,Math.min(max,Math.floor((t-t0)*30)+1));const src=CF+dir+'/'+String(f).padStart(5,'0')+'.jpg';if(el.dataset.s!==src){el.dataset.s=src;el.src=src;return Promise.race([el.decode().catch(()=>{}),new Promise(r=>setTimeout(r,2000))])}return null}
+// janelas de cada objeto [inicio, fim]
+const OB={o_old:[0,2.9],o_ed:[2.9,L(1)],o_live:[L(1),L(1)+2.0],o_123:[L(1)+2.0,L(2)],o_op1:[L(2),L(3)],o_op2:[L(3),L(4)],o_op3:[L(4),L(5)],o_brand:[L(5),L(6)],o_demo:[L(6),L(7)],o_B:[L(7),L(8)],o_end:[L(8),END+1]};
+function place(id,t){const [a,b]=OB[id];const el=$(id);if(t<a-0.02||t>b+0.32){el.style.display='none';return null}
+ const i=ease((t-a)/0.5),o=1-ease((t-b)/0.3);const lt=t-a;
+ const ry=-14+10*Math.sin(lt*0.6),rx=8+3*Math.sin(lt*0.5);
+ el.style.display='block';el.style.opacity=Math.min(i,o);
+ el.style.transform=`translate3d(0,${Math.round((1-i)*70-(1-o)*40)}px,${Math.round(-(1-i)*220)}px) rotateX(${rx.toFixed(2)}deg) rotateY(${(ry*(1-.0)).toFixed(2)}deg)`;return lt}
+const GL=[[0,'255,150,70'],[L(2),'255,106,61'],[L(4),'255,90,45'],[L(5),'255,120,50'],[L(6),'255,150,70']];
+window.render=function(t){const waits=[];
+ // brilho
+ let gc=GL[0][1];GL.forEach(([s,c])=>{if(t>=s)gc=c});$('glow').style.background=`radial-gradient(closest-side,rgba(${gc},.34),rgba(${gc},.10) 55%,transparent 80%)`;
+ let lt;
+ if((lt=place('o_old',t))!==null){}
+ if((lt=place('o_ed',t))!==null){$('edph').style.left=(30+lt*150)+'px';$('cm1').style.transform=`rotate(${lt*360}deg)`;$('ch1').style.transform=`rotate(${lt*30}deg)`}
+ if((lt=place('o_live',t))!==null){[...$('week').children].forEach((d,i)=>d.classList.toggle('on',lt>0.3+i*0.2))}
+ if((lt=place('o_123',t))!==null){['n1','n2','n3'].forEach((n,i)=>{const k=ease((lt-0.15-i*0.22)/0.45);$(n).style.opacity=k;$(n).style.transform=`translate3d(0,${(1-k)*80}px,0) rotateZ(${(i-1)*6*(1-k)+(i-1)*3}deg)`})}
+ if((lt=place('o_op1',t))!==null){$('edph2').style.left=(30+lt*130)+'px';const m=Math.round(eio(lt/3.3)*192);$('tm').textContent=Math.floor(m/60)+'h '+String(m%60).padStart(2,'0')+'min'}
+ if((lt=place('o_op2',t))!==null){for(let i=0;i<6;i++)$('r'+i).style.opacity=cl((lt-0.2-i*0.4)/0.2);for(let i=0;i<9;i++)$('c'+i).style.opacity=cl((lt-0.3-i*0.3)/0.15)}
+ if((lt=place('o_op3',t))!==null){const w=setImg('iD','D',OB.o_op3[0],t,125);if(w)waits.push(w)}
+ if((lt=place('o_brand',t))!==null){$('icon').style.transform=`translate3d(0,0,${Math.round(40*ease(lt/0.6))}px)`}
+ if((lt=place('o_demo',t))!==null){const url='youtube.com/live/seustreamer';const n=Math.floor(cl((lt-0.2)/1.3)*url.length);$('typed').textContent=url.slice(0,n);$('cur').style.opacity=(Math.floor(lt*2.5)%2)?1:0.2;
+  const ws=W.filter(x=>x.line==6);const kt=[ws[1].s,ws[6].s,ws[9].s,ws[10].s];['k1','k2','k3','k4'].forEach((k,i)=>$(k).classList.toggle('on',t>=kt[i]));
+  const mk=eio((lt-3.6)/0.7);$('mouse').style.left=(520-160*mk)+'px';$('mouse').style.top=(330+120*mk)+'px';const clk=lt>4.4&&lt<4.7;$('go').style.transform=clk?'scale(.97)':'none';
+  const pk=ease((lt-4.7)/0.5);$('pA').style.opacity=pk;$('pA').style.transform=`translate3d(${Math.round((1-pk)*200)}px,0,${Math.round(60*pk)}px) rotateY(-8deg)`;$('appc').style.opacity=1-0.55*pk;
+  if(lt>4.5){const w=setImg('iA','A',OB.o_demo[0]+4.5,t,259);if(w)waits.push(w)}}
+ if((lt=place('o_B',t))!==null){const w=setImg('iB','B',OB.o_B[0],t,204);if(w)waits.push(w);$('okB').style.opacity=cl((lt-0.8)/0.3)}
+ if((lt=place('o_end',t))!==null){$('arr').style.transform=`translateY(${Math.round(Math.abs(Math.sin(lt*3.2))*22)}px)`;$('arr').style.opacity=0.65+0.35*Math.abs(Math.sin(lt*3.2))}
+ // legenda
+ let ci=-1;for(let i=0;i<CH.length;i++)if(t>=CH[i][0].s-0.02)ci=i;
+ const cap=$('cap');if(cap.dataset.c!=ci){cap.dataset.c=ci;cap.innerHTML=ci<0?'':CH[ci].map(x=>'<span'+(x.k?' class="k"':'')+'>'+x.w+'</span>').join('')}
+ if(ci>=0){const c=CH[ci];const sp=cap.children;const fade=t>c[c.length-1].s+1.3?1-cl((t-c[c.length-1].s-1.3)/0.2):1;c.forEach((x,i)=>{const k=cl((t-x.s)/0.12);sp[i].style.opacity=k*fade;sp[i].style.transform=`translate3d(0,${Math.round((1-k)*8)}px,0)`;if(x.k)sp[i].style.setProperty('--u',cl((t-x.s-0.08)/0.25))})}
+ return Promise.all(waits)};
+render(0);window.END=END;
+</script></body></html>
