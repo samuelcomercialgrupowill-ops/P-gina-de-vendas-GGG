@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--coral:#FF6A3D;--amber:#FFB23F;--text:#F7F7F8;--muted:#A1A1AA;--d:"Bricolage Grotesque",Inter,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1080px;height:1080px;overflow:hidden;background:#060608;color:var(--text);font-family:Inter,sans-serif;position:relative;-webkit-font-smoothing:antialiased}
+.glow{position:absolute;right:-260px;top:40px;width:1000px;height:1000px;background:radial-gradient(closest-side,rgba(255,106,61,.40),rgba(255,106,61,.10) 55%,transparent 80%)}
+.dots{position:absolute;inset:0;background:radial-gradient(circle,rgba(255,255,255,.08) 1.2px,transparent 1.6px) 0 0/20px 20px;-webkit-mask:radial-gradient(75% 70% at 70% 50%,#000 30%,transparent 85%)}
+.vig{position:absolute;inset:0;background:radial-gradient(120% 100% at 60% 45%,transparent 55%,rgba(0,0,0,.8))}
+.left{position:absolute;left:80px;top:90px;width:560px}
+.brand{display:flex;align-items:center;gap:20px}
+.icon{width:110px;height:110px;border-radius:30px;background:linear-gradient(150deg,#FF9A55,#FF5A2D 70%);display:grid;place-items:center;box-shadow:0 24px 60px -10px rgba(255,90,45,.8),inset 0 2px 0 rgba(255,255,255,.35)}
+.name{font:800 76px/0.95 var(--d);letter-spacing:-.035em}
+.name b{color:var(--amber);display:block}
+h1{font:800 62px/1.02 var(--d);letter-spacing:-.03em;margin-top:56px}
+h1 span{background:linear-gradient(90deg,var(--coral),var(--amber));-webkit-background-clip:text;color:transparent}
+.steps{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
+.steps span{padding:12px 18px;border-radius:999px;border:1px solid #33333C;background:rgba(20,20,24,.8);font:800 20px Inter;letter-spacing:.5px;text-transform:uppercase}
+.steps span b{color:var(--amber)}
+.bonus{margin-top:40px;display:grid;gap:10px}
+.bonus div{display:flex;align-items:center;gap:14px;font:700 23px Inter;color:#E4E4E7}
+.bonus i{font-style:normal;font:800 13px ui-monospace,Menlo,monospace;letter-spacing:2px;color:#170A04;background:var(--amber);padding:6px 9px;border-radius:7px}
+.phone{position:absolute;right:110px;top:150px;width:330px;height:600px;border-radius:52px;overflow:hidden;border:10px solid #0A0A0D;box-shadow:0 0 0 2px #33333C,0 60px 120px -20px rgba(255,106,61,.55);transform:perspective(1400px) rotateY(-14deg) rotateX(4deg);background:#000}
+.phone img{width:100%;height:100%;object-fit:cover}
+.ok{position:absolute;top:22px;left:22px;background:#FAFAFA;color:#09090B;font:800 19px Inter;padding:10px 15px;border-radius:999px}
+.spark{position:absolute;right:390px;top:120px;width:110px;height:110px;border-radius:30px;background:linear-gradient(150deg,#FF8A4D,#FF5A2D);display:grid;place-items:center;box-shadow:0 24px 60px -10px rgba(255,90,45,.85);transform:rotate(-8deg)}
+.price{position:absolute;right:80px;bottom:96px;text-align:right}
+.price small{font:700 22px Inter;color:var(--muted)}
+.price small s{text-decoration-color:var(--coral);text-decoration-thickness:3px}
+.price b{display:block;font:800 92px/1 var(--d);letter-spacing:-.04em;background:linear-gradient(180deg,var(--amber),var(--coral));-webkit-background-clip:text;color:transparent}
+.price em{font:700 18px Inter;font-style:normal;color:var(--muted)}
+.url{position:absolute;left:80px;bottom:70px;font:700 22px ui-monospace,Menlo,monospace;color:#71717A;letter-spacing:1px}
+</style></head><body>
+<div class="glow"></div><div class="dots"></div><div class="vig"></div>
+<div class="left">
+  <div class="brand"><div class="icon"><svg width="64" height="64" viewBox="0 0 24 24"><g fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.6 7.6L20 18M8.6 16.4L20 6"/></g></svg></div><div class="name">Corte<b>Pronto</b></div></div>
+  <h1>A IA corta a live<br>do seu streamer<br><span>por você.</span></h1>
+  <div class="steps"><span>Assiste</span><span>Corta</span><span>Edita</span><span><b>Posta</b></span></div>
+  <div class="bonus"><div><i>BÔNUS</i>Skill de Edição</div><div><i>BÔNUS</i>Pack de Prompts de Edição</div><div><i>BÔNUS</i>Máquina do Corte Automático</div></div>
+</div>
+<div class="spark"><svg width="60" height="60" viewBox="0 0 24 24"><path fill="#fff" d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8z"/></svg></div>
+<div class="phone"><img src="file:///tmp/claude-0/-home-user-P-gina-de-vendas-GGG/482a6202-3c7c-579d-a01d-3a24b350b15a/scratchpad/vid/cf/A/00090.jpg" alt=""><span class="ok">✓ Pronto pra postar</span></div>
+<div class="price"><small>De <s>R$197</s> por</small><b>R$47</b><em>pagamento único</em></div>
+<div class="url">cortepronto.online</div>
+</body></html>
