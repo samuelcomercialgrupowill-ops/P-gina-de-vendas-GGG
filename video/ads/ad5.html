@@ -51,6 +51,7 @@ LN:[[0,3.474,"Alguém postou o corte da live de ontem [antes de você.]"],
 GLOW:[[0,'255,170,80'],[3.6,'255,90,45'],[7.2,'150,150,170'],[10.4,'255,106,61'],[14.6,'255,150,70']],SCN:[]};
 const Ls=i=>AD.LN[i][0]+AD.OFF;
 const wt=(li,w)=>W.find(x=>x.line==li&&x.w.startsWith(w)).s;
+AD.BG=[[-1,()=>AD.LN[1][0]+AD.OFF,'A',-1.5,259],[()=>AD.LN[1][0]+AD.OFF,()=>AD.LN[2][0]+AD.OFF,'D',()=>AD.LN[1][0]+AD.OFF,125],[()=>AD.LN[5][0]+AD.OFF,()=>W.find(x=>x.line==5&&x.w.startsWith('Você')).s-0.1,'C3',()=>AD.LN[5][0]+AD.OFF,173],[()=>W.find(x=>x.line==5&&x.w.startsWith('Você')).s-0.1,()=>AD.LN[6][0]+AD.OFF,'B',()=>W.find(x=>x.line==5&&x.w.startsWith('Você')).s-0.1,204]];
 AD.SCN=[
  {id:'s_hook',a:-1,b:Ls(1),upd:(lt,t)=>{const {$,eio}=U;$('vc').textContent=Math.round(18000+eio((t+0.2)/3.4)*220400).toLocaleString('pt-BR')+' views';return setImg('iA','A',0,t+1.5,259)}},
  {id:'s_live',a:Ls(1),b:Ls(2),upd:(lt)=>{const {$,ease}=U;[...$('chat').children].forEach((p,i)=>{const k=ease((lt-0.2-i*0.45)/0.25);p.style.opacity=k;p.style.transform=`translateX(${Math.round((1-k)*-40)}px)`})}},

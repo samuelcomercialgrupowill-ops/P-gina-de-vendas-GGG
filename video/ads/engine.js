@@ -7,7 +7,7 @@ const ease=x=>1-Math.pow(1-cl(x),3);
 const eio=x=>{x=cl(x);return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2};
 window.U={$,cl,ease,eio};
 // fundo
-document.body.insertAdjacentHTML('afterbegin','<div id="glow"></div><div id="dots"></div><canvas id="fx" width="720" height="1280"></canvas><div id="flash"></div><div id="vig"></div>');
+document.body.insertAdjacentHTML('afterbegin','<img id="bg" alt=""><div id="glow"></div><div id="dots"></div><canvas id="fx" width="720" height="1280"></canvas><div id="flash"></div><div id="vig"></div>');
 document.body.insertAdjacentHTML('beforeend','<div id="cap"></div>');
 // palavras e legenda
 const W=[];
@@ -35,8 +35,10 @@ window.END=A.END;
 window.render=function(t){const waits=[];
   // brilho que muda de cor e respira
   let gc=A.GLOW[0][1];A.GLOW.forEach(([s,c])=>{if(t>=s)gc=c});
-  const br=0.30+0.05*Math.sin(t*1.7);
-  $('glow').style.background=`radial-gradient(closest-side,rgba(${gc},${br.toFixed(3)}),rgba(${gc},.09) 55%,transparent 80%)`;
+  const br=0.50+0.06*Math.sin(t*1.7);
+  $('glow').style.background=`radial-gradient(closest-side,rgba(${gc},${br.toFixed(3)}),rgba(${gc},.17) 55%,transparent 82%)`;
+  // fundo com o corte desfocado
+  let bgo=0;(A.BG||[]).forEach(([a,b,dir,t0,max])=>{const a2=typeof a==='function'?a():a,b2=typeof b==='function'?b():b;if(t>=a2-0.3&&t<=b2+0.3){bgo=Math.min(1,(t-a2+0.3)/0.4,(b2+0.3-t)/0.4);const w=setImg('bg',dir,typeof t0==='function'?t0():t0,t,max);if(w)waits.push(w)}});$('bg').style.opacity=Math.max(0,bgo).toFixed(3);
   // flash nas palavras-chave
   let fl=0;KEYS.forEach(k=>{const d=t-k.s;if(d>=0&&d<0.6)fl=Math.max(fl,(1-d/0.6)*0.28)});$('flash').style.opacity=fl.toFixed(3);
   // particulas
