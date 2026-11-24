@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="engine.css">
+<style>
+.views{white-space:nowrap;display:flex;align-items:center;gap:12px;margin-top:22px;padding:14px 22px;border-radius:18px;background:#141418;border:1px solid #3A3A44;font:800 44px var(--d);letter-spacing:-.02em;box-shadow:0 20px 50px -20px rgba(255,106,61,.6)}
+.views svg{color:var(--amber)}
+.who{position:absolute;left:16px;bottom:18px;right:16px;display:flex;align-items:center;gap:10px;background:rgba(0,0,0,.65);padding:10px 12px;border-radius:14px;font:700 16px Inter}
+.who i{width:30px;height:30px;border-radius:50%;background:#52525B;flex:none}
+.who small{display:block;font:600 13px Inter;color:#A1A1AA}
+.chat{width:560px;margin-top:14px;padding:16px 20px;display:grid;gap:9px}
+.chat p{font:600 21px Inter;color:#D4D4D8;opacity:0}
+.chat p b{color:var(--amber)}
+.strike{position:absolute;left:-30px;right:-30px;height:6px;border-radius:6px;background:var(--coral);transform-origin:left;box-shadow:0 0 24px rgba(255,106,61,.8)}
+.plats{display:flex;gap:10px;margin-top:20px;white-space:nowrap;width:max-content}
+.plats span{padding:12px 16px;border-radius:999px;background:#141418;border:1px solid #3A3A44;font:800 18px Inter;opacity:0}
+.plats span b{color:var(--amber)}
+</style>
+</head><body>
+<div class="stage"><div class="cam" id="cam">
+  <div class="obj" id="s_hook"><div class="box" style="display:flex;flex-direction:column;align-items:center">
+    <div class="phone" style="width:270px;height:492px"><img id="iA" alt=""><div class="who"><i></i><div>@outro.canal<small>postou há 12 min</small></div></div><div class="sheen"></div></div>
+    <div class="views"><svg width="38" height="38" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg><span id="vc">0</span></div></div></div>
+  <div class="obj" id="s_live"><div class="box" style="display:flex;flex-direction:column;align-items:center">
+    <div class="card live" style="height:270px"><div class="sheen"></div><span class="badge">AO VIVO</span><span style="position:absolute;top:18px;left:118px;background:rgba(0,0,0,.55);padding:7px 10px;border-radius:6px;font:800 15px Inter">ontem, 23h48</span><div class="lbl" style="position:absolute;left:0;right:0;bottom:26px;margin:0;color:#fff;font-size:18px">VOCÊ ESTAVA AQUI 👀</div></div>
+    <div class="card chat" id="chat"><p><b>lucas_22</b> NÃO ACREDITO</p><p><b>bia.rp</b> kkkkkkkkkk</p><p><b>vitinho</b> CLIPA ISSO</p><p><b>mari</b> alguém corta pfv</p><p><b>jp_07</b> MOMENTO HISTÓRICO</p></div></div></div>
+  <div class="obj" id="s_noed"><div class="box" style="display:flex;flex-direction:column;align-items:center">
+    <div class="card ed" style="opacity:.55"><div class="bar"><i></i><i></i><i></i></div><div class="prev"></div><div class="tr"><b style="left:2%;width:26%"></b><b style="left:31%;width:18%"></b></div><div class="tr"><b style="left:6%;width:44%"></b></div><div class="tr"><b style="left:3%;width:60%"></b></div></div>
+    <div class="strike" id="stk" style="top:150px"></div><div class="timer">0 min editando</div></div></div>
+  <div class="obj" id="s_ai"><div class="box"><div class="spark" id="spk" style="width:190px;height:190px;border-radius:52px"><div class="ring" id="rg1"></div><div class="ring" id="rg2"></div><div class="ring" id="rg3"></div><svg width="100" height="100" viewBox="0 0 24 24"><path fill="#fff" d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8z"/></svg></div></div></div>
+  <div class="obj" id="s_brand"><div class="box" style="display:flex;flex-direction:column;align-items:center;width:640px"><div class="appicon" id="icn"><div class="sheen" style="position:absolute;top:-20%;bottom:-20%;width:40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-18deg)"></div><svg width="96" height="96" viewBox="0 0 24 24"><g fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.6 7.6L20 18M8.6 16.4L20 6"/></g></svg></div><div class="word">Corte <b>Pronto</b></div></div></div>
+  <div class="obj" id="s_demo"><div class="box card app"><div class="sheen"></div><div class="top"><svg width="22" height="22" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.6 7.6L20 18M8.6 16.4L20 6"/></g></svg>Corte Pronto</div>
+    <div class="inp"><span id="typed"></span><span class="cur" id="cur"></span></div>
+    <div class="chips"><span id="k1"><i></i>Assistindo ao vivo</span><span id="k2"><i></i>Momento achado</span><span id="k3"><i></i>Cortado em pé</span><span id="k4"><i></i>Legendado</span></div>
+    <div class="go">GERAR CORTE</div></div></div>
+  <div class="obj" id="s_post"><div class="box" style="display:flex;flex-direction:column;align-items:center">
+    <div class="phone" style="width:262px;height:477px"><img id="iB" alt=""><span class="ok" id="okB">✓ Publicado por você</span><div class="sheen"></div></div>
+    <div class="plats"><span id="pl1"><b>✓</b> TikTok</span><span id="pl2"><b>✓</b> Reels</span><span id="pl3"><b>✓</b> Shorts</span></div></div></div>
+  <div class="obj" id="s_end"><div class="box" style="display:flex;flex-direction:column;align-items:center;width:640px"><div class="appicon" style="width:130px;height:130px;border-radius:34px"><svg width="74" height="74" viewBox="0 0 24 24"><g fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.6 7.6L20 18M8.6 16.4L20 6"/></g></svg></div><div class="word" style="font-size:60px;margin-top:22px">Corte <b>Pronto</b></div>
+    <svg class="arrow" id="arr" viewBox="0 0 60 130"><path d="M30 6v112M8 92l22 26 22-26" fill="none" stroke="#FF8A4D" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+</div></div>
+<script>
+window.AD={OFF:0.15,END:29.2,
+LN:[[0,3.474,"Alguém postou o corte da live de ontem [antes de você.]"],
+[3.474,3.631,"E você estava lá. Você viu o [momento acontecer.]"],
+[7.105,3.161,"A diferença é que ele não [editou nada] na mão."],
+[10.266,2.194,"Quem cortou foi a [IA.]"],
+[12.460,1.959,"Isso é o [Corte Pronto.]"],
+[14.420,7.314,"Ela assiste a live em tempo real, acha o momento, corta em pé e legenda. Você só [escolhe e posta.]"],
+[21.734,5.564,"Da próxima vez, o primeiro a postar [é você.] Toque em [saiba mais,] aqui embaixo."]],
+GLOW:[[0,'255,170,80'],[3.6,'255,90,45'],[7.2,'150,150,170'],[10.4,'255,106,61'],[14.6,'255,150,70']],SCN:[]};
+const Ls=i=>AD.LN[i][0]+AD.OFF;
+const wt=(li,w)=>W.find(x=>x.line==li&&x.w.startsWith(w)).s;
+AD.SCN=[
+ {id:'s_hook',a:-1,b:Ls(1),upd:(lt,t)=>{const {$,eio}=U;$('vc').textContent=Math.round(18000+eio((t+0.2)/3.4)*220400).toLocaleString('pt-BR')+' views';return setImg('iA','A',0,t+1.5,259)}},
+ {id:'s_live',a:Ls(1),b:Ls(2),upd:(lt)=>{const {$,ease}=U;[...$('chat').children].forEach((p,i)=>{const k=ease((lt-0.2-i*0.45)/0.25);p.style.opacity=k;p.style.transform=`translateX(${Math.round((1-k)*-40)}px)`})}},
+ {id:'s_noed',a:Ls(2),b:Ls(3),upd:(lt,t)=>{const {$,ease}=U;$('stk').style.transform=`scaleX(${ease((t-wt(2,'editou'))/0.45).toFixed(3)}) rotate(-8deg)`}},
+ {id:'s_ai',a:Ls(3),b:Ls(4),upd:(lt)=>{const {$,ease}=U;[1,2,3].forEach(j=>{const p=((lt*0.8)+j/3)%1;const r=$('rg'+j);r.style.width=r.style.height=(190+p*360)+'px';r.style.opacity=((1-p)*0.8).toFixed(3)});$('spk').style.transform=`scale(${(0.6+0.4*ease(lt/0.5)).toFixed(3)}) rotateZ(${(lt*12).toFixed(2)}deg)`}},
+ {id:'s_brand',a:Ls(4),b:Ls(5),boom:true,inD:0.4,upd:(lt)=>{const {$,ease,cl}=U;$('icn').style.transform=`translate3d(0,0,${Math.round(60*ease(lt/0.6))}px) rotateY(${(20*(1-ease(lt/0.7))).toFixed(2)}deg)`;$('icn').querySelector('.sheen').style.left=(-60+cl((lt-0.3)/0.6)*220)+'%'}},
+ {id:'s_demo',a:Ls(5),b:()=>wt(5,'Você')-0.1,upd:(lt,t)=>{const {$,cl}=U;const url='youtube.com/live/seustreamer';$('typed').textContent=url.slice(0,Math.floor(cl((lt-0.05)/1.0)*url.length));$('cur').style.opacity=(Math.floor(lt*2.5)%2)?1:0.2;
+   const kt=[wt(5,'assiste'),wt(5,'acha'),wt(5,'corta'),wt(5,'legenda')];['k1','k2','k3','k4'].forEach((k,i)=>$(k).classList.toggle('on',t>=kt[i]))}},
+ {id:'s_post',a:()=>wt(5,'Você')-0.1,b:Ls(6),upd:(lt,t)=>{const {$,ease,cl}=U;$('okB').style.opacity=cl((lt-0.5)/0.2);[1,2,3].forEach(i=>{const k=ease((lt-0.6-i*0.25)/0.3);$('pl'+i).style.opacity=k;$('pl'+i).style.transform=`translateY(${Math.round((1-k)*20)}px)`});return setImg('iB','B',wt(5,'Você')-0.1,t,204)}},
+ {id:'s_end',a:Ls(6),b:99,upd:(lt)=>{const {$}=U;const s=Math.abs(Math.sin(lt*3.2));$('arr').style.transform=`translateY(${Math.round(s*22)}px)`;$('arr').style.opacity=0.65+0.35*s}}
+];
+</script>
+<script src="engine.js"></script>
+</body></html>
