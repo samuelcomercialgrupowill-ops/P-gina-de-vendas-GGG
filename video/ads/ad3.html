@@ -10,6 +10,13 @@
 .days .dn{width:70px;height:44px;border-radius:10px;background:#16161B;border:1px solid #30303A;font:700 13px Inter;color:var(--muted);display:grid;place-items:center}
 .days .dn.on{background:var(--coral);color:#140804;border-color:var(--coral)}
 .nomad{display:flex;align-items:center;gap:16px;margin-top:34px;padding:14px 20px;border-radius:999px;background:#141418;border:1px solid #30303A;font:700 21px Inter;opacity:0}
+.bon{display:flex;flex-direction:column;gap:12px;width:540px}
+.bon .br{display:flex;align-items:center;gap:14px;padding:16px 18px;opacity:0}
+.bon .br i{font-style:normal;font:800 12px ui-monospace,Menlo,monospace;letter-spacing:2px;color:#170A04;background:var(--amber);padding:6px 9px;border-radius:7px;flex:none}
+.bon .br b{font:700 22px Inter}
+.bon .br.hl{border:2px solid var(--coral);box-shadow:0 0 0 6px rgba(255,106,61,.12),0 0 50px rgba(255,106,61,.45);background:linear-gradient(160deg,#2a170f,#141016)}
+.bubble{margin-top:16px;align-self:flex-end;max-width:420px;padding:14px 18px;border-radius:18px 18px 4px 18px;background:#FAFAFA;color:#111;font:600 19px/1.35 Inter;opacity:0}
+.bubble2{margin-top:10px;align-self:flex-start;padding:12px 16px;border-radius:18px 18px 18px 4px;background:#1E1E25;border:1px solid #3A3A44;font:700 18px Inter;color:var(--amber);opacity:0}
 </style>
 </head><body>
 <div class="stage"><div class="cam" id="cam">
@@ -27,23 +34,31 @@
   <div class="obj" id="s_brand"><div class="box" style="display:flex;flex-direction:column;align-items:center;width:640px"><div class="appicon" id="icn"><div class="sheen" style="position:absolute;top:-20%;bottom:-20%;width:40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-18deg)"></div><svg width="96" height="96" viewBox="0 0 24 24"><g fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.6 7.6L20 18M8.6 16.4L20 6"/></g></svg></div><div class="word">Corte <b>Pronto</b></div></div></div>
   <div class="obj" id="s_week"><div class="box" style="display:flex;flex-direction:column;align-items:center"><div class="lbl">CORTE NOVO TODO DIA</div><div class="days" id="days"></div>
     <div class="nomad" id="nm"><div class="moon" style="width:34px;height:34px;box-shadow:inset -9px -3px 0 0 #E9E4D8"></div>Sem madrugada editando</div></div></div>
+  <div class="obj" id="s_bonus"><div class="box bon"><div class="lbl" style="margin-bottom:6px">+4 BÔNUS</div>
+    <div class="card br" id="bo1"><i>BÔNUS</i><b>Skill de Edição</b></div>
+    <div class="card br" id="bo2"><i>BÔNUS</i><b>Pack de Prompts de Edição</b></div>
+    <div class="card br" id="bo3"><i>BÔNUS</i><b>Máquina do Corte Automático</b></div>
+    <div class="card br hl" id="bo4"><i>BÔNUS</i><b>Editor com IA Automático</b><div class="sheen"></div></div>
+    <div class="bubble" id="bb1">"Corta rápido, legenda amarela e zoom na reação"</div><div class="bubble2" id="bb2">✓ Editando do seu jeito…</div></div></div>
   <div class="obj" id="s_end"><div class="box" style="display:flex;flex-direction:column;align-items:center;width:640px"><div class="appicon" style="width:130px;height:130px;border-radius:34px"><svg width="74" height="74" viewBox="0 0 24 24"><g fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.6 7.6L20 18M8.6 16.4L20 6"/></g></svg></div><div class="word" style="font-size:60px;margin-top:22px">Corte <b>Pronto</b></div>
     <svg class="arrow" id="arr" viewBox="0 0 60 130"><path d="M30 6v112M8 92l22 26 22-26" fill="none" stroke="#FF8A4D" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
 </div></div>
 <script>
 const DN=['SEG','TER','QUA','QUI','SEX','SÁB','DOM'],TN=[1,4,6,8,2,10,5];
 document.getElementById('days').innerHTML=DN.map((d,i)=>`<div class="dc"><div class="th" id="dt${i}"></div><div class="dn" id="dd${i}">${d}</div></div>`).join('');
-window.AD={OFF:0.15,END:26.3,
+window.AD={OFF:0.15,END:33.3,
 LN:[[0,2.351,"Esse [corte] saiu pronto pra postar."],
 [2.351,2.769,"Só que [nenhum editor] encostou nele."],
 [5.120,2.038,"Quem cortou foi a [IA.]"],
 [7.158,5.407,"Ela assistiu a live, achou o momento, colocou a legenda e entregou o vídeo [em pé.]"],
 [12.565,1.881,"Isso é o [Corte Pronto.]"],
 [14.446,5.956,"Com live todo dia, você tem [corte novo todo dia,] sem passar a madrugada editando."],
-[20.402,3.396,"Agora é só tocar em [saiba mais,] aqui embaixo."]],
+[20.402,7.079,"E ainda leva [quatro bônus,] incluindo um [editor com IA:] você pede o vídeo do seu jeito e ele edita."],
+[27.481,3.396,"Agora é só tocar em [saiba mais,] aqui embaixo."]],
 GLOW:[[0,'255,150,70'],[2.5,'150,150,170'],[5.2,'255,90,45'],[12.7,'255,106,61'],[14.6,'255,150,70']],SCN:[]};
 const Ls=i=>AD.LN[i][0]+AD.OFF;
 const wt=(li,w)=>W.find(x=>x.line==li&&x.w.startsWith(w)).s;
+AD.BG=[[0,()=>AD.LN[1][0]+AD.OFF,'A',0,259],[()=>W.find(x=>x.line==3&&x.w.startsWith('vídeo')).s,()=>AD.LN[4][0]+AD.OFF,'B',()=>W.find(x=>x.line==3&&x.w.startsWith('vídeo')).s,204]];
 AD.SCN=[
  {id:'s_hero',a:0,b:Ls(1),upd:(lt,t)=>{const {$,cl,ease}=U;$('okA').style.opacity=cl((lt-0.9)/0.2);$('okA').style.transform=`scale(${(0.7+0.3*ease((lt-0.9)/0.3)).toFixed(3)})`;return setImg('iA','A',0,t,259)}},
  {id:'s_noed',a:Ls(1),b:Ls(2),upd:(lt)=>{const {$,ease}=U;$('stk').style.transform=`scaleX(${ease((lt-0.6)/0.5).toFixed(3)}) rotate(-8deg)`}},
@@ -54,7 +69,9 @@ AD.SCN=[
  {id:'s_brand',a:Ls(4),b:Ls(5),boom:true,inD:0.4,upd:(lt)=>{const {$,ease,cl}=U;$('icn').style.transform=`translate3d(0,0,${Math.round(60*ease(lt/0.6))}px) rotateY(${(20*(1-ease(lt/0.7))).toFixed(2)}deg)`;$('icn').querySelector('.sheen').style.left=(-60+cl((lt-0.3)/0.6)*220)+'%'}},
  {id:'s_week',a:Ls(5),b:Ls(6),upd:(lt,t)=>{const {$,ease,cl}=U;for(let i=0;i<7;i++){const k=ease((lt-0.3-i*0.38)/0.35);$('dd'+i).classList.toggle('on',k>0.5);const th=$('dt'+i);th.style.backgroundImage=TH(TN[i]);th.style.opacity=k;th.style.transform=`translateY(${Math.round((1-k)*40)}px)`}
    const nk=ease((t-wt(5,'madrugada')+0.1)/0.35);$('nm').style.opacity=nk;$('nm').style.transform=`translateY(${Math.round((1-nk)*20)}px)`}},
- {id:'s_end',a:Ls(6),b:99,upd:(lt)=>{const {$}=U;const s=Math.abs(Math.sin(lt*3.2));$('arr').style.transform=`translateY(${Math.round(s*22)}px)`;$('arr').style.opacity=0.65+0.35*s}}
+ {id:'s_bonus',a:Ls(6),b:Ls(7),upd:(lt,t)=>{const {$,ease,cl}=U;[1,2,3,4].forEach(i=>{const e=$('bo'+i);const k=ease((lt-0.15-(i-1)*0.35)/0.35);e.style.opacity=k;e.style.transform=`translate3d(${Math.round((1-k)*-100)}px,0,0) scale(${i==4?(1+0.04*Math.sin(Math.max(0,lt-1.4)*4)).toFixed(3):1})`});
+   const te=W.find(x=>x.line==6&&x.w.startsWith('editor')).s;const kb=ease((t-te)/0.35);$('bb1').style.opacity=kb;$('bb1').style.transform=`translateY(${Math.round((1-kb)*20)}px)`;const k2=ease((t-te-1.6)/0.35);$('bb2').style.opacity=k2}},
+ {id:'s_end',a:Ls(7),b:99,upd:(lt)=>{const {$}=U;const s=Math.abs(Math.sin(lt*3.2));$('arr').style.transform=`translateY(${Math.round(s*22)}px)`;$('arr').style.opacity=0.65+0.35*s}}
 ];
 </script>
 <script src="engine.js"></script>
