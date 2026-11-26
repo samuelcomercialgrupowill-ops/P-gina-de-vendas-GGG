@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1920px;height:1080px;overflow:hidden;color:#F7F7F8;font-family:Inter,sans-serif;position:relative;-webkit-font-smoothing:antialiased;
+ background:radial-gradient(70% 70% at 50% 55%,#2a1810 0%,#120c0b 55%,#070709 100%)}
+.dots{position:absolute;inset:0;background:radial-gradient(circle,rgba(255,255,255,.08) 1.3px,transparent 1.7px) 0 0/24px 24px;-webkit-mask:radial-gradient(70% 70% at 50% 55%,#000 30%,transparent 85%)}
+.top{position:absolute;left:0;right:0;top:86px;display:flex;flex-direction:column;align-items:center}
+.brand{display:flex;align-items:center;gap:18px;font:800 46px "Bricolage Grotesque";letter-spacing:-.015em}
+.brand b{color:#FFB23F}
+.brand .ic{width:72px;height:72px;border-radius:18px;background:linear-gradient(150deg,#FFA45C,#FF6A3D 48%,#F2441F);display:grid;place-items:center}
+h1{margin-top:26px;font:800 92px/1 "Bricolage Grotesque";letter-spacing:-.03em}
+h1 span{background:linear-gradient(90deg,#FF6A3D,#FFB23F);-webkit-background-clip:text;color:transparent}
+.row{position:absolute;left:0;right:0;top:430px;display:flex;justify-content:center;gap:110px}
+.b{display:flex;flex-direction:column;align-items:center;width:430px;text-align:center}
+.tile{width:300px;height:300px;border-radius:72px;display:grid;place-items:center;position:relative;overflow:hidden}
+.tile::before{content:"";position:absolute;left:-20%;top:-60%;width:140%;height:90%;background:radial-gradient(closest-side,rgba(255,255,255,.30),transparent);transform:rotate(-12deg)}
+.tile svg{position:relative;filter:drop-shadow(0 8px 14px rgba(0,0,0,.3))}
+.t1{background:linear-gradient(150deg,#B98CFF,#7C3AED 55%,#5B21B6);box-shadow:0 40px 110px -20px rgba(124,58,237,.75),inset 0 3px 0 rgba(255,255,255,.35)}
+.t2{background:linear-gradient(150deg,#5EEAD4,#14B8A6 55%,#0F766E);box-shadow:0 40px 110px -20px rgba(20,184,166,.7),inset 0 3px 0 rgba(255,255,255,.35)}
+.t3{background:linear-gradient(150deg,#FFE27A,#F5B301 55%,#D97706);box-shadow:0 40px 110px -20px rgba(245,179,1,.7),inset 0 3px 0 rgba(255,255,255,.4)}
+.tag{margin-top:46px;font:800 18px ui-monospace,Menlo,monospace;letter-spacing:4px;padding:8px 14px;border-radius:8px}
+.k1{color:#C4A1FF;background:rgba(124,58,237,.18)}.k2{color:#5EEAD4;background:rgba(20,184,166,.16)}.k3{color:#FFD24D;background:rgba(245,179,1,.16)}
+.b h2{margin-top:18px;font:800 44px/1.08 "Bricolage Grotesque";letter-spacing:-.02em}
+</style></head><body>
+<div class="dots"></div>
+<div class="top">
+  <div class="brand"><div class="ic"><svg width="44" height="44" viewBox="0 0 24 24"><g fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.6 7.6L20 18M8.6 16.4L20 6"/></g></svg></div>Corte <b>Pronto</b></div>
+  <h1>Seus <span>bônus exclusivos</span></h1>
+</div>
+<div class="row">
+  <div class="b"><div class="tile t1"><svg width="160" height="160" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4V2M15 16v-2M8 9h2M20 9h2M17.8 11.8l1.4 1.4M17.8 6.2l1.4-1.4M12.2 6.2L10.8 4.8"/><path d="M15 9l-12 12"/><path d="M13.5 10.5l1.5-1.5"/></svg></div><span class="tag k1">BÔNUS 1</span><h2>Skill de Edição</h2></div>
+  <div class="b"><div class="tile t2"><svg width="160" height="160" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9h8M8 13h5"/></svg></div><span class="tag k2">BÔNUS 2</span><h2>Pack de Prompts<br>de Edição</h2></div>
+  <div class="b"><div class="tile t3"><svg width="160" height="160" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><span class="tag k3">BÔNUS 3</span><h2>Máquina do Corte<br>Automático</h2></div>
+</div>
+</body></html>
