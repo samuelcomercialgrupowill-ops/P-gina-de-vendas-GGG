@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--cy:#25F4EE;--rd:#FE2C55;--or:#FF6A3D;--am:#FFB23F}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;-webkit-font-smoothing:antialiased;font-family:Inter,sans-serif;color:#fff}
+.cv{width:1920px;height:1080px;position:relative;overflow:hidden;background:radial-gradient(60% 80% at 75% 50%,#1a1a1f 0%,#050506 70%)}
+.cv::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0 2px,transparent 2px 4px);pointer-events:none}
+.gl{position:relative;display:inline-block}
+.gl::before,.gl::after{content:attr(data-t);position:absolute;left:0;top:0;width:100%;mix-blend-mode:screen}
+.gl::before{color:var(--cy);transform:translate(-6px,-3px)}
+.gl::after{color:var(--rd);transform:translate(6px,3px)}
+.gl span{position:relative;z-index:1;color:#fff}
+.brand{display:flex;align-items:center;gap:18px;font:800 40px "Bricolage Grotesque"}
+.brand b{color:var(--am)}
+.ic{width:70px;height:70px;border-radius:18px;background:linear-gradient(150deg,#FFA45C,#FF6A3D 48%,#F2441F);display:grid;place-items:center;box-shadow:-4px -3px 0 var(--cy),4px 3px 0 var(--rd)}
+.phone{position:absolute;border-radius:52px;overflow:hidden;border:10px solid #0b0b0d;background:#000;box-shadow:-10px -6px 0 rgba(37,244,238,.8),10px 6px 0 rgba(254,44,85,.8),0 60px 120px -20px rgba(0,0,0,.9)}
+.phone img{width:100%;height:100%;object-fit:cover;display:block}
+.ui{position:absolute;right:16px;bottom:120px;display:flex;flex-direction:column;gap:22px;align-items:center}
+.ui div{display:flex;flex-direction:column;align-items:center;gap:6px;font:800 18px Inter;text-shadow:0 2px 6px #000}
+.ui svg{filter:drop-shadow(0 2px 4px rgba(0,0,0,.6))}
+.av{width:62px;height:62px;border-radius:50%;border:3px solid #fff;background:linear-gradient(150deg,#FFA45C,#F2441F);display:grid;place-items:center;position:relative}
+.av::after{content:"+";position:absolute;bottom:-12px;left:50%;margin-left:-12px;width:24px;height:24px;border-radius:50%;background:var(--rd);font:900 18px/24px Inter;text-align:center}
+.cap{position:absolute;left:18px;right:96px;bottom:44px;font:700 20px/1.35 Inter;text-shadow:0 2px 6px #000}
+.cap b{display:block;font-weight:900;font-size:22px;margin-bottom:6px}
+.bar{position:absolute;left:0;right:0;bottom:0;height:5px;background:rgba(255,255,255,.3)}
+.bar i{display:block;height:100%;width:62%;background:#fff}
+.chip{display:inline-flex;align-items:center;gap:10px;padding:12px 20px;border-radius:999px;font:900 22px Inter;letter-spacing:1px;text-transform:uppercase}
+.fy{position:absolute;top:26px;left:0;right:0;text-align:center;font:800 22px Inter;text-shadow:0 2px 6px #000}
+.fy span{opacity:.6;margin-right:26px}
+.fy b{border-bottom:3px solid #fff;padding-bottom:6px}
+/* capa A */
+#a .left{position:absolute;left:120px;top:150px;width:900px}
+#a h1{margin-top:60px;font:800 190px/.9 "Bricolage Grotesque";letter-spacing:-.045em}
+#a h1 .o{color:var(--or)}
+#a p{margin-top:40px;font:700 40px/1.3 Inter;color:#D4D4D8}
+#a p b{color:#fff}
+#a .chips{margin-top:46px;display:flex;gap:14px}
+.c1{background:var(--cy);color:#000}.c2{background:#fff;color:#000}.c3{background:var(--rd);color:#fff}
+/* capa B */
+#b h1{position:absolute;left:0;right:0;top:90px;text-align:center;font:800 120px/1 "Bricolage Grotesque";letter-spacing:-.04em}
+#b .lab{position:absolute;top:960px;width:360px;text-align:center}
+#b .brand{position:absolute;left:50%;transform:translateX(-50%);bottom:40px}
+</style></head><body>
+<template id="sc"><svg width="40" height="40" viewBox="0 0 24 24"><g fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.6 7.6L20 18M8.6 16.4L20 6"/></g></svg></template>
+<template id="tkui"><div class="ui"><div class="av"></div><div><svg width="52" height="52" viewBox="0 0 24 24"><path fill="#FE2C55" d="M12 21s-7.5-4.6-9.6-9.2C.9 8.2 3.2 4.5 6.9 4.5c2 0 3.4 1.1 5.1 3 1.7-1.9 3.1-3 5.1-3 3.7 0 6 3.7 4.5 7.3C19.5 16.4 12 21 12 21z"/></svg>238K</div><div><svg width="50" height="50" viewBox="0 0 24 24"><path fill="#fff" d="M12 3C6.5 3 2 6.6 2 11c0 2.4 1.3 4.5 3.4 6L4.5 21l4.3-2.2c1 .3 2.1.4 3.2.4 5.5 0 10-3.6 10-8S17.5 3 12 3z"/></svg>4.812</div><div><svg width="50" height="50" viewBox="0 0 24 24"><path fill="#fff" d="M14 4l8 7.5-8 7.5v-4.5C8 14.5 4.5 16.5 2 21c1-6 4-11.5 12-12.5z"/></svg>Enviar</div></div></template>
+<div class="cv" id="a">
+  <div class="left">
+    <div class="brand"><div class="ic"></div>Corte <b>Pronto</b></div>
+    <h1><span class="gl" data-t="CORTE"><span>CORTE</span></span><br><span class="gl o" data-t="PRONTO"><span style="color:var(--or)">PRONTO</span></span></h1>
+    <p><b>A IA corta a live em tempo real,</b><br>edita como profissional e posta.</p>
+    <div class="chips"><span class="chip c1">Corta</span><span class="chip c2">Edita</span><span class="chip c3">Posta</span></div>
+  </div>
+  <div class="phone" style="left:1240px;top:90px;width:500px;height:900px;transform:rotate(4deg)"><img src="file:///tmp/claude-0/-home-user-P-gina-de-vendas-GGG/482a6202-3c7c-579d-a01d-3a24b350b15a/scratchpad/vid/cf/A/00090.jpg"><div class="fy"><span>Seguindo</span><b>Para você</b></div><div class="tk"></div><div class="cap"><b>@corte.pronto</b>Ninguém editou esse corte ✂️ #cortes #live #fyp</div><div class="bar"><i></i></div></div>
+</div>
+<div class="cv" id="b">
+  <h1><span class="gl" data-t="CORTE • EDITE • POSTE"><span>CORTE • EDITE • <span style="color:var(--or)">POSTE</span></span></span></h1>
+  <div class="phone" style="left:200px;top:300px;width:360px;height:640px;transform:rotate(-6deg)"><img src="file:///tmp/claude-0/-home-user-P-gina-de-vendas-GGG/482a6202-3c7c-579d-a01d-3a24b350b15a/scratchpad/vid/cf/D/00060.jpg"><div class="bar"><i style="width:30%"></i></div></div>
+  <div class="phone" style="left:780px;top:260px;width:360px;height:640px"><img src="file:///tmp/claude-0/-home-user-P-gina-de-vendas-GGG/482a6202-3c7c-579d-a01d-3a24b350b15a/scratchpad/vid/cf/A/00120.jpg"><div class="bar"><i></i></div></div>
+  <div class="phone" style="left:1360px;top:300px;width:360px;height:640px;transform:rotate(6deg)"><img src="file:///tmp/claude-0/-home-user-P-gina-de-vendas-GGG/482a6202-3c7c-579d-a01d-3a24b350b15a/scratchpad/vid/cf/B/00090.jpg"><div class="bar"><i style="width:90%"></i></div></div>
+  <span class="chip c1" style="position:absolute;left:250px;top:235px;transform:rotate(-6deg)">⚡ Corte em tempo real</span>
+  <span class="chip c2" style="position:absolute;left:815px;top:200px">🎬 Edição profissional</span>
+  <span class="chip c3" style="position:absolute;left:1420px;top:235px;transform:rotate(6deg)">🚀 Poste no automático</span>
+  <div class="brand"><div class="ic"></div>Corte <b>Pronto</b></div>
+</div>
+<script>
+document.querySelectorAll('.ic').forEach(e=>e.innerHTML=document.getElementById('sc').innerHTML);
+document.querySelectorAll('.tk').forEach(e=>e.outerHTML=document.getElementById('tkui').innerHTML);
+</script>
+</body></html>
