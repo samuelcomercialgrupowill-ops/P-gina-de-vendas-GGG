@@ -1,0 +1,82 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="pdf.css"><title>Skill de Edição</title></head><body>
+<section class="capa"><div class="dots"></div>
+ <div class="brand"><i><svg width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.6 7.6L20 18M8.6 16.4L20 6"/></g></svg></i>Corte <b>Pronto</b></div>
+ <div class="tile" style="background:linear-gradient(150deg,#B98CFF,#7C3AED 55%,#5B21B6);box-shadow:0 30px 90px -20px rgba(124,58,237,.75)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4V2M15 16v-2M8 9h2M20 9h2M17.8 11.8l1.4 1.4M17.8 6.2l1.4-1.4M12.2 6.2L10.8 4.8"/><path d="M15 9l-12 12"/></svg></div>
+ <span class="tag">BÔNUS 1</span><h1>Skill de Edição</h1>
+ <p>A IA assiste a live, acha os melhores momentos, corta em pé, legenda palavra por palavra e dá zoom nas reações. Guia de instalação e uso.</p>
+ <div class="rod">Uso pessoal do aluno Corte Pronto. Proibida a revenda.</div></section>
+
+<section class="pg">
+<h2>O que a Skill faz</h2>
+<p>A Skill de Edição é um "manual de trabalho" que você instala no <b>Claude</b>, junto com um programa de edição. Você manda a live, e o Claude:</p>
+<ol>
+<li><b>Transcreve</b> a live inteira, com o tempo de cada palavra;</li>
+<li><b>Lê tudo e escolhe</b> os trechos com mais chance de prender;</li>
+<li><b>Te mostra o plano</b> (início, fim, motivo e gancho de cada corte) para você aprovar;</li>
+<li><b>Edita:</b> corte em pé 1080×1920, fundo desfocado, legenda palavra por palavra com destaque colorido, zoom nas reações e título de gancho no topo;</li>
+<li><b>Entrega</b> os arquivos prontos e sugere a legenda do post.</li>
+</ol>
+<h3>O que você precisa</h3>
+<table><tr><th>Item</th><th>Para quê</th></tr>
+<tr><td><b>Computador</b> Windows ou Mac</td><td>A edição de vídeo roda no computador. (Postar, escolher e revisar dá para fazer pelo celular.)</td></tr>
+<tr><td><b>Claude com o Claude Code</b> (plano Pro ou Max)</td><td>É o Claude que lê a live, escolhe os momentos e comanda a edição. Contratado direto com a Anthropic.</td></tr>
+<tr><td><b>Python</b> (grátis)</td><td>Roda o programa de edição.</td></tr>
+<tr><td><b>ffmpeg</b> (grátis)</td><td>Faz o corte, a legenda e o zoom no vídeo.</td></tr></table>
+<div class="box">Os arquivos da skill estão no <b>.zip</b> que acompanha este bônus na área de membros: as pastas <code>corte-pronto</code> e <code>editor-com-ia</code>.</div>
+</section>
+
+<section class="pg">
+<h2>Instalação no Windows</h2>
+<h3>1. Instale o Python</h3>
+<p>Baixe em <b>python.org/downloads</b>. Na primeira tela do instalador, <b>marque "Add python.exe to PATH"</b> e clique em Install Now.</p>
+<h3>2. Instale o ffmpeg</h3>
+<p>Abra o <b>PowerShell</b> (procure no menu Iniciar) e cole:</p>
+<span class="cmd">winget install --id Gyan.FFmpeg -e</span>
+<p>Feche e abra o PowerShell de novo e confira com <code>ffmpeg -version</code>.</p>
+<h3>3. Instale o transcritor</h3>
+<span class="cmd">pip install faster-whisper</span>
+<h3>4. Coloque a skill no Claude</h3>
+<ol><li>Extraia o .zip.</li>
+<li>Abra a pasta <code>C:\Users\SEU_USUARIO\.claude\skills</code> (se a pasta <code>skills</code> não existir, crie).</li>
+<li>Copie para dentro dela as pastas <b>corte-pronto</b> e <b>editor-com-ia</b>.</li></ol>
+
+<h2 style="margin-top:8mm">Instalação no Mac</h2>
+<p>Abra o <b>Terminal</b> e cole, uma linha por vez:</p>
+<span class="cmd">/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew install python ffmpeg
+pip3 install faster-whisper
+mkdir -p ~/.claude/skills</span>
+<p>Depois copie as pastas <b>corte-pronto</b> e <b>editor-com-ia</b> para <code>~/.claude/skills</code> (no Finder: menu Ir → Ir para a Pasta → <code>~/.claude/skills</code>).</p>
+</section>
+
+<section class="pg">
+<h2>Como usar</h2>
+<h3>1. Tenha o arquivo da live</h3>
+<p>Baixe o vídeo da live (VOD) <b>de um streamer que autoriza cortes</b> e coloque numa pasta, por exemplo <code>Documentos\Cortes</code>. Respeite as regras da plataforma e do streamer.</p>
+<h3>2. Abra o Claude Code nessa pasta</h3>
+<p>No app do Claude, abra o <b>Claude Code</b> e escolha a pasta onde está a live.</p>
+<h3>3. Peça os cortes</h3>
+<div class="box">Use a skill corte-pronto e faça 3 cortes da live.mp4 no estilo viral.</div>
+<p>O Claude vai transcrever (pode levar alguns minutos em live longa), te mostrar o plano dos cortes e, depois que você aprovar, gerar os vídeos na mesma pasta.</p>
+<h3>Outros pedidos que funcionam</h3>
+<ul><li>"Faz 5 cortes curtos, de 20 a 30 segundos, só de reações."</li>
+<li>"Quero um top 3 da live com título em cada um."</li>
+<li>"Usa o estilo gamer e coloca zoom quando ele grita."</li>
+<li>"Refaz o corte 2 começando 3 segundos antes."</li></ul>
+<h3>Estilos prontos</h3>
+<table><tr><th>Estilo</th><th>Visual</th></tr>
+<tr><td><b>viral</b></td><td>Legenda branca grande, palavra da vez em amarelo, maiúsculas, zoom médio, fundo desfocado.</td></tr>
+<tr><td><b>gamer</b></td><td>Fonte Impact, destaque ciano, 2 palavras por vez, zoom forte, tela cheia.</td></tr>
+<tr><td><b>limpo</b></td><td>Legenda branca discreta, frase inteira, sem zoom. Bom para podcast.</td></tr></table>
+<p>Quer um estilo só seu? Use o <b>Bônus 4, Editor com IA Automático</b>.</p>
+
+<h2 style="margin-top:6mm">Problemas comuns</h2>
+<table><tr><th>Aparece…</th><th>Faça…</th></tr>
+<tr><td>"ffmpeg não encontrado"</td><td>Refaça o passo 2 da instalação e abra um terminal novo.</td></tr>
+<tr><td>"Falta o transcritor"</td><td>Rode <code>pip install faster-whisper</code>.</td></tr>
+<tr><td>Transcrição muito lenta</td><td>Normal na primeira vez (ele baixa o modelo). Em PC mais fraco, peça para usar <code>--modelo base</code>.</td></tr>
+<tr><td>Nome escrito errado na legenda</td><td>Peça: "corrige o nome X na transcrição e refaz o corte".</td></tr></table>
+</section>
+</body></html>

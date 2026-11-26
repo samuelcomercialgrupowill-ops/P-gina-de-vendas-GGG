@@ -1,0 +1,15 @@
+{
+  "fonte": "Impact",
+  "tamanho": 90,
+  "cor_texto": "#FFFFFF",
+  "cor_destaque": "#25F4EE",
+  "cor_contorno": "#000000",
+  "contorno": 8,
+  "maiusculas": true,
+  "palavras_por_bloco": 2,
+  "posicao_legenda": 0.35,
+  "enquadramento": "centro",
+  "zoom": 0.18,
+  "duracao_zoom": 0.8,
+  "titulo_fundo": "#FE2C55"
+}

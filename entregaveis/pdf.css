@@ -1,0 +1,41 @@
+@page{size:A4;margin:0}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,Arial,sans-serif;color:#1C1C22;-webkit-font-smoothing:antialiased;font-size:11.5pt;line-height:1.55}
+.capa{width:210mm;height:297mm;position:relative;overflow:hidden;color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:30mm;
+ background:radial-gradient(70% 55% at 50% 45%,#2a1810 0%,#120c0b 60%,#070709 100%);page-break-after:always}
+.capa .dots{position:absolute;inset:0;background:radial-gradient(circle,rgba(255,255,255,.08) 1.2px,transparent 1.6px) 0 0/18px 18px}
+.capa .brand{position:absolute;top:22mm;left:0;right:0;display:flex;justify-content:center;align-items:center;gap:10px;font:800 20pt "Bricolage Grotesque",Inter;letter-spacing:-.01em}
+.capa .brand b{color:#FFB23F}
+.capa .brand i{width:38px;height:38px;border-radius:10px;background:linear-gradient(150deg,#FFA45C,#FF6A3D 48%,#F2441F);display:grid;place-items:center}
+.tile{width:180px;height:180px;border-radius:44px;display:grid;place-items:center;position:relative;margin-bottom:34px}
+.tile svg{width:100px;height:100px}
+.capa .tag{font:800 11pt ui-monospace,Menlo,monospace;letter-spacing:4px;padding:6px 12px;border-radius:6px;background:rgba(255,255,255,.1);position:relative}
+.capa h1{font:800 40pt/1.05 "Bricolage Grotesque",Inter;letter-spacing:-.03em;margin-top:18px;position:relative}
+.capa p{font-size:14pt;color:#D4D4D8;margin-top:16px;max-width:130mm;position:relative}
+.capa .rod{position:absolute;bottom:18mm;left:0;right:0;font-size:9pt;color:#71717A}
+.pg{padding:20mm 20mm 18mm;page-break-after:always}
+.pg:last-child{page-break-after:auto}
+h2{font:800 20pt/1.15 "Bricolage Grotesque",Inter;letter-spacing:-.02em;margin:0 0 4mm;color:#111}
+h2 .n{color:#FF6A3D}
+h3{font:800 13pt Inter;margin:6mm 0 2mm;color:#111}
+p{margin:0 0 3mm}
+.sub{color:#52525B;margin-bottom:6mm}
+ul,ol{margin:0 0 4mm 6mm}
+li{margin:0 0 1.5mm}
+code,.cmd{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:9.5pt}
+.cmd{display:block;background:#111114;color:#F4F4F5;padding:3mm 4mm;border-radius:3mm;margin:2mm 0 4mm;white-space:pre-wrap;word-break:break-word}
+.box{border:1px solid #E4E4E7;border-left:4px solid #FF6A3D;border-radius:3mm;padding:3.5mm 4.5mm;margin:3mm 0 4mm;background:#FFF8F3}
+.box.azul{border-left-color:#3B82F6;background:#F3F7FF}
+.box.cinza{border-left-color:#A1A1AA;background:#FAFAFA}
+.pr{border:1px solid #E4E4E7;border-radius:3mm;padding:3mm 4mm;margin:0 0 3mm;page-break-inside:avoid}
+.pr b.t{display:block;font-size:10.5pt;margin-bottom:1.5mm}
+.pr b.t span{color:#FF6A3D;margin-right:6px}
+.pr div{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:9.3pt;background:#F4F4F5;border-radius:2mm;padding:2.5mm 3mm;white-space:pre-wrap}
+table{width:100%;border-collapse:collapse;margin:2mm 0 5mm;font-size:10pt}
+th,td{border:1px solid #E4E4E7;padding:2.2mm 3mm;text-align:left;vertical-align:top}
+th{background:#F4F4F5;font-weight:800}
+.gk{display:grid;grid-template-columns:1fr 1fr;gap:3mm}
+.gk div{border:1px solid #E4E4E7;border-radius:3mm;padding:3mm 4mm;page-break-inside:avoid}
+.gk b{display:block;color:#FF6A3D;font-size:9pt;letter-spacing:1px}
+.ck li{list-style:none;margin-left:-6mm}
+.ck li::before{content:"☐ ";color:#FF6A3D;font-weight:800}

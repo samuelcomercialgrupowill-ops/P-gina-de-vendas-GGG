@@ -1,0 +1,12 @@
+{
+  "fonte": "Arial",
+  "tamanho": 64,
+  "cor_texto": "#FFFFFF",
+  "cor_destaque": "#FFFFFF",
+  "contorno": 4,
+  "maiusculas": false,
+  "palavras_por_bloco": 5,
+  "posicao_legenda": 0.22,
+  "enquadramento": "borrado",
+  "zoom": 0.0
+}
