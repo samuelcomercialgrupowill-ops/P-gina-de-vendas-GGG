@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:transparent}
+.icon{position:relative;border-radius:23%;background:linear-gradient(150deg,#FFA45C 0%,#FF6A3D 48%,#F2441F 100%);display:grid;place-items:center;overflow:hidden;box-shadow:inset 0 3px 0 rgba(255,255,255,.35),inset 0 -6px 18px rgba(120,20,0,.35)}
+.icon::before{content:"";position:absolute;left:-20%;top:-60%;width:140%;height:90%;background:radial-gradient(closest-side,rgba(255,255,255,.28),transparent);transform:rotate(-12deg)}
+.icon svg{position:relative;filter:drop-shadow(0 6px 10px rgba(120,25,0,.35))}
+.word{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;letter-spacing:-.015em;white-space:nowrap;line-height:1}
+.word b{color:#FFB23F}
+/* perfil */
+#perfil{width:1080px;height:1080px;display:grid;place-items:center;background:radial-gradient(60% 60% at 50% 45%,#3a1f12 0%,#140c0a 60%,#08080a 100%)}
+#perfil .icon{width:640px;height:640px;box-shadow:inset 0 4px 0 rgba(255,255,255,.35),inset 0 -8px 24px rgba(120,20,0,.35),0 40px 120px -20px rgba(255,90,45,.7)}
+/* horizontal */
+.hz{display:flex;align-items:center;gap:56px;padding:60px 80px;width:max-content}
+.hz .icon{width:300px;height:300px}
+.hz .word{font-size:200px}
+#hzDark .word{color:#FAFAFA}
+#hzLight .word{color:#111114}
+#hzLight .word b{color:#F2591F}
+/* icone solo */
+#solo{width:1024px;height:1024px;display:grid;place-items:center}
+#solo .icon{width:1024px;height:1024px}
+.sec{margin:40px}
+</style></head><body>
+<template id="scis"><svg viewBox="0 0 24 24"><g fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.6 7.6L20 18M8.6 16.4L20 6"/></g></svg></template>
+<div class="sec" id="perfil"><div class="icon" data-s="380"></div></div>
+<div class="sec hz" id="hzDark"><div class="icon" data-s="180"></div><div class="word">Corte <b>Pronto</b></div></div>
+<div class="sec hz" id="hzLight"><div class="icon" data-s="180"></div><div class="word">Corte <b>Pronto</b></div></div>
+<div class="sec" id="solo"><div class="icon" data-s="600"></div></div>
+<script>
+document.querySelectorAll('.icon').forEach(e=>{const s=e.dataset.s;e.insertAdjacentHTML('beforeend',document.getElementById('scis').innerHTML.replace('<svg ',`<svg width="${s}" height="${s}" `))});
+</script>
+</body></html>
