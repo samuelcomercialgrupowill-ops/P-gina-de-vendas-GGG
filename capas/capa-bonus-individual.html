@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;-webkit-font-smoothing:antialiased;font-family:Inter,sans-serif;color:#F7F7F8}
+.cv{width:1080px;position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.cv .dots{position:absolute;inset:0;background:radial-gradient(circle,rgba(255,255,255,.08) 1.3px,transparent 1.7px) 0 0/24px 24px;-webkit-mask:radial-gradient(70% 60% at 50% 45%,#000 30%,transparent 85%)}
+.brand{position:relative;display:flex;align-items:center;gap:16px;font:800 44px "Bricolage Grotesque";letter-spacing:-.015em}
+.brand b{color:#FFB23F}
+.brand i{width:68px;height:68px;border-radius:18px;background:linear-gradient(150deg,#FFA45C,#FF6A3D 48%,#F2441F);display:grid;place-items:center}
+.tile{position:relative;width:480px;height:480px;border-radius:116px;display:grid;place-items:center;overflow:hidden}
+.tile::before{content:"";position:absolute;left:-20%;top:-60%;width:140%;height:90%;background:radial-gradient(closest-side,rgba(255,255,255,.30),transparent);transform:rotate(-12deg)}
+.tile svg{position:relative;width:260px;height:260px;filter:drop-shadow(0 10px 16px rgba(0,0,0,.3))}
+.tag{position:relative;font:800 26px ui-monospace,Menlo,monospace;letter-spacing:6px;padding:12px 20px;border-radius:12px}
+h1{position:relative;font:800 96px/1.02 "Bricolage Grotesque";letter-spacing:-.03em}
+p{position:relative;font:700 36px/1.35 Inter;color:#D4D4D8;max-width:860px}
+</style></head><body>
+<template id="sc"><svg width="40" height="40" viewBox="0 0 24 24"><g fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.6 7.6L20 18M8.6 16.4L20 6"/></g></svg></template>
+<div id="out"></div>
+<script>
+const B=[
+ {n:1,nome:'Skill de<br>Edição',desc:'A IA corta, legenda e dá zoom<br>nos melhores momentos da live',g:'linear-gradient(150deg,#B98CFF,#7C3AED 55%,#5B21B6)',sh:'124,58,237',tc:'#C4A1FF',bg:'#2a1645',
+  ic:'<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4V2M15 16v-2M8 9h2M20 9h2M17.8 11.8l1.4 1.4M17.8 6.2l1.4-1.4M12.2 6.2L10.8 4.8"/><path d="M15 9l-12 12"/></svg>'},
+ {n:2,nome:'Pack de Prompts<br>de Edição',desc:'53 prompts prontos pra ganchos,<br>legendas, capas e roteiros',g:'linear-gradient(150deg,#5EEAD4,#14B8A6 55%,#0F766E)',sh:'20,184,166',tc:'#5EEAD4',bg:'#0c2a27',
+  ic:'<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9h8M8 13h5"/></svg>'},
+ {n:3,nome:'Máquina do Corte<br>Automático',desc:'Rotina diária, 15 ganchos prontos<br>e os formatos que mais prendem',g:'linear-gradient(150deg,#FFE27A,#F5B301 55%,#D97706)',sh:'245,179,1',tc:'#FFD24D',bg:'#2d2108',
+  ic:'<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>'},
+ {n:4,nome:'Editor com IA<br>Automático',desc:'Você pede o vídeo do seu jeito<br>e a IA edita',g:'linear-gradient(150deg,#7DB4FF,#3B82F6 55%,#1D4ED8)',sh:'59,130,246',tc:'#93C5FD',bg:'#0d1a33',
+  ic:'<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M10 9l5 2.5-5 2.5z" fill="#fff"/><path d="M8 21h8"/></svg>'}];
+const out=document.getElementById('out');const sc=document.getElementById('sc').innerHTML;
+for(const H of [1620,1920])for(const b of B){
+ const pad=H==1920?150:100,gap=H==1920?70:48;
+ out.insertAdjacentHTML('beforeend',`<div class="cv" id="c${b.n}_${H}" style="height:${H}px;gap:${gap}px;background:radial-gradient(70% 55% at 50% 42%,${b.bg} 0%,#0b0b0e 65%,#060608 100%)"><div class="dots"></div>
+ <div class="brand"><i>${sc}</i>Corte <b>Pronto</b></div>
+ <div class="tile" style="background:${b.g};box-shadow:0 60px 160px -30px rgba(${b.sh},.8),inset 0 4px 0 rgba(255,255,255,.35)">${b.ic}</div>
+ <span class="tag" style="color:${b.tc};background:rgba(${b.sh},.18)">BÔNUS ${b.n}</span>
+ <h1 style="margin-top:-${gap/2}px">${b.nome}</h1><p>${b.desc}</p></div>`)}
+</script></body></html>
